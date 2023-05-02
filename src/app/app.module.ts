@@ -3,10 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { MainPageComponent } from './main-page/main-page.component';
+import { SettingsPageComponent } from './settings-page/settings-page.component';
+import { EmployeePageComponent } from './employee-page/employee-page.component';
+import { AddingEmployeePageComponent } from './adding-employee-page/adding-employee-page.component';
+import { EmployeeAddedPageComponent } from './employee-added-page/employee-added-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginPageComponent,
+    MainPageComponent,
+    SettingsPageComponent,
+    EmployeePageComponent,
+    AddingEmployeePageComponent,
+    EmployeeAddedPageComponent
   ],
   imports: [
     BrowserModule,
