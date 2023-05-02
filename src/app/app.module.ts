@@ -9,6 +9,7 @@ import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { AddingEmployeePageComponent } from './adding-employee-page/adding-employee-page.component';
 import { EmployeeAddedPageComponent } from './employee-added-page/employee-added-page.component';
+import { RegistrationPageComponent } from './registration-page/registration-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EmployeeAddedPageComponent } from './employee-added-page/employee-added
     SettingsPageComponent,
     EmployeePageComponent,
     AddingEmployeePageComponent,
-    EmployeeAddedPageComponent
+    EmployeeAddedPageComponent,
+    RegistrationPageComponent
   ],
   imports: [
     BrowserModule,
