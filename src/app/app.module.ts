@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { MainPageComponent } from './main-page/main-page.component';
+import { ListEmployeesPageComponent } from './list-employees-page/list-employees-page.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { AddingEmployeePageComponent } from './adding-employee-page/adding-employee-page.component';
@@ -15,7 +15,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
   declarations: [
     AppComponent,
     LoginPageComponent,
-    MainPageComponent,
+    ListEmployeesPageComponent,
     SettingsPageComponent,
     EmployeePageComponent,
     AddingEmployeePageComponent,
