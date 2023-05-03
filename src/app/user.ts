@@ -1,5 +1,6 @@
 export class User {
-  name?: string
-  password?: string
-  admin?: boolean
+  email!: string
+  password!: string
+  admin!: boolean
+  company!: string
 }
