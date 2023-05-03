@@ -20,7 +20,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
     EmployeePageComponent,
     AddingEmployeePageComponent,
     EmployeeAddedPageComponent,
-    RegistrationPageComponent
+    RegistrationPageComponent,
   ],
   imports: [
     BrowserModule,
