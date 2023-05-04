@@ -1,78 +1,756 @@
-<header class="header">
-  <div class="header-container">
+<body>
+  <header class="header">
+    <div class="header-container">
       <div class="header-line">
-          <div class="header-left-container">
-              <a href="#" class="link">
-                  <h1 class="header-name">PManag</h1>
-              </a>
-          </div>
-          <ul class="header-right-container">
-              <li class="settings">
-                  <a href="#">
-                      <svg transform="translate(0,2)" fill="#475569" width="26" height="26" viewBox="0 0 26 26"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M11.622 0.502448L14.2751 0.502319C14.3553 0.506043 14.4258 0.515218 14.5247 0.536758C15.2503 0.694747 15.5261 0.955274 16.2013 2.55087L16.3114 2.81409L16.7358 3.86556L16.7707 3.8799L17.3174 3.6324C18.5082 3.0999 19.1221 2.87561 19.5348 2.81303L19.6203 2.80204L19.7761 2.79363C20.1477 2.79363 20.5263 2.92527 20.816 3.15445L20.953 3.27702L22.6492 4.96615L22.7671 5.09077C23.2999 5.67768 23.3496 6.09377 22.7603 7.61024L22.5642 8.09947L22.1019 9.19317L22.1107 9.21453L23.1696 9.60995L23.6801 9.81171C24.9988 10.3509 25.2697 10.6382 25.446 11.2983C25.4815 11.4313 25.4941 11.522 25.4982 11.6346L25.5 11.7568V14.1415C25.5 14.311 25.4942 14.4067 25.4525 14.5742C25.277 15.2789 25.0166 15.5472 23.4318 16.2166L23.1704 16.3257L22.1262 16.7471L22.1189 16.7647L22.4965 17.5896C23.4355 19.6764 23.4683 20.134 22.8511 20.8212L22.774 20.9049L21.0328 22.6447C20.7212 22.9598 20.2771 23.1333 19.8474 23.1333C19.4825 23.1333 18.9093 22.9598 17.9324 22.5681L17.4094 22.3538L16.8136 22.1019L16.7795 22.1159L16.4717 22.9416C15.718 24.9273 15.4598 25.2497 14.6855 25.4495C14.5711 25.479 14.4893 25.4916 14.3963 25.4967L14.2432 25.5H11.857C11.7081 25.5 11.6241 25.4955 11.4762 25.4634C10.7509 25.3062 10.4739 25.0451 9.79735 23.4485L9.68707 23.1852L9.262 22.1331L9.2293 22.1196L8.43519 22.4766C7.165 23.0358 6.61474 23.206 6.22257 23.206C5.85532 23.206 5.48135 23.0769 5.18385 22.8456L5.04186 22.7215L3.34804 21.0299L3.15461 20.8189C2.6901 20.2724 2.66727 19.8486 3.23742 18.3898L3.53453 17.6596L3.89722 16.807L3.88965 16.7887L3.06855 16.4827C1.42136 15.8577 0.913725 15.5698 0.672497 15.0441L0.607248 14.8788L0.552744 14.6957C0.521903 14.5786 0.508742 14.4947 0.503394 14.3993L0.5 14.2419V11.8558C0.5 11.6849 0.505922 11.5884 0.548465 11.4194C0.707076 10.7894 0.932202 10.5096 2.11808 9.97822L2.60957 9.76597L3.87166 9.2556L3.88031 9.23458L3.40843 8.19342C2.62979 6.42484 2.5653 5.88635 3.05657 5.28491L3.12379 5.206L3.28295 5.03729L4.9702 3.35387C5.27933 3.04303 5.7215 2.86779 6.15187 2.86779C6.4597 2.86779 6.91168 2.98959 7.63506 3.26358L8.36283 3.55208L9.18785 3.89786L9.22167 3.88379L9.53186 3.05277C10.2926 1.05278 10.5641 0.718316 11.3665 0.53869C11.4677 0.516032 11.5399 0.506371 11.622 0.502448ZM13.6538 2.99996H12.2601L12.0636 3.46062C11.989 3.64375 11.9048 3.85767 11.8097 4.10597L11.3741 5.27113C11.2697 5.54698 11.0717 5.77545 10.8172 5.91836L10.6854 5.98251L9.6615 6.40857C9.403 6.51614 9.11748 6.53322 8.8505 6.45995L8.6929 6.40516L7.48156 5.89456L6.82726 5.63364L6.38747 5.47133L5.39971 6.45685L5.51596 6.75048C5.56139 6.86108 5.61367 6.98473 5.67329 7.12249L5.87463 7.57908L6.37957 8.68295C6.50052 8.94582 6.52581 9.24075 6.45441 9.51758L6.39996 9.68111L5.98128 10.6985C5.87044 10.9679 5.66969 11.1886 5.41553 11.3247L5.28416 11.3856L3.9247 11.932L3.24511 12.2233L3 12.3369V13.7496L3.29329 13.8767C3.40433 13.9231 3.52901 13.9738 3.66847 14.029L4.13223 14.209L5.25915 14.6275C5.54326 14.7299 5.77901 14.931 5.92523 15.1915L5.99069 15.3265L6.40942 16.3409C6.51694 16.6014 6.53269 16.8889 6.45708 17.1571L6.40075 17.3153L5.91477 18.4557L5.60999 19.208L5.46152 19.6074L6.44935 20.594L6.74348 20.4777C6.85183 20.4336 6.97057 20.384 7.1 20.3289L8.00731 19.9288L8.66162 19.6275C8.93544 19.4967 9.24579 19.4707 9.53495 19.551L9.6775 19.6L10.7074 20.0252C10.9804 20.1379 11.2031 20.3429 11.3384 20.602L11.3986 20.7358L11.6549 21.3826L12.0196 22.2695L12.2307 22.7542L12.3452 23H13.743L13.9426 22.5294L14.2026 21.8655L14.6259 20.7304C14.7303 20.4521 14.9298 20.2217 15.1865 20.0783L15.3195 20.0139L16.345 19.5907C16.6005 19.4853 16.8822 19.4681 17.1462 19.539L17.3021 19.5922L18.2679 20.0018L18.9727 20.2888L19.3584 20.4376L19.6129 20.5298L20.6019 19.5425L20.4113 19.0722L20.1254 18.4203L19.6195 17.3173C19.4981 17.054 19.4727 16.7584 19.5445 16.4811L19.5991 16.3172L20.0171 15.3043C20.1274 15.037 20.3262 14.8176 20.578 14.6815L20.7081 14.6205L21.8596 14.1576L22.4473 13.9113L22.6089 13.841L23 13.662V12.2507L22.6079 12.0834L22.0769 11.8732L20.7364 11.3742C20.4529 11.2711 20.218 11.0696 20.0725 10.8091L20.0074 10.6741L19.5894 9.65561C19.4827 9.39575 19.4673 9.10919 19.5426 8.84189L19.5987 8.6842L19.9868 7.77683C20.0878 7.53688 20.1758 7.32409 20.2517 7.13602L20.3879 6.79211L20.5363 6.39022L19.548 5.40598L19.2536 5.52243C19.0909 5.58881 18.9044 5.66758 18.6928 5.75957L18.4728 5.85599L17.3192 6.3792C17.0568 6.49946 16.7626 6.52447 16.4864 6.45325L16.3232 6.39896L15.294 5.97588C15.0246 5.86513 14.8037 5.66444 14.6675 5.41032L14.6066 5.27897L14.2427 4.36848L13.979 3.73061L13.8329 3.39137L13.6538 2.99996ZM13.0006 7.99996C15.7583 7.99996 18 10.2412 18 12.9989C18 15.7567 15.7581 18 13.0006 18C10.2423 18 8 15.7571 8 12.9989C8 10.2408 10.2421 7.99996 13.0006 7.99996ZM13.0006 10.5C11.6225 10.5 10.5 11.6219 10.5 12.9989C10.5 14.3765 11.6231 15.5 13.0006 15.5C14.3771 15.5 15.5 14.3763 15.5 12.9989C15.5 11.6221 14.3777 10.5 13.0006 10.5Z"
-                              fill="#475569" />
-                      </svg>
-                  </a>
-              </li>
-              <li class="quit">
-                  <a href="#" class="quit-link">
-                      <svg transform="translate(0,2)" width="24" height="26" fill="#475569" viewBox="0 0 24 26"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M8 24.25C8 24.891 7.51745 25.4194 6.89577 25.4916L6.75 25.5H4.25C2.2529 25.5 0.620422 23.9389 0.506363 21.9703L0.499998 21.75L0.499998 4.25C0.499998 2.2529 2.06115 0.620424 4.02966 0.506366L4.25 0.5L6.75 0.5C7.44035 0.5 8 1.05964 8 1.75C8 2.39104 7.51745 2.91938 6.89577 2.99159L6.75 3L4.25 3C3.60895 3 3.08061 3.48255 3.00841 4.10422L3 4.25L3 21.75C3 22.391 3.48255 22.9194 4.10422 22.9916L4.25 23H6.75C7.44035 23 8 23.5596 8 24.25ZM23.6737 12.8144L23.6825 12.8875L23.6875 13L23.684 13.094L23.6622 13.2509L23.6253 13.3902L23.5704 13.529L23.505 13.6509L23.4129 13.7818L23.3214 13.8839L19.5714 17.6339C19.0832 18.122 18.2918 18.122 17.8036 17.6339C17.3155 17.1457 17.3155 16.3543 17.8036 15.8661L19.42 14.25L7.4375 14.25C6.74714 14.25 6.1875 13.6904 6.1875 13C6.1875 12.3096 6.74714 11.75 7.4375 11.75L19.42 11.75L17.8036 10.1339C17.3155 9.64573 17.3155 8.85427 17.8036 8.36612C18.2918 7.87796 19.0832 7.87796 19.5714 8.36612L23.3214 12.1161C23.3656 12.1604 23.4059 12.2071 23.4421 12.2559L23.5317 12.3949L23.5985 12.5358L23.6427 12.6675L23.6737 12.8144Z"
-                              fill="#475569" />
-                      </svg>
-                  </a>
-              </li>
-          </ul>
+        <div class="header-left-container">
+          <a href="#" class="link">
+            <h1 class="header-name">PManag</h1>
+          </a>
+        </div>
+        <ul class="header-right-container">
+          <li class="settings">
+            <a href="#">
+              <svg transform="translate(0,2)" fill="#475569" width="26" height="26" viewBox="0 0 26 26"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M11.622 0.502448L14.2751 0.502319C14.3553 0.506043 14.4258 0.515218 14.5247 0.536758C15.2503 0.694747 15.5261 0.955274 16.2013 2.55087L16.3114 2.81409L16.7358 3.86556L16.7707 3.8799L17.3174 3.6324C18.5082 3.0999 19.1221 2.87561 19.5348 2.81303L19.6203 2.80204L19.7761 2.79363C20.1477 2.79363 20.5263 2.92527 20.816 3.15445L20.953 3.27702L22.6492 4.96615L22.7671 5.09077C23.2999 5.67768 23.3496 6.09377 22.7603 7.61024L22.5642 8.09947L22.1019 9.19317L22.1107 9.21453L23.1696 9.60995L23.6801 9.81171C24.9988 10.3509 25.2697 10.6382 25.446 11.2983C25.4815 11.4313 25.4941 11.522 25.4982 11.6346L25.5 11.7568V14.1415C25.5 14.311 25.4942 14.4067 25.4525 14.5742C25.277 15.2789 25.0166 15.5472 23.4318 16.2166L23.1704 16.3257L22.1262 16.7471L22.1189 16.7647L22.4965 17.5896C23.4355 19.6764 23.4683 20.134 22.8511 20.8212L22.774 20.9049L21.0328 22.6447C20.7212 22.9598 20.2771 23.1333 19.8474 23.1333C19.4825 23.1333 18.9093 22.9598 17.9324 22.5681L17.4094 22.3538L16.8136 22.1019L16.7795 22.1159L16.4717 22.9416C15.718 24.9273 15.4598 25.2497 14.6855 25.4495C14.5711 25.479 14.4893 25.4916 14.3963 25.4967L14.2432 25.5H11.857C11.7081 25.5 11.6241 25.4955 11.4762 25.4634C10.7509 25.3062 10.4739 25.0451 9.79735 23.4485L9.68707 23.1852L9.262 22.1331L9.2293 22.1196L8.43519 22.4766C7.165 23.0358 6.61474 23.206 6.22257 23.206C5.85532 23.206 5.48135 23.0769 5.18385 22.8456L5.04186 22.7215L3.34804 21.0299L3.15461 20.8189C2.6901 20.2724 2.66727 19.8486 3.23742 18.3898L3.53453 17.6596L3.89722 16.807L3.88965 16.7887L3.06855 16.4827C1.42136 15.8577 0.913725 15.5698 0.672497 15.0441L0.607248 14.8788L0.552744 14.6957C0.521903 14.5786 0.508742 14.4947 0.503394 14.3993L0.5 14.2419V11.8558C0.5 11.6849 0.505922 11.5884 0.548465 11.4194C0.707076 10.7894 0.932202 10.5096 2.11808 9.97822L2.60957 9.76597L3.87166 9.2556L3.88031 9.23458L3.40843 8.19342C2.62979 6.42484 2.5653 5.88635 3.05657 5.28491L3.12379 5.206L3.28295 5.03729L4.9702 3.35387C5.27933 3.04303 5.7215 2.86779 6.15187 2.86779C6.4597 2.86779 6.91168 2.98959 7.63506 3.26358L8.36283 3.55208L9.18785 3.89786L9.22167 3.88379L9.53186 3.05277C10.2926 1.05278 10.5641 0.718316 11.3665 0.53869C11.4677 0.516032 11.5399 0.506371 11.622 0.502448ZM13.6538 2.99996H12.2601L12.0636 3.46062C11.989 3.64375 11.9048 3.85767 11.8097 4.10597L11.3741 5.27113C11.2697 5.54698 11.0717 5.77545 10.8172 5.91836L10.6854 5.98251L9.6615 6.40857C9.403 6.51614 9.11748 6.53322 8.8505 6.45995L8.6929 6.40516L7.48156 5.89456L6.82726 5.63364L6.38747 5.47133L5.39971 6.45685L5.51596 6.75048C5.56139 6.86108 5.61367 6.98473 5.67329 7.12249L5.87463 7.57908L6.37957 8.68295C6.50052 8.94582 6.52581 9.24075 6.45441 9.51758L6.39996 9.68111L5.98128 10.6985C5.87044 10.9679 5.66969 11.1886 5.41553 11.3247L5.28416 11.3856L3.9247 11.932L3.24511 12.2233L3 12.3369V13.7496L3.29329 13.8767C3.40433 13.9231 3.52901 13.9738 3.66847 14.029L4.13223 14.209L5.25915 14.6275C5.54326 14.7299 5.77901 14.931 5.92523 15.1915L5.99069 15.3265L6.40942 16.3409C6.51694 16.6014 6.53269 16.8889 6.45708 17.1571L6.40075 17.3153L5.91477 18.4557L5.60999 19.208L5.46152 19.6074L6.44935 20.594L6.74348 20.4777C6.85183 20.4336 6.97057 20.384 7.1 20.3289L8.00731 19.9288L8.66162 19.6275C8.93544 19.4967 9.24579 19.4707 9.53495 19.551L9.6775 19.6L10.7074 20.0252C10.9804 20.1379 11.2031 20.3429 11.3384 20.602L11.3986 20.7358L11.6549 21.3826L12.0196 22.2695L12.2307 22.7542L12.3452 23H13.743L13.9426 22.5294L14.2026 21.8655L14.6259 20.7304C14.7303 20.4521 14.9298 20.2217 15.1865 20.0783L15.3195 20.0139L16.345 19.5907C16.6005 19.4853 16.8822 19.4681 17.1462 19.539L17.3021 19.5922L18.2679 20.0018L18.9727 20.2888L19.3584 20.4376L19.6129 20.5298L20.6019 19.5425L20.4113 19.0722L20.1254 18.4203L19.6195 17.3173C19.4981 17.054 19.4727 16.7584 19.5445 16.4811L19.5991 16.3172L20.0171 15.3043C20.1274 15.037 20.3262 14.8176 20.578 14.6815L20.7081 14.6205L21.8596 14.1576L22.4473 13.9113L22.6089 13.841L23 13.662V12.2507L22.6079 12.0834L22.0769 11.8732L20.7364 11.3742C20.4529 11.2711 20.218 11.0696 20.0725 10.8091L20.0074 10.6741L19.5894 9.65561C19.4827 9.39575 19.4673 9.10919 19.5426 8.84189L19.5987 8.6842L19.9868 7.77683C20.0878 7.53688 20.1758 7.32409 20.2517 7.13602L20.3879 6.79211L20.5363 6.39022L19.548 5.40598L19.2536 5.52243C19.0909 5.58881 18.9044 5.66758 18.6928 5.75957L18.4728 5.85599L17.3192 6.3792C17.0568 6.49946 16.7626 6.52447 16.4864 6.45325L16.3232 6.39896L15.294 5.97588C15.0246 5.86513 14.8037 5.66444 14.6675 5.41032L14.6066 5.27897L14.2427 4.36848L13.979 3.73061L13.8329 3.39137L13.6538 2.99996ZM13.0006 7.99996C15.7583 7.99996 18 10.2412 18 12.9989C18 15.7567 15.7581 18 13.0006 18C10.2423 18 8 15.7571 8 12.9989C8 10.2408 10.2421 7.99996 13.0006 7.99996ZM13.0006 10.5C11.6225 10.5 10.5 11.6219 10.5 12.9989C10.5 14.3765 11.6231 15.5 13.0006 15.5C14.3771 15.5 15.5 14.3763 15.5 12.9989C15.5 11.6221 14.3777 10.5 13.0006 10.5Z"
+                  fill="#475569" />
+              </svg>
+            </a>
+          </li>
+          <li class="quit">
+            <a href="#" class="quit-link">
+              <svg transform="translate(0,2)" width="24" height="26" fill="#475569" viewBox="0 0 24 26"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M8 24.25C8 24.891 7.51745 25.4194 6.89577 25.4916L6.75 25.5H4.25C2.2529 25.5 0.620422 23.9389 0.506363 21.9703L0.499998 21.75L0.499998 4.25C0.499998 2.2529 2.06115 0.620424 4.02966 0.506366L4.25 0.5L6.75 0.5C7.44035 0.5 8 1.05964 8 1.75C8 2.39104 7.51745 2.91938 6.89577 2.99159L6.75 3L4.25 3C3.60895 3 3.08061 3.48255 3.00841 4.10422L3 4.25L3 21.75C3 22.391 3.48255 22.9194 4.10422 22.9916L4.25 23H6.75C7.44035 23 8 23.5596 8 24.25ZM23.6737 12.8144L23.6825 12.8875L23.6875 13L23.684 13.094L23.6622 13.2509L23.6253 13.3902L23.5704 13.529L23.505 13.6509L23.4129 13.7818L23.3214 13.8839L19.5714 17.6339C19.0832 18.122 18.2918 18.122 17.8036 17.6339C17.3155 17.1457 17.3155 16.3543 17.8036 15.8661L19.42 14.25L7.4375 14.25C6.74714 14.25 6.1875 13.6904 6.1875 13C6.1875 12.3096 6.74714 11.75 7.4375 11.75L19.42 11.75L17.8036 10.1339C17.3155 9.64573 17.3155 8.85427 17.8036 8.36612C18.2918 7.87796 19.0832 7.87796 19.5714 8.36612L23.3214 12.1161C23.3656 12.1604 23.4059 12.2071 23.4421 12.2559L23.5317 12.3949L23.5985 12.5358L23.6427 12.6675L23.6737 12.8144Z"
+                  fill="#475569" />
+              </svg>
+            </a>
+          </li>
+        </ul>
       </div>
-  </div>
-</header>
-
-
-
-
-
-
-<footer class="footer">
-  <div class="footer-container">
+    </div>
+  </header>
+  <main class="main">
+    <div class="container">
+      <h2 class="employees-text">
+        Artsofte 54 сотрудника
+      </h2>
+      <div class="main-info">
+        <div class="main-left">
+          <div class="filter-container">
+            <ul class="info_accordion">
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab1">
+                <Label for="tab1" class="tab-title list-item_status panel_list-item_text">Статус</Label>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab2">
+                <Label for="tab2" class="tab-title list-project panel_list-item_text">Проект</Label>
+                <ul class="tab-project_content tab-content">
+                  <li class="tab-project_content_item">
+                    <input type="checkbox" id="name1">
+                    <Label for="name1" class="name_of_project">Abanking</Label>
+                  </li>
+                  <li class="tab-project_content_item">
+                    <input type="checkbox" id="name2">
+                    <Label for="name2" class="name_of_project">Nopaper</Label>
+                  </li>
+                  <li class="tab-project_content_item">
+                    <input type="checkbox" id="name3">
+                    <Label for="name3" class="project_tradedealer name_of_project">TradeDealer</Label>
+                  </li>
+                </ul>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab3">
+                <Label for="tab3" class="tab-title list-item_post panel_list-item_text">Должность</Label>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab4">
+                <Label for="tab4" class="tab-title list-item_salary panel_list-item_text">Зарплата</Label>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab5">
+                <Label for="tab5" class="tab-title list-item_education panel_list-item_text">Образование</Label>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab6">
+                <Label for="tab6" class="tab-title list-item_exp panel_list-item_text">Стаж</Label>
+                <ul class="tab-exp_content tab-content">
+                  <input class="tab-text_from" type="text" placeholder="От">
+                  <input class="tab-text_to" type="text" placeholder="До">
+                </ul>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab7">
+                <Label for="tab7" class="tab-title list-item_sex panel_list-item_text">Пол</Label>
+              </li>
+              <li class="info_list-tab">
+                <input type="checkbox" id="tab8">
+                <Label for="tab8" class="tab-title list-item_age panel_list-item_text">Возраст</Label>
+              </li>
+            </ul>
+            <ul class="configuration-list">
+              <li class="save-item">
+                <button class="btn btn-save">Применить</button>
+              </li>
+              <li class="reset-item">
+                <button class="btn btn-reset">Сбросить</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="main-right">
+          <div class="middle-panel">
+            <button class="btn btn-add">Добавить сотрудника</button>
+            <div class="search-form">
+              <input class="search-panel" placeholder="Поиск" type="text">
+              <svg class="search-svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill="#64748B" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.25 0.5C10.9779 0.5 14 3.52208 14 7.25C14 8.84358 13.4478 10.3082 12.5242 11.4629L15.2803 14.2197C15.5732 14.5126 15.5732 14.9874 15.2803 15.2803C15.01 15.5507 14.5845 15.5715 14.2903 15.3427L14.2197 15.2803L11.4629 12.5242C10.3082 13.4478 8.84358 14 7.25 14C3.52208 14 0.5 10.9779 0.5 7.25C0.5 3.52208 3.52208 0.5 7.25 0.5ZM7.25 2C4.35051 2 2 4.35051 2 7.25C2 10.1495 4.35051 12.5 7.25 12.5C10.1495 12.5 12.5 10.1495 12.5 7.25C12.5 4.35051 10.1495 2 7.25 2Z"
+                  fill="#64748B" />
+              </svg>
+            </div>
+            <div class="burger-container">
+              <div class="sort-panel"> <a href="#">Сортировка по:&nbsp
+                  <span class="sort_panel_salary">
+                    Зарплате ▲
+                  </span></a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="alph">
+                      <label for="alph" class="sort-item_text">
+                        Алфавиту
+                      </label>
+                    </li>
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="salary-up">
+                      <label for="salary-up" class="sort-item_text">
+                        Зарплате ▲
+                      </label>
+                    </li>
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="salary-down">
+                      <label for="salary-down" class="sort-item_text">
+                        Зарплате ▼
+                      </label>
+                    </li>
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="exp-up">
+                      <label for="exp-up" class="sort-item_text">
+                        Стажу ▲
+                      </label>
+                    </li>
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="exp-down">
+                      <label for="exp-down" class="sort-item_text">
+                        Стажу ▼
+                      </label>
+                    </li>
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="age-up">
+                      <label for="age-up" class="sort-item_text">
+                        Возрасту ▲
+                      </label>
+                    </li>
+                    <li class="dropdown-menu_item">
+                      <input type="checkbox" id="age-down">
+                      <label for="age-down" class="sort-item_text">
+                        Возрасту ▼
+                      </label>
+                    </li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+          <div class="employess-info">
+            <ul class="employees-list">
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 1.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Семенова Софья <br> Андреевна</h3>
+                  <span class="employees-status status-work">Работает с 07.11.2022</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Abanking</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Младший дизайнер</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">43700р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic yellow-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#EAB308" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#EAB308" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            6 месяцев квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 2.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Иванчук Сергей <br> Михайлович</h3>
+                  <span class="employees-status status-fired">Уволен 03.03.2023</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Nopaper</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Младший разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">64000р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic gray-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#94A3B8" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#94A3B8" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Нет данных о недавнем прохождении
+                            квалификации.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 3.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Макаров Артем <br> Владимирович</h3>
+                  <span class="employees-status status-work">Работает с 12.09.2022</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Nopaper</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Младший разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">65500р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic yellow-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#EAB308" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#EAB308" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            6 месяцев квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 4.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Новикова Ирина <br> Сергеевна</h3>
+                  <span class="employees-status status-vacation">В отпуске до 01.05.2023</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Nopaper</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">114900р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic green-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#22C55E" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#22C55E" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            3 месяца квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 5.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Иванов Алексей <br> Александрович</h3>
+                  <span class="employees-status status-work">Работает с 15.03.2022</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">TradeDealer</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Дизайнер</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">115900р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic green-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#22C55E" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#22C55E" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            3 месяца квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 6.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Иванчук Николь <br> Яновна</h3>
+                  <span class="employees-status status-work">Работает с 09.05.2022</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">TradeDealer</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">123000р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic yellow-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#EAB308" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#EAB308" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            6 месяцев квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 7.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Лебедев Артур <br> Павлович</h3>
+                  <span class="employees-status status-work">Работает с 23.01.2022</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Abanking</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">127300р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic red-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#EF4444" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#EF4444" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            12 месяцев квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 8.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Козлов Виктор <br> Артурович</h3>
+                  <span class="employees-status status-work">Работает с 27.06.2022</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Nopaper</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">141000р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic green-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#22C55E" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#22C55E" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            3 месяца квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 9.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Макаров Артем <br> Владимирович</h3>
+                  <span class="employees-status status-work">Работает с 17.11.2020</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">Nopaper</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Старший разработчик</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">195000р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic green-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#22C55E" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#22C55E" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            3 месяца квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="employees-item">
+                <img class="employees-photo" src="/img/portrait-of-beautiful-young-woman-standing-on-grey-wall 10.png"
+                  alt="">
+                <div class="name_with_status">
+                  <h3 class="employees-name">Смирнов Николай <br> Валерьевич</h3>
+                  <span class="employees-status status-work">Работает с 02.04.2021</span>
+                </div>
+                <div class="name-project_with_project">
+                  <span class="employess-project-name">TradeDealer</span>
+                  <span class="employess-project">Проект</span>
+                </div>
+                <div class="name-profession_with_profession">
+                  <span class="employess-profession-name">Управляющий отделом</span>
+                  <span class="employess-profession">Должность</span>
+                </div>
+                <div class="salary-value_with_salary">
+                  <span class="employess-salary-value">268000р</span>
+                  <span class="employess-salary">Зарплата</span>
+                </div>
+                <div class="employess-settings">
+                  <div class="employess-graphic_module">
+                    <div class="graphic-click">
+                      <a href="" onclick="return false;">
+                        <svg class="employess-graphic yellow-graphic" width="26" height="26" viewBox="0 0 26 26"
+                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#EAB308" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                            fill="#EAB308" />
+                        </svg>
+                        <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            6 месяцев квалификацию.</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="employess-settings_module">
+                    <div class="settings-click">
+                      <a href="" onclick="return false;">
+                        <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                            fill="#475569" />
+                        </svg>
+                        <ul class="settings-list_click">
+                          <li class="settings-item_click">Повышен</li>
+                          <li class="settings-item_click">Уволен</li>
+                          <li class="settings-item_click employee_delete">Удалить</li>
+                        </ul>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
       <ul class="footer-list">
-          <a href="#">
-              <li class="footer-item footer-svg"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
-                          d="M8.62347 12.0087C9.12618 12.4649 9.12618 13.2022 8.62347 13.6584C8.12076 14.1145 7.3082 14.1145 6.8055 13.6584L0.37703 7.82508C-0.125677 7.36891 -0.125677 6.63159 0.37703 6.17542L6.8055 0.342123C7.3082 -0.114041 8.12076 -0.114041 8.62347 0.342123C9.12618 0.798287 9.12618 1.53562 8.62347 1.99178L3.10399 7.00025L8.62347 12.0087Z"
-                          fill="#475569" />
-                  </svg>
-              </li>
-          </a>
-          <a href="#" class="footer-link">
-              <li class="footer-item footer-digit footer-item2"><span>1</span></li>
-          </a>
-          <a href="#" class="footer-link">
-              <li class="footer-item footer-digit"><span class="footer-item_text">2</span></li>
-          </a>
-          <a href="#" class="footer-link">
-              <li class="footer-item footer-digit"><span class="footer-item_text">3</span></li>
-          </a>
-          <a href="#" class="footer-link">
-              <li class="footer-item"><span class="footer-item_text">...</span></li>
-          </a>
-          <a href="#" class="footer-link">
-              <li class="footer-item footer-digit"><span class="footer-item_text">6</span></li>
-          </a>
-          <a href="#" class="footer-link">
-              <li class="footer-item"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
-                          d="M0.37653 1.99128C-0.126176 1.53512 -0.126176 0.797787 0.37653 0.341623C0.879237 -0.11454 1.6918 -0.11454 2.1945 0.341623L8.62297 6.17492C9.12568 6.63109 9.12568 7.36841 8.62297 7.82458L2.1945 13.6579C1.6918 14.114 0.879237 14.114 0.37653 13.6579C-0.126176 13.2017 -0.126176 12.4644 0.37653 12.0082L5.89601 6.99975L0.37653 1.99128Z"
-                          fill="#475569" />
-                  </svg>
-              </li>
-          </a>
+        <a href="#">
+          <li class="footer-item footer-svg"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                d="M8.62347 12.0087C9.12618 12.4649 9.12618 13.2022 8.62347 13.6584C8.12076 14.1145 7.3082 14.1145 6.8055 13.6584L0.37703 7.82508C-0.125677 7.36891 -0.125677 6.63159 0.37703 6.17542L6.8055 0.342123C7.3082 -0.114041 8.12076 -0.114041 8.62347 0.342123C9.12618 0.798287 9.12618 1.53562 8.62347 1.99178L3.10399 7.00025L8.62347 12.0087Z"
+                fill="#475569" />
+            </svg>
+          </li>
+        </a>
+        <a href="#" class="footer-link">
+          <li class="footer-item footer-digit footer-item2"><span>1</span></li>
+        </a>
+        <a href="#" class="footer-link">
+          <li class="footer-item footer-digit"><span class="footer-item_text">2</span></li>
+        </a>
+        <a href="#" class="footer-link">
+          <li class="footer-item footer-digit"><span class="footer-item_text">3</span></li>
+        </a>
+        <a href="#" class="footer-link">
+          <li class="footer-item"><span class="footer-item_text">...</span></li>
+        </a>
+        <a href="#" class="footer-link">
+          <li class="footer-item footer-digit"><span class="footer-item_text">6</span></li>
+        </a>
+        <a href="#" class="footer-link">
+          <li class="footer-item"><svg width="9" height="14" viewBox="0 0 9 14" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                d="M0.37653 1.99128C-0.126176 1.53512 -0.126176 0.797787 0.37653 0.341623C0.879237 -0.11454 1.6918 -0.11454 2.1945 0.341623L8.62297 6.17492C9.12568 6.63109 9.12568 7.36841 8.62297 7.82458L2.1945 13.6579C1.6918 14.114 0.879237 14.114 0.37653 13.6579C-0.126176 13.2017 -0.126176 12.4644 0.37653 12.0082L5.89601 6.99975L0.37653 1.99128Z"
+                fill="#475569" />
+            </svg>
+          </li>
+        </a>
       </ul>
-  </div>
-</footer>
+    </div>
+  </footer>
+</body>
