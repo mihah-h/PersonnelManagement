@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -10,7 +9,8 @@ import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { AddingEmployeePageComponent } from './adding-employee-page/adding-employee-page.component';
 import { EmployeeAddedPageComponent } from './employee-added-page/employee-added-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
-import {AdminLayoutComponent} from "./shared/components/admin-layout/admin-layout.component";
+import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
+import {SearchEmployeesPipe} from "./employee/shared/pipes/search-employees.pipe";
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import {AdminLayoutComponent} from "./shared/components/admin-layout/admin-layou
     AddingEmployeePageComponent,
     EmployeeAddedPageComponent,
     RegistrationPageComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    SearchEmployeesPipe
   ],
   imports: [
     BrowserModule,

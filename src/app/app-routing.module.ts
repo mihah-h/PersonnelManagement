@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AdminLayoutComponent} from "./shared/components/admin-layout/admin-layout.component";
-import {LoginPageComponent} from "./login-page/login-page.component";
-import {RegistrationPageComponent} from "./registration-page/registration-page.component";
-import {ListEmployeesPageComponent} from "./list-employees-page/list-employees-page.component";
-import {EmployeePageComponent} from "./employee-page/employee-page.component";
-import {AddingEmployeePageComponent} from "./adding-employee-page/adding-employee-page.component";
-import {EmployeeAddedPageComponent} from "./employee-added-page/employee-added-page.component";
-import {SettingsPageComponent} from "./settings-page/settings-page.component";
+import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
+import { LoginPageComponent } from "./login-page/login-page.component";
+import { RegistrationPageComponent } from "./registration-page/registration-page.component";
+import { ListEmployeesPageComponent } from "./list-employees-page/list-employees-page.component";
+import { EmployeePageComponent } from "./employee-page/employee-page.component";
+import { AddingEmployeePageComponent } from "./adding-employee-page/adding-employee-page.component";
+import { EmployeeAddedPageComponent } from "./employee-added-page/employee-added-page.component";
+import { SettingsPageComponent } from "./settings-page/settings-page.component";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
