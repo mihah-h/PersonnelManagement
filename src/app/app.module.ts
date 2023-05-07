@@ -10,6 +10,7 @@ import { EmployeePageComponent } from './employee-page/employee-page.component';
 import { AddingEmployeePageComponent } from './adding-employee-page/adding-employee-page.component';
 import { EmployeeAddedPageComponent } from './employee-added-page/employee-added-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
+import {AdminLayoutComponent} from "./shared/components/admin-layout/admin-layout.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { RegistrationPageComponent } from './registration-page/registration-page
     AddingEmployeePageComponent,
     EmployeeAddedPageComponent,
     RegistrationPageComponent,
+    AdminLayoutComponent
   ],
   imports: [
     BrowserModule,
