@@ -1,1 +1,32 @@
-<p>login-page works!</p>
+<a [routerLink]="['/login']">Вход</a>
+<a [routerLink]="['/registration']">Регистрация</a>
+<form
+    [formGroup]="loginForm"
+    (ngSubmit)="submit()"
+>
+    <div>
+      <input
+          id="email"
+          type="email"
+          formControlName="email"
+      />
+      <app-validation-message
+          [control]="loginForm.controls['email']"
+      ></app-validation-message>
+    </div>
+    <div>
+      <input
+          class="input"
+          id="password"
+          type="password"
+          formControlName="password"
+      />
+      <app-validation-message
+          [control]="loginForm.controls['password']"
+      ></app-validation-message>
+    </div>
+    <button
+        type="submit"
+        [disabled]="loginForm.invalid"
+    >Войти</button>
+</form>

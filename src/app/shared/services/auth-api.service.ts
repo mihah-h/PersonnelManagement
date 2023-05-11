@@ -1,0 +1,44 @@
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { catchError, Observable, tap } from "rxjs";
+import { UserLogin, UserLoginResponse, AdminRegistration } from "../interfaces/auth-interfaces";
+
+
+@Injectable()
+export class AuthApiService {
+
+  constructor(private http: HttpClient) {}
+
+  get token(): string | null {
+    return localStorage.getItem('token')
+  }
+
+  login(user: UserLogin): Observable<UserLoginResponse | null> {
+    return this.http.post<UserLoginResponse>('', user)
+      .pipe(
+        tap(this.setToken)
+      )
+  }
+
+
+  register(user: AdminRegistration): Observable<any> {
+    console.log(user)
+    return this.http.post('', user)
+  }
+
+  logout() {
+    this.setToken(null)
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.token
+  }
+
+  private setToken(response: UserLoginResponse | null) {
+    if (response) {
+      localStorage.setItem('token', response.token)
+    } else {
+      localStorage.clear()
+    }
+  }
+}

@@ -7,6 +7,11 @@ import { EmployeeLayoutComponent } from './shared/components/employee-layout/emp
 import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
+  declarations: [
+    SettingsPageComponent,
+    ProfilePageComponent,
+    EmployeeLayoutComponent,
+  ],
   imports: [
     SharedModule,
     CommonModule,
@@ -18,11 +23,7 @@ import { SharedModule } from "../shared/shared.module";
         ]}
     ])
   ],
-  exports: [],
-  declarations: [
-    SettingsPageComponent,
-    ProfilePageComponent,
-    EmployeeLayoutComponent,
-  ]
+  exports: []
+
 })
 export class EmployeeModule {}

@@ -10,7 +10,11 @@ import { AddingEmployeePageComponent } from './adding-employee-page/adding-emplo
 import { EmployeeAddedPageComponent } from './employee-added-page/employee-added-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
-import {SearchEmployeesPipe} from "./employee/shared/pipes/search-employees.pipe";
+import { SearchEmployeesPipe } from "./shared/pipes/search-employees.pipe";
+import { ReactiveFormsModule } from "@angular/forms";
+import { ValidationMessageComponent } from "./shared/components/validation-message/validation-message.component";
+import { AuthApiService } from "./shared/services/auth-api.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -27,9 +31,12 @@ import {SearchEmployeesPipe} from "./employee/shared/pipes/search-employees.pipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    ValidationMessageComponent,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
