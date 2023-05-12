@@ -6,7 +6,7 @@ import {CommonModule} from "@angular/common";
   selector: 'app-validation-message',
   styleUrls: ['../../../login-page/login-page.component.css'],
   template: `
-    <div class="validation-message-wrapper">
+    <div>
       <div *ngIf="control.invalid && control.touched">
         <div *ngIf="control.errors?.['required']">
           Обязательное поле

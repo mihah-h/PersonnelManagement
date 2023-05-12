@@ -1,0 +1,55 @@
+<li class="employees-item">
+  <img class="employees-photo"
+       [src]="employee.photo"
+       alt="">
+  <div class="name_with_status">
+    <h3 class="employees-name">{{employee.name}} {{employee.surname}} <br> {{employee.patronymic}}</h3>
+    <span class="employees-status status-work">Работает с {{employee.employmentDate}}</span>
+  </div>
+  <div class="name-project_with_project">
+    <span class="employess-project-name">{{employee.project}}</span>
+    <span class="employess-project">Проект</span>
+  </div>
+  <div class="name-profession_with_profession">
+    <span class="employess-profession-name">{{employee.position}}</span>
+    <span class="employess-profession">Должность</span>
+  </div>
+  <div class="salary-value_with_salary">
+    <span class="employess-salary-value">{{employee.salary}}р</span>
+    <span class="employess-salary">Зарплата</span>
+  </div>
+  <div class="employess-settings">
+    <div class="employess-graphic_module">
+      <div class="graphic-click">
+        <a href="" onclick="return false;">
+          <svg class="employess-graphic yellow-graphic" width="26" height="26" viewBox="0 0 26 26"
+               fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#EAB308" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M21.75 0.5C23.8211 0.5 25.5 2.17893 25.5 4.25V21.75C25.5 23.8211 23.8211 25.5 21.75 25.5H4.25C2.17893 25.5 0.5 23.8211 0.5 21.75V4.25C0.5 2.17893 2.17893 0.5 4.25 0.5H21.75ZM21.75 3H4.25C3.55964 3 3 3.55964 3 4.25V21.75C3 22.4404 3.55964 23 4.25 23H21.75C22.4404 23 23 22.4404 23 21.75V4.25C23 3.55964 22.4404 3 21.75 3ZM8 15.5C8.69036 15.5 9.25 16.0596 9.25 16.75V19.25C9.25 19.9404 8.69036 20.5 8 20.5C7.30964 20.5 6.75 19.9404 6.75 19.25V16.75C6.75 16.0596 7.30964 15.5 8 15.5ZM13 5.5C13.6904 5.5 14.25 6.05964 14.25 6.75V19.25C14.25 19.9404 13.6904 20.5 13 20.5C12.3096 20.5 11.75 19.9404 11.75 19.25V6.75C11.75 6.05964 12.3096 5.5 13 5.5ZM18 10.5C18.6904 10.5 19.25 11.0596 19.25 11.75V19.25C19.25 19.9404 18.6904 20.5 18 20.5C17.3096 20.5 16.75 19.9404 16.75 19.25V11.75C16.75 11.0596 17.3096 10.5 18 10.5Z"
+                  fill="#EAB308"/>
+          </svg>
+          <div class="info_about_qualif">
+                          <span class="info_qualif_text">Сотрудник проходил за последние <br>
+                            6 месяцев квалификацию.</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="employess-settings_module">
+      <div class="settings-click">
+        <a href="" onclick="return false;">
+          <svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#475569" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M3 18.25C4.38071 18.25 5.5 19.3693 5.5 20.75C5.5 22.1307 4.38071 23.25 3 23.25C1.61929 23.25 0.5 22.1307 0.5 20.75C0.5 19.3693 1.61929 18.25 3 18.25ZM3 9.5C4.38071 9.5 5.5 10.6193 5.5 12C5.5 13.3807 4.38071 14.5 3 14.5C1.61929 14.5 0.5 13.3807 0.5 12C0.5 10.6193 1.61929 9.5 3 9.5ZM3 0.75C4.38071 0.75 5.5 1.86929 5.5 3.25C5.5 4.63071 4.38071 5.75 3 5.75C1.61929 5.75 0.5 4.63071 0.5 3.25C0.5 1.86929 1.61929 0.75 3 0.75Z"
+                  fill="#475569"/>
+          </svg>
+          <ul class="settings-list_click">
+            <li class="settings-item_click">Повышен</li>
+            <li class="settings-item_click">Уволен</li>
+            <li class="settings-item_click employee_delete">Удалить</li>
+          </ul>
+        </a>
+      </div>
+    </div>
+  </div>
+</li>
