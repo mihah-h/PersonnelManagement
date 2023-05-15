@@ -3,8 +3,7 @@ const express = require('express');
 
 
 const app = express();
-//пока что только база зарегистрированных пользователей
-let base = JSON.parse(fs.readFileSync('dbImit/user.json', 'utf8'));
+let base = JSON.parse(fs.readFileSync('dbImit/base.json', 'utf8'));
 const jsonParser = express.json();
 
 
@@ -15,26 +14,82 @@ app.use(function(req, res, next) {
     next();
 });
 
+
 //запрос вида .get('http://localhost:3000/users').subscribe((data: User[]) => (this.users = data));
 app.get('/users', (req, res) => res.status(200).json(base.users));
 
+app.get('/users/:email', (req, res) => {
+  let user = base.users.find(function (user){
+    return user.email === req.params.email;
+  });
+  if (user === undefined){
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+  else{
+    res.status(200).json(user);
+  }
+});
+
+
 app.get('/employees', (req, res) => res.status(200).json(base.employees));
+
+app.get('/employees/:email', (req, res) => {
+  let employee = base.employees.find(function (employee){
+    return employee.email === req.params.email;
+  });
+  if (employee === undefined){
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+  else{
+    res.status(200).json(employee);
+  }
+});
+
+app.get('/employees/:company', (req, res) => {
+  employeesInCompany = [];
+  for (employee of base.employees){
+    if (employee.company === req.params.company){
+      employeesInCompany.push(employee);
+    }
+  }
+  res.status(200).json(employeesInCompany);
+});
+
 
 //запрос вида .post('http://localhost:3000/users', newUser).subscribe((data: User) => {(что угодно)});
 app.post('/users', jsonParser, (req, res) => {
-    if(!req.body) return res.sendStatus(400);
-    //расчитано на то, что будет получен объект пользователя
+  if(!req.body) return res.sendStatus(400);
+  let user = base.users.find(function (user){
+    return user.email === req.body.email;
+  });
+  if (user === undefined){
     base.users.push(req.body);
     const json = JSON.stringify(base);
-    fs.writeFileSync('dbImit/user.json', json);
-})
+    fs.writeFileSync('dbImit/base.json', json);
+  }
+  else{
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+});
 
 app.post('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  base.employees.push(req.body);
-  const json = JSON.stringify(base);
-  fs.writeFileSync('dbImit/user.json', json);
-})
+  let employee = base.employees.find(function (employee){
+    return employee.email === req.body.email;
+  });
+  if (employee === undefined){
+    base.employees.push(req.body);
+    const json = JSON.stringify(base);
+    fs.writeFileSync('dbImit/base.json', json);
+  }
+  else{
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+});
 
 
 
