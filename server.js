@@ -16,9 +16,12 @@ app.use(function(req, res, next) {
 
 
 //запрос вида .get('http://localhost:3000/users').subscribe((data: User[]) => (this.users = data));
+//получение всех объектов user
 app.get('/users', (req, res) => res.status(200).json(base.users));
 
-app.get('/users/:email', (req, res) => {
+//запрос вида .get('http://localhost:3000/users/email/...').subscribe((data: User[]) => (this.users = data));
+//получение объекта user с определенным полем email(если гарантируется, что email не повторяются у разных user)
+app.get('/users/email/:email', (req, res) => {
   let user = base.users.find(function (user){
     return user.email === req.params.email;
   });
@@ -32,9 +35,11 @@ app.get('/users/:email', (req, res) => {
 });
 
 
+//получение всех объектов employee
 app.get('/employees', (req, res) => res.status(200).json(base.employees));
 
-app.get('/employees/:email', (req, res) => {
+//получение объекта employee с определенным полем email(если гарантируется, что email не повторяются у разных employee)
+app.get('/employees/email/:email', (req, res) => {
   let employee = base.employees.find(function (employee){
     return employee.email === req.params.email;
   });
@@ -47,7 +52,8 @@ app.get('/employees/:email', (req, res) => {
   }
 });
 
-app.get('/employees/:company', (req, res) => {
+//получение всех объектов employee определенным параметром company
+app.get('/employees/company/:company', (req, res) => {
   employeesInCompany = [];
   for (employee of base.employees){
     if (employee.company === req.params.company){
@@ -58,7 +64,8 @@ app.get('/employees/:company', (req, res) => {
 });
 
 
-//запрос вида .post('http://localhost:3000/users', newUser).subscribe((data: User) => {(что угодно)});
+//запрос вида .post('http://localhost:3000/users', newUser).subscribe((data: User) => {(*любая обработка*)});
+//отправляет user, если он не повторяется в базе
 app.post('/users', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   let user = base.users.find(function (user){
@@ -75,6 +82,7 @@ app.post('/users', jsonParser, (req, res) => {
   }
 });
 
+//отправляет employee, если он не повторяется в базе
 app.post('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   let employee = base.employees.find(function (employee){
