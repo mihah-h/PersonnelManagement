@@ -1,57 +1,38 @@
-<a [routerLink]="['/login']">Вход</a>
-<a [routerLink]="['/registration']">Регистрация</a>
-<form
-    [formGroup]="registrationForm"
-    (ngSubmit)="submit()"
->
-  <div>
-    <input
-        class="input"
-        id="companyName"
-        type="text"
-        formControlName="companyName"
-    />
-    <app-validation-message
-        [control]="registrationForm.controls['companyName']"
-    ></app-validation-message>
+<main class="main">
+  <div class="registration-page_container">
+    <h1 class="registration-page_title">PManag</h1>
+    <div class="registration-page_form">
+      <ul class="registration-page_list">
+        <li class="registration-page_item registration-page_join"><a class="registration-page_a-join"
+            [routerLink]="['/login']">Вход</a></li>
+        <li class="registration-page_item registration-page_registration"><a class="registration-page_a-registration"
+            [routerLink]="['/registration']">Регистрация</a></li>
+      </ul>
+      <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+        <div class="registration-page_from-item">
+          <input class="input registration-page_company-input" placeholder="Название Компании" id="companyName"
+            type="text" formControlName="companyName" />
+          <app-validation-message [control]="registrationForm.controls['companyName']"></app-validation-message>
+        </div>
+        <div class="registration-page_from-item">
+          <input class="input registration-page_email-input" placeholder="Email" id="email" type="email"
+            formControlName="email" />
+          <app-validation-message [control]="registrationForm.controls['email']"></app-validation-message>
+        </div>
+        <div class="registration-page_from-item">
+          <input class="input registration-page_password-input" placeholder="Пароль" id="password" type="password"
+            formControlName="password" />
+          <app-validation-message [control]="registrationForm.controls['password']"></app-validation-message>
+        </div>
+        <div class="registration-page_from-item">
+          <input class="input registration-page_email-input" placeholder="Пароль еще раз" id="passwordRepeat"
+            type="password" formControlName="passwordRepeat" />
+          <app-validation-message [control]="registrationForm.controls['passwordRepeat']"></app-validation-message>
+          <app-validation-message [control]="registrationForm"></app-validation-message>
+        </div>
+        <button class="registration-page_btn-join" type="submit"
+          [disabled]="registrationForm.invalid">Зарегистрироваться</button>
+      </form>
+    </div>
   </div>
-  <div>
-    <input
-        class="input"
-        id="email"
-        type="email"
-        formControlName="email"
-    />
-    <app-validation-message
-          [control]="registrationForm.controls['email']"
-    ></app-validation-message>
-  </div>
-  <div>
-    <input class="input"
-           id="password"
-           type="password"
-           formControlName="password"
-    />
-    <app-validation-message
-        [control]="registrationForm.controls['password']"
-    ></app-validation-message>
-  </div>
-  <div>
-    <input
-        class="input"
-        id="passwordRepeat"
-        type="password"
-        formControlName="passwordRepeat"
-    />
-    <app-validation-message
-        [control]="registrationForm.controls['passwordRepeat']"
-    ></app-validation-message>
-    <app-validation-message
-        [control]="registrationForm"
-    ></app-validation-message>
-  </div>
-  <button
-      type="submit"
-      [disabled]="registrationForm.invalid"
-  >Зарегистрироваться</button>
-</form>
+</main>

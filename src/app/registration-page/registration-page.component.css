@@ -1,0 +1,472 @@
+.registration-page_title {
+  width: 280px;
+  height: 52px;
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.1px;
+  margin: 73px auto 15px auto;
+  color: var(--black-dark-color);
+}
+
+.registration-page_form {
+  width: 350px;
+  height: 424px;
+  background: var(--white-color);
+  box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
+  border-radius: 4px;
+  margin: 0 auto 156px auto;
+  padding: 40px 50px;
+}
+
+.registration-page_list {
+  display: flex;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 24px;
+  /* or 109% */
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  margin-bottom: 31px;
+}
+
+.registration-page_join {
+  width: 60px;
+  height: 40px;
+  margin-right: 10px;
+  color: var(--blue-color);
+}
+
+.registration-page_a-join {
+  color: var(--gray-darker-color);
+}
+
+.registration-page_registration {
+  width: 150px;
+  height: 40px;
+}
+
+.registration-page_a-registration {
+  color: var(--blue-color);
+}
+
+.registration-page_from-item:not(:last-child) {
+  margin-bottom: 31px;
+  background-color: var(--blue-light-color);
+}
+
+.registration-page_email-input,
+.registration-page_company-input,
+.registration-page_password-input,
+.registration-page_email-input {
+  border: none;
+  outline: none;
+  flex-direction: column;
+  width: 319.5px;
+  max-height: 20px;
+  background-color: transparent;
+  padding: 12px 13px 12px 25px;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  align-items: center;
+  color: var(--black-dark-color);
+}
+
+.registration-page_company-input::-webkit-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_company-input::-moz-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+/* Firefox 18- */
+.registration-page_company-input:-ms-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_company-input::-webkit-input-placeholder,
+.tab-text_from::-webkit-input-placeholder,
+.tab-text_to::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input::-moz-placeholder,
+.tab-text_from::-moz-placeholder,
+.tab-text_to::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input:-moz-placeholder,
+.tab-text_from:-moz-placeholder,
+.tab-text_to:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input:-ms-input-placeholder,
+.tab-text_from:-ms-input-placeholder,
+.tab-text_to:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input:focus::-webkit-input-placeholder,
+.tab-text_from:focus::-webkit-input-placeholder,
+.tab-text_to:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input:focus::-moz-placeholder,
+.tab-text_from:focus::-moz-placeholder,
+.tab-text_to:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input:focus:-moz-placeholder,
+.tab-text_from:focus:-moz-placeholder,
+.tab-text_to:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_company-input:focus:-ms-input-placeholder,
+.tab-text_from:focus:-ms-input-placeholder,
+.tab-text_to:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input::-webkit-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_email-input::-moz-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+/* Firefox 18- */
+.registration-page_email-input:-ms-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_email-input::-webkit-input-placeholder,
+.tab-text_from::-webkit-input-placeholder,
+.tab-text_to::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input::-moz-placeholder,
+.tab-text_from::-moz-placeholder,
+.tab-text_to::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:-moz-placeholder,
+.tab-text_from:-moz-placeholder,
+.tab-text_to:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:-ms-input-placeholder,
+.tab-text_from:-ms-input-placeholder,
+.tab-text_to:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus::-webkit-input-placeholder,
+.tab-text_from:focus::-webkit-input-placeholder,
+.tab-text_to:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus::-moz-placeholder,
+.tab-text_from:focus::-moz-placeholder,
+.tab-text_to:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus:-moz-placeholder,
+.tab-text_from:focus:-moz-placeholder,
+.tab-text_to:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus:-ms-input-placeholder,
+.tab-text_from:focus:-ms-input-placeholder,
+.tab-text_to:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input::-webkit-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_password-input::-moz-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+/* Firefox 18- */
+.registration-page_password-input:-ms-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_password-input::-webkit-input-placeholder,
+.tab-text_from::-webkit-input-placeholder,
+.tab-text_to::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input::-moz-placeholder,
+.tab-text_from::-moz-placeholder,
+.tab-text_to::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input:-moz-placeholder,
+.tab-text_from:-moz-placeholder,
+.tab-text_to:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input:-ms-input-placeholder,
+.tab-text_from:-ms-input-placeholder,
+.tab-text_to:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input:focus::-webkit-input-placeholder,
+.tab-text_from:focus::-webkit-input-placeholder,
+.tab-text_to:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input:focus::-moz-placeholder,
+.tab-text_from:focus::-moz-placeholder,
+.tab-text_to:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input:focus:-moz-placeholder,
+.tab-text_from:focus:-moz-placeholder,
+.tab-text_to:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_password-input:focus:-ms-input-placeholder,
+.tab-text_from:focus:-ms-input-placeholder,
+.tab-text_to:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input::-webkit-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_email-input::-moz-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+/* Firefox 18- */
+.registration-page_email-input:-ms-input-placeholder {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.registration-page_email-input::-webkit-input-placeholder,
+.tab-text_from::-webkit-input-placeholder,
+.tab-text_to::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input::-moz-placeholder,
+.tab-text_from::-moz-placeholder,
+.tab-text_to::-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:-moz-placeholder,
+.tab-text_from:-moz-placeholder,
+.tab-text_to:-moz-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:-ms-input-placeholder,
+.tab-text_from:-ms-input-placeholder,
+.tab-text_to:-ms-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus::-webkit-input-placeholder,
+.tab-text_from:focus::-webkit-input-placeholder,
+.tab-text_to:focus::-webkit-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus::-moz-placeholder,
+.tab-text_from:focus::-moz-placeholder,
+.tab-text_to:focus::-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus:-moz-placeholder,
+.tab-text_from:focus:-moz-placeholder,
+.tab-text_to:focus:-moz-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_email-input:focus:-ms-input-placeholder,
+.tab-text_from:focus:-ms-input-placeholder,
+.tab-text_to:focus:-ms-input-placeholder {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.registration-page_btn-join {
+  width: 350px;
+  height: 44px;
+  background: var(--blue-sea-color);
+  border-radius: 4px;
+  color: var(--white-color);
+  transition: background 0.1s linear, border-color 0.1s linear;
+}
+
+.registration-page_btn-join:hover {
+  background: var(--blue-color);
+  border-color: var(--blue-color);
+}

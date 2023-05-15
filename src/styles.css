@@ -1,4 +1,6 @@
 @import "/src/app/list-employees-page/list-employees-page.component.css";
+@import "/src/app/login-page/login-page.component.css";
+@import "/src/app/registration-page/registration-page.component.css";
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -78,6 +80,10 @@ pre {
 a {
   background-color: transparent;
 }
+
+/* a:-webkit-any-link {
+  color: black;
+} */
 
 /**
  * 1. Remove the bottom border in Chrome 57-

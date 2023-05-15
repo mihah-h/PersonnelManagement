@@ -1,32 +1,22 @@
-<a [routerLink]="['/login']">Вход</a>
-<a [routerLink]="['/registration']">Регистрация</a>
-<form
-    [formGroup]="loginForm"
-    (ngSubmit)="submit()"
->
-    <div>
-      <input
-          id="email"
-          type="email"
-          formControlName="email"
-      />
-      <app-validation-message
-          [control]="loginForm.controls['email']"
-      ></app-validation-message>
+<main class="main">
+  <div class="login-page_container">
+    <h1 class="login-page_title">PManag</h1>
+    <div class="login-page_form">
+      <ul class="login-page_list">
+        <li class="login-page_item login-page_join"><a class="login-page_a-join" [routerLink]="['/login']">Вход</a></li>
+        <li class="login-page_item login-page_registration"><a class="login-page_a-registration"[routerLink]="['/registration']">Регистрация</a></li>
+      </ul>
+      <form [formGroup]="loginForm" (ngSubmit)="submit()">
+        <div class="login-page_email">
+          <input class="login-page_email-input" placeholder="Email" id="email" type="email" formControlName="email" />
+          <app-validation-message [control]="loginForm.controls['email']"></app-validation-message>
+        </div>
+        <div class="login-page_password">
+          <input class="input login-page_password-input" placeholder="Пароль" id="password" type="password" formControlName="password" />
+          <app-validation-message [control]="loginForm.controls['password']"></app-validation-message>
+        </div>
+        <button class="login-page_btn-join" type="submit" [disabled]="loginForm.invalid">Войти</button>
+      </form>
     </div>
-    <div>
-      <input
-          class="input"
-          id="password"
-          type="password"
-          formControlName="password"
-      />
-      <app-validation-message
-          [control]="loginForm.controls['password']"
-      ></app-validation-message>
-    </div>
-    <button
-        type="submit"
-        [disabled]="loginForm.invalid"
-    >Войти</button>
-</form>
+  </div>
+</main>
