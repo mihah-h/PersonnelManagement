@@ -17,12 +17,12 @@
 
 .registration-page_form {
   width: 350px;
-  height: 424px;
+  height: 417px;
   background: var(--white-color);
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
   margin: 0 auto 156px auto;
-  padding: 40px 50px;
+  padding: 47px 50px 40px 50px;
 }
 
 .registration-page_list {
@@ -36,7 +36,7 @@
   display: flex;
   align-items: center;
   letter-spacing: 0.1px;
-  margin-bottom: 31px;
+  margin-bottom: 24px;
 }
 
 .registration-page_join {
@@ -59,15 +59,22 @@
   color: var(--blue-color);
 }
 
-.registration-page_from-item:not(:last-child) {
+.registration-page_from-item-comp,
+.registration-page_from-item-email,
+.registration-page_from-item-pass {
   margin-bottom: 31px;
+  background-color: var(--blue-light-color);
+}
+
+.registration-page_from-item-pass-more {
+  margin-bottom: 40px;
   background-color: var(--blue-light-color);
 }
 
 .registration-page_email-input,
 .registration-page_company-input,
 .registration-page_password-input,
-.registration-page_email-input {
+.registration-page_password-more-input {
   border: none;
   outline: none;
   flex-direction: column;
@@ -364,7 +371,7 @@
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input::-webkit-input-placeholder {
+.registration-page_password-more-input::-webkit-input-placeholder {
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -376,7 +383,7 @@
   color: var(--gray-darker-color);
 }
 
-.registration-page_email-input::-moz-placeholder {
+.registration-page_password-more-input::-moz-placeholder {
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -389,7 +396,7 @@
 }
 
 /* Firefox 18- */
-.registration-page_email-input:-ms-input-placeholder {
+.registration-page_password-more-input:-ms-input-placeholder {
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -401,56 +408,56 @@
   color: var(--gray-darker-color);
 }
 
-.registration-page_email-input::-webkit-input-placeholder,
+.registration-page_password-more-input::-webkit-input-placeholder,
 .tab-text_from::-webkit-input-placeholder,
 .tab-text_to::-webkit-input-placeholder {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input::-moz-placeholder,
+.registration-page_password-more-input::-moz-placeholder,
 .tab-text_from::-moz-placeholder,
 .tab-text_to::-moz-placeholder {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input:-moz-placeholder,
+.registration-page_password-more-input:-moz-placeholder,
 .tab-text_from:-moz-placeholder,
 .tab-text_to:-moz-placeholder {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input:-ms-input-placeholder,
+.registration-page_password-more-input:-ms-input-placeholder,
 .tab-text_from:-ms-input-placeholder,
 .tab-text_to:-ms-input-placeholder {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input:focus::-webkit-input-placeholder,
+.registration-page_password-more-input:focus::-webkit-input-placeholder,
 .tab-text_from:focus::-webkit-input-placeholder,
 .tab-text_to:focus::-webkit-input-placeholder {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input:focus::-moz-placeholder,
+.registration-page_password-more-input:focus::-moz-placeholder,
 .tab-text_from:focus::-moz-placeholder,
 .tab-text_to:focus::-moz-placeholder {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input:focus:-moz-placeholder,
+.registration-page_password-more-input:focus:-moz-placeholder,
 .tab-text_from:focus:-moz-placeholder,
 .tab-text_to:focus:-moz-placeholder {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.registration-page_email-input:focus:-ms-input-placeholder,
+.registration-page_password-more-input:focus:-ms-input-placeholder,
 .tab-text_from:focus:-ms-input-placeholder,
 .tab-text_to:focus:-ms-input-placeholder {
   opacity: 0;
@@ -464,6 +471,13 @@
   border-radius: 4px;
   color: var(--white-color);
   transition: background 0.1s linear, border-color 0.1s linear;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  align-items: center;
+  text-align: center;
 }
 
 .registration-page_btn-join:hover {

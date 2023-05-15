@@ -9,23 +9,23 @@
             [routerLink]="['/registration']">Регистрация</a></li>
       </ul>
       <form [formGroup]="registrationForm" (ngSubmit)="submit()">
-        <div class="registration-page_from-item">
+        <div class="registration-page_from-item-comp">
           <input class="input registration-page_company-input" placeholder="Название Компании" id="companyName"
             type="text" formControlName="companyName" />
           <app-validation-message [control]="registrationForm.controls['companyName']"></app-validation-message>
         </div>
-        <div class="registration-page_from-item">
+        <div class="registration-page_from-item-email">
           <input class="input registration-page_email-input" placeholder="Email" id="email" type="email"
             formControlName="email" />
           <app-validation-message [control]="registrationForm.controls['email']"></app-validation-message>
         </div>
-        <div class="registration-page_from-item">
+        <div class="registration-page_from-item-pass">
           <input class="input registration-page_password-input" placeholder="Пароль" id="password" type="password"
             formControlName="password" />
           <app-validation-message [control]="registrationForm.controls['password']"></app-validation-message>
         </div>
-        <div class="registration-page_from-item">
-          <input class="input registration-page_email-input" placeholder="Пароль еще раз" id="passwordRepeat"
+        <div class="registration-page_from-item-pass-more">
+          <input class="input registration-page_password-more-input" placeholder="Пароль еще раз" id="passwordRepeat"
             type="password" formControlName="passwordRepeat" />
           <app-validation-message [control]="registrationForm.controls['passwordRepeat']"></app-validation-message>
           <app-validation-message [control]="registrationForm"></app-validation-message>
