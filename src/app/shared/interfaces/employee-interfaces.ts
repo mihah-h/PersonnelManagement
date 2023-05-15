@@ -5,6 +5,11 @@ export interface PeriodInCompany {
   date: string
 }
 
+export interface OptionsGroup{
+  optionsGroupNameRu: string
+  optionsGroupName: string
+  options: string[]
+}
 
 
 export interface Employee {
@@ -30,8 +35,7 @@ export interface Employee {
 
 export interface EmployeesInformation {
   employees: Employee[]
-  projectOptions: string[]
-  positionOptions: string[]
-  educationOptions: string[]
+  options: OptionsGroup[]
 }
+
 

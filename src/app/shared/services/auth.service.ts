@@ -5,7 +5,7 @@ import { UserLogin, UserLoginResponse, AdminRegistration } from "../interfaces/a
 
 
 @Injectable()
-export class AuthApiService {
+export class AuthService {
 
   constructor(private http: HttpClient) {}
 

@@ -1,8 +1,10 @@
+
 <main class="main">
   <div class="container">
     <h2 class="employees-text">
       Artsofte 54 сотрудника
     </h2>
+    <app-filtration-form [employeesInformation$]="employeesInformation$" (newItemEvent)="take($event)"></app-filtration-form>
     <div class="main-info">
       <div class="main-left">
         <div class="filter-container">

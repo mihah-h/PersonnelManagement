@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthApiService} from "../shared/services/auth-api.service";
+import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
 import {UserLogin, AdminRegistration} from "../shared/interfaces/auth-interfaces";
 import { valueMatchValidator } from "../shared/validators/valueMatchValidator";
@@ -15,7 +15,7 @@ export class RegistrationPageComponent {
   submitted = false
 
   constructor(
-    public auth: AuthApiService,
+    public auth: AuthService,
     private router: Router,
   ) {}
 

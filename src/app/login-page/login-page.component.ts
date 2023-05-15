@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserLogin } from "../shared/interfaces/auth-interfaces";
-import { AuthApiService } from "../shared/services/auth-api.service";
+import { AuthService } from "../shared/services/auth.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
@@ -10,11 +10,12 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+
   loginForm!: FormGroup
   submitted = false
 
   constructor(
-    public auth: AuthApiService,
+    public auth: AuthService,
     private router: Router,
   ) {}
 

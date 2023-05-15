@@ -14,8 +14,8 @@ const routes: Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'registration', component: RegistrationPageComponent},
   {path: 'admin', component: AdminLayoutComponent, children: [
-      {path: '', redirectTo: '/admin', pathMatch: 'full'},
-      {path: '', component: ListEmployeesPageComponent},
+      {path: '', redirectTo: '/admin/list-employees', pathMatch: 'full'},
+      {path: 'list-employees', component: ListEmployeesPageComponent},
       {path: 'adding-employee', component: AddingEmployeePageComponent},
       {path: 'employee-added', component: EmployeeAddedPageComponent},
       {path: 'settings', component: SettingsPageComponent},
