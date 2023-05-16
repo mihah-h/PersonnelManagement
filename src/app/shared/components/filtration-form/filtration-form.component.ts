@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 import {EmployeesInformation, OptionsGroup} from "../../interfaces/employee-interfaces";
 import {Observable} from "rxjs";
+import {Params} from "@angular/router";
 
 @Component({
   selector: 'app-filtration-form',
@@ -12,18 +13,18 @@ export class FiltrationFormComponent implements OnInit{
 
   filters!: []
   filtrationForm!: FormGroup
-  options!: OptionsGroup[]
+  optionsGroups!: OptionsGroup[]
 
   @Input()
   employeesInformation$!: Observable<EmployeesInformation>
 
   @Output()
-  newItemEvent = new EventEmitter();
+  filteringParametersAreSetEvent = new EventEmitter();
 
   constructor() {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.filtrationForm = new FormGroup({
       status: new FormGroup({
         work: new FormControl(false),
@@ -49,23 +50,34 @@ export class FiltrationFormComponent implements OnInit{
     })
 
     this.employeesInformation$.subscribe(employeesInformation => {
-      this.options = employeesInformation.options
+      this.optionsGroups = employeesInformation.options
 
-      for (let r of this.options) {
-        this.filtrationForm.addControl(r.optionsGroupName, new FormGroup({}))
-        const optionsGroupName = this.filtrationForm.controls[r.optionsGroupName] as FormGroup
-        for (let i of r.options) {
-          optionsGroupName.addControl(i, new FormControl(false))
+      for (let optionGroup of this.optionsGroups) {
+        this.filtrationForm.addControl(optionGroup.optionsGroupName, new FormGroup({}))
+        const optionsGroupName = this.filtrationForm.controls[optionGroup.optionsGroupName] as FormGroup
+        for (let option of optionGroup.options) {
+          optionsGroupName.addControl(option, new FormControl(false))
         }
+        console.log(this.filtrationForm.value)
       }
-
     })
   }
 
 
 
   apply() {
-
-    this.newItemEvent.emit(this.filtrationForm.value)
+    const queryParams: Params = {}
+    for (let param in this.filtrationForm.value) {
+      let queryParamValue: string
+      for (let paramValue in this.filtrationForm.value[param]) {
+        queryParamValue = typeof(this.filtrationForm.value[param][paramValue]) === "number" ?
+          this.filtrationForm.value[param][paramValue] : paramValue
+        if (this.filtrationForm.value[param][paramValue]) {
+          queryParams[param as keyof Params] = param in queryParams ?
+            [queryParams[param as keyof Params], queryParamValue].join('-') : queryParamValue
+        }
+      }
+    }
+    this.filteringParametersAreSetEvent.emit(queryParams)
   }
 }

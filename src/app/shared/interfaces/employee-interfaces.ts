@@ -26,8 +26,10 @@ export interface Employee {
   gender: string
   education: string
   birthDate: string
+  age:string
   interviewDate: string
   employmentDate: string
+  experience: string
   firstWorkingDayDate: string
   vacations: string[]
   historyInCompany: PeriodInCompany[]

@@ -11,4 +11,5 @@ export class EmployeeListItemComponent {
   @Input()
   employee!: Employee
 
+
 }

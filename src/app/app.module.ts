@@ -11,13 +11,14 @@ import { EmployeeAddedPageComponent } from './employee-added-page/employee-added
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
 import { SearchEmployeesPipe } from "./shared/pipes/search-employees.pipe";
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ValidationMessageComponent } from "./shared/components/validation-message/validation-message.component";
 import { AuthService } from "./shared/services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
 import {EmployeeService} from "./shared/services/employee.service";
 import {FiltrationFormComponent} from "./shared/components/filtration-form/filtration-form.component";
 import {EmployeeListItemComponent} from "./shared/components/employee-list-item/employee-list-item.component";
+import {FiltrationEmployeesPipe} from "./shared/pipes/filtration-employees.pipe";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {EmployeeListItemComponent} from "./shared/components/employee-list-item/
     AdminLayoutComponent,
     SearchEmployeesPipe,
     FiltrationFormComponent,
-    EmployeeListItemComponent
+    EmployeeListItemComponent,
+    FiltrationEmployeesPipe
   ],
   imports: [
     BrowserModule,
@@ -40,6 +42,7 @@ import {EmployeeListItemComponent} from "./shared/components/employee-list-item/
     ReactiveFormsModule,
     ValidationMessageComponent,
     HttpClientModule,
+    FormsModule
   ],
   providers: [AuthService, EmployeeService],
   bootstrap: [AppComponent]

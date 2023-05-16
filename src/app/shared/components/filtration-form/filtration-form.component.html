@@ -1,8 +1,8 @@
 <div class="main-left">
-  <div *ngIf="options; else loading" class="filter-container">
+  <div *ngIf="optionsGroups; else loading" class="filter-container">
     <form [formGroup]="filtrationForm"
       (ngSubmit)="apply()">
-      <form formGroupName="status" >
+      <div formGroupName="status">
         <p>Статус</p>
         <ul>
           <li >
@@ -18,17 +18,17 @@
             <Label for="status3" >Уволен</Label>
           </li>
         </ul>
-      </form>
-      <form *ngFor="let i of options" [formGroupName]="i.optionsGroupName">
-        <p>{{i.optionsGroupNameRu}}</p>
+      </div>
+      <div *ngFor="let optionsGroup of optionsGroups" [formGroupName]="optionsGroup.optionsGroupName">
+        <p>{{optionsGroup.optionsGroupNameRu}}</p>
         <ul>
-          <li *ngFor="let projectOption of i.options; let i = index">
+          <li *ngFor="let projectOption of optionsGroup.options; let i = index">
             <input type="checkbox" id="{{projectOption}}" [formControlName]="projectOption">
             <Label for="{{projectOption}}">{{projectOption}}</Label>
           </li>
         </ul>
-      </form>
-      <form formGroupName="salary" >
+      </div>
+      <div formGroupName="salary">
         <p>Зарплата</p>
         <ul>
           <li>
@@ -38,8 +38,8 @@
             <input type="number" placeholder="До" formControlName="to">
           </li>
         </ul>
-      </form>
-      <form formGroupName="experience" >
+      </div>
+      <div formGroupName="experience" >
         <p>Стаж</p>
         <ul>
           <li>
@@ -49,8 +49,8 @@
             <input type="number" placeholder="До" formControlName="to">
           </li>
         </ul>
-      </form>
-      <form formGroupName="gender" >
+      </div>
+      <div formGroupName="gender">
         <p>Статус</p>
         <ul>
           <li>
@@ -62,8 +62,8 @@
             <Label for="woman" >Женшина</Label>
           </li>
         </ul>
-      </form>
-      <form formGroupName="age" >
+      </div>
+      <div formGroupName="age">
         <p>Возраст</p>
         <ul>
           <li>
@@ -73,7 +73,7 @@
             <input type="number" placeholder="До" formControlName="to">
           </li>
         </ul>
-      </form>
+      </div>
       <button type="submit">Применить</button>
     </form>
 <!--    <ul class="info_accordion">-->
