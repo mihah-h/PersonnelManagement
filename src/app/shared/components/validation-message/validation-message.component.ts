@@ -1,6 +1,6 @@
-import {Component, Input} from "@angular/core";
-import {AbstractControl} from "@angular/forms";
-import {CommonModule} from "@angular/common";
+import { Component, Input } from "@angular/core";
+import { AbstractControl } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: 'app-validation-message',
@@ -8,18 +8,18 @@ import {CommonModule} from "@angular/common";
   template: `
     <div>
       <div *ngIf="control.invalid && control.touched">
-        <div *ngIf="control.errors?.['required']">
+        <div class="valid-message" *ngIf="control.errors?.['required']">
           Обязательное поле
         </div>
-        <div *ngIf="control.errors?.['email']">
+        <div class="valid-message" *ngIf="control.errors?.['email']">
           Введен некорректный email
         </div>
-        <div *ngIf="control.errors?.['minlength']">
+        <div class="valid-message" *ngIf="control.errors?.['minlength']">
           Минимальная длина пароля
           {{control.errors?.['minlength'].requiredLength}}
-          симвалов
+          символов
         </div>
-        <div *ngIf="control.errors?.['valueMatch']">
+        <div class="valid-message" *ngIf="control.errors?.['valueMatch']">
           Пароли не совпадают
         </div>
       </div>

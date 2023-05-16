@@ -64,8 +64,8 @@
 }
 
 .login-page_email {
-  margin-bottom: 31px;
-  background-color: var(--blue-light-color);
+  margin-bottom: 36px;
+  height: 38.5px;
 }
 
 .login-page_email-input {
@@ -74,7 +74,7 @@
   flex-direction: column;
   width: 319.5px;
   max-height: 20px;
-  background-color: transparent;
+  background-color: var(--blue-light-color);
   padding: 12px 13px 12px 25px;
   font-family: 'Golos Text';
   font-style: normal;
@@ -180,8 +180,8 @@
 }
 
 .login-page_password {
-  margin-bottom: 40px;
-  background-color: var(--blue-light-color);
+  margin-bottom: 46px;
+  height: 38.5px;
 }
 
 .login-page_password-input {
@@ -190,7 +190,7 @@
   flex-direction: column;
   width: 319.5px;
   max-height: 20px;
-  background-color: transparent;
+  background-color: var(--blue-light-color);
   padding: 12px 13px 12px 25px;
   font-family: 'Golos Text';
   font-style: normal;
@@ -314,4 +314,15 @@
 .login-page_btn-join:hover {
   background: var(--blue-color);
   border-color: var(--blue-color);
+}
+
+.valid-message {
+  height: 16px;
+  margin-top: 5px;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #F87171;
 }
