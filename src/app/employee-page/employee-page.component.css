@@ -1,0 +1,221 @@
+.employee-page_container {
+  width: 900px;
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto 102px auto;
+}
+
+.employee-page_left-side {
+  margin: 0 10px 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.employee-page_left-side_item {
+  margin: 0 auto 0 auto;
+}
+
+.employee-page_left-side_item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.employee-page_left-side_main-info {
+  padding: 15px;
+  width: 410px;
+  height: 130px;
+  background: var(--white-color);
+  box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
+  border-radius: 4px;
+  display: flex;
+}
+
+.employee-page_left-side_main-info-leftside {
+  display: flex;
+}
+
+.employee-page_left-side_main-info-rightside {
+  display: flex;
+  flex-direction: column;
+}
+
+.employees-page_photo {
+  width: 130px;
+  height: 130px;
+  margin-right: 10px;
+}
+
+.employees-page_name {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1px;
+  color: var(--black-dark-color);
+  margin-bottom: 10px;
+}
+
+.employee-page_left-side_main-info-rightside_phone {
+  margin-bottom: 8px;
+}
+
+.employee-page_left-side_main-info-rightside_phone,
+.employee-page_left-side_main-info-rightside_email {
+  text-align: center;
+  display: flex;
+}
+
+.employees-page_phone {
+  text-align: center;
+  width: 17.5px;
+  height: 17.5px;
+  margin-right: 6.75px;
+}
+
+.employees-page_phone-text {
+  text-align: center;
+  height: 21px;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--gray-darker-color);
+  cursor: pointer;
+}
+
+.employees-page_email {
+  text-align: center;
+  width: 17.5px;
+  height: 20.5px;
+  margin-right: 6.75px;
+}
+
+.employees-page_email-text {
+  text-align: center;
+  height: 21px;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--gray-darker-color);
+  cursor: pointer;
+}
+
+.employee-page_left-side_main-info-rightside_edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.employees-page_edit {
+  width: 16.67px;
+  height: 16.67px;
+  cursor: pointer;
+}
+
+.employee-page_left-side_status {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 410px;
+  height: 110px;
+  background: var(--white-color);
+  box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
+  border-radius: 4px;
+}
+
+.employee-page_status-item:not(:last-child),
+.employee-page_add-text-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.employee-page_status-item,
+.employee-page_add-text-item:not(:last-child) {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  color: var(--gray-darker-color);
+}
+
+.employee-page_add-text-vacations {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--gray-darker-color);
+}
+
+.employee-page_status_first_word {
+  margin-right: 4px;
+  color: var(--blue-dark-color);
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.employee-page_status_first_word-vacations {
+  display: inline-flex;
+}
+
+.employee-page_left-side_addition-info {
+  width: 410px;
+  height: 218px;
+  background: var(--white-color);
+  box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.employee-page_right-side {
+  margin: 0 auto 0 auto;
+  display: flex;
+  width: 450px;
+  height: 220px;
+  background: var(--white-color);
+  box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
+  border-radius: 4px;
+}
+
+.employee-page_right-side_first-block {
+  display: flex;
+  flex-direction: row;
+}
+
+.employee-page_right-side_first-block-item {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.employee-page_right-side_text {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--black-dark-color);
+}
+
+.employee-page_right-side_second-block {
+  display: flex;
+  flex-direction: row;
+}
