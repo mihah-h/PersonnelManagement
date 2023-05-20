@@ -28,6 +28,7 @@
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
   display: flex;
+  justify-content: space-between;
 }
 
 .employee-page_left-side_main-info-leftside {
@@ -37,15 +38,17 @@
 .employee-page_left-side_main-info-rightside {
   display: flex;
   flex-direction: column;
+  padding-bottom: 10px;
 }
 
 .employees-page_photo {
   width: 130px;
   height: 130px;
-  margin-right: 10px;
 }
 
 .employees-page_name {
+  width: 164px;
+  height: 60px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 500;
@@ -108,7 +111,6 @@
 
 .employee-page_left-side_main-info-rightside_edit {
   display: flex;
-  flex-direction: column;
 }
 
 .employees-page_edit {
@@ -170,6 +172,18 @@
   display: inline-flex;
 }
 
+.employee-page_add-edit {
+  display: flex;
+  justify-content: flex-end;
+  width: 20px;
+  height: 20px;
+}
+
+.employee-page_add-edit-icon {
+  padding: 3.68px, 3.68px, 6.67px, 6.67px;
+  cursor: pointer;
+}
+
 .employee-page_left-side_addition-info {
   width: 410px;
   height: 218px;
@@ -179,9 +193,16 @@
   padding: 15px;
 }
 
+.employee-page_add-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .employee-page_right-side {
   margin: 0 auto 0 auto;
   display: flex;
+  flex-direction: column;
   width: 450px;
   height: 220px;
   background: var(--white-color);
@@ -192,15 +213,33 @@
 .employee-page_right-side_first-block {
   display: flex;
   flex-direction: row;
+  width: 450px;
+  padding: 0 50px 0 10px;
 }
 
 .employee-page_right-side_first-block-item {
-  width: 100px;
   height: 40px;
   text-align: center;
   display: flex;
   justify-content: center;
+}
+
+.employee-page_right-side_first-block-project {
   margin-right: 10px;
+  width: 100px;
+}
+
+.employee-page_right-side_first-block-post {
+  margin-right: 10px;
+  width: 100px;
+}
+
+.employee-page_right-side_first-block-salary {
+  width: 80px;
+}
+
+.employee-page_right-side_first-block-date {
+  width: 90px;
 }
 
 .employee-page_right-side_text {
@@ -216,6 +255,122 @@
 }
 
 .employee-page_right-side_second-block {
+  padding: 0 15px 0 10px;
+  border-top: 1.5px solid #94A3B8;
+}
+
+.employee-page_right-side_third-block {
+  padding: 0 15px 0 10px;
+  border-width: 0.5px 0px;
+  border-style: solid;
+  border-color: #94A3B8;
+}
+
+.employee-page_right-side_second-block,
+.employee-page_right-side_third-block {
   display: flex;
   flex-direction: row;
+}
+
+.employee-page_right-side_second-block_item,
+.employee-page_right-side_third-block_item {
+  display: flex;
+  justify-content: center;
+  height: 60px;
+}
+
+.employee-page_right-side_second-block_project,
+.employee-page_right-side_third-block_project,
+.employee-page_right-side_second-block_post,
+.employee-page_right-side_third-block_post {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.employee-page_right-side_second-block_salary,
+.employee-page_right-side_third-block_salary {
+  width: 80px;
+}
+
+.employee-page_right-side_second-block_date,
+.employee-page_right-side_third-block_date {
+  width: 90px;
+  margin-right: 15px;
+}
+
+.employee-page_right-side_second-block_item-text,
+.employee-page_right-side_third-block_item-text {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #1E293B;
+}
+
+.employee-page_right-side_second-block_item-edit,
+.employee-page_right-side_third-block_item-edit {
+  display: flex;
+  justify-content: center;
+  width: 16.67px;
+  height: 16.67px;
+  margin: 20px 0 20px 0;
+  cursor: pointer;
+}
+
+.employee-page_right-side_fourth-block {
+  padding: 5px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  border-top: 1.5px solid #94A3B8;
+}
+
+.employee-page_right-side_fourth-block-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.employee-page_right-side_fourth-block-item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.employee-page_right-side_fourth-block-graphics {
+  padding: 3.33px;
+}
+
+.employee-page_graphics_img {
+  width: 33.33px;
+  height: 33.33px;
+  cursor: pointer;
+}
+
+.employee-page_btn {
+  width: 185px;
+  height: 40px;
+  border-radius: 4px;
+  color: var(--white-color);
+  transition: background-color 0.1s linear, border-color 0.1s linear;
+}
+
+.employee-page_btn_fire {
+  background-color: var(--red-light-color);
+}
+
+.employee-page_btn_fire:hover {
+  background-color: var(--red-color);
+  border-color: var(--red-color);
+}
+
+.employee-page_btn_add {
+  background-color: var(--blue-sea-color);
+}
+
+.employee-page_btn_add:hover {
+  background-color: var(--blue-color);
+  border-color: var(--blue-color);
 }

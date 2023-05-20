@@ -53,6 +53,7 @@ a {
   --blue-color: #3B82F6;
   --gray-darker-color: #64748B;
   --red-color: #EF4444;
+  --red-light-color: #FCA5A5;
 }
 
 .header-container {
@@ -64,8 +65,8 @@ a {
 
 @media (max-width: 1537px) {
   .header-container {
-      padding-left: 0;
-      padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
@@ -860,15 +861,15 @@ a {
 
 @media (max-width: 1400px) {
   .settings-list_click {
-      left: -2650%;
-      top: 50%;
+    left: -2650%;
+    top: 50%;
   }
 }
 
 @media (max-width: 1280px) {
   .settings-list_click {
-      left: -2650%;
-      top: 50%;
+    left: -2650%;
+    top: 50%;
   }
 }
 
@@ -923,7 +924,7 @@ a {
   color: var(--blue-dark-color);
 }
 
-.graphic-click:hover .info_about_qualif{
+.graphic-click:hover .info_about_qualif {
   display: block;
 }
 
@@ -933,19 +934,19 @@ a {
 
 @media (max-width: 1440px) {
   .footer {
-      margin-right: 120px;
+    margin-right: 120px;
   }
 }
 
 @media (max-width: 1280px) {
   .footer {
-      margin-right: 34px;
+    margin-right: 34px;
   }
 }
 
 @media (max-width: 1200px) {
   .footer {
-      margin-right: 0;
+    margin-right: 0;
   }
 }
 
