@@ -1,106 +1,87 @@
 <div class="main-left">
   <div *ngIf="optionsGroups; else loading" class="filter-container">
-    <ul class="info_accordion" [formGroup]="filtrationForm" (ngSubmit)="apply()">
-      <li formGroupName="status" class="info_list-tab">
-        <input type="checkbox" id="tab1">
-        <Label for="tab1" class="tab-title list-item_status panel_list-item_text">Статус</Label>
-        <ul class="tab-project_content tab-content">
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="status1" formControlName="work">
-            <Label for="status1" class="name_of_status">Работает</Label>
-          </li>
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="status2" formControlName="vacation">
-            <Label for="status2" class="name_of_status">В отпуске</Label>
-          </li>
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="status3" formControlName="dismissed">
-            <Label for="status3" class="name_of_status">Уволен</Label>
-          </li>
-        </ul>
-      </li>
-      <li class="info_list-tab">
-        <input type="checkbox" id="tab2">
-        <Label for="tab2" class="tab-title list-project panel_list-item_text">Проект</Label>
-        <ul class="tab-project_content tab-content">
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="name1">
-            <Label for="name1" class="name_of_project">Abanking</Label>
-          </li>
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="name2">
-            <Label for="name2" class="name_of_project">Nopaper</Label>
-          </li>
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="name3">
-            <Label for="name3" class="project_tradedealer name_of_project">TradeDealer</Label>
-          </li>
-        </ul>
-      </li>
-      <li class="info_list-tab">
-        <input type="checkbox" id="tab3">
-        <Label for="tab3" class="tab-title list-item_post panel_list-item_text">Должность</Label>
-      </li>
-      <li formGroupName="salary" class="info_list-tab">
-        <input type="checkbox" id="tab4">
-        <Label for="tab4" class="tab-title list-item_salary panel_list-item_text">Зарплата</Label>
-        <form class="tab-exp_content tab-content">
-          <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
-          <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
-        </form>
-      </li>
-      <li class="info_list-tab">
-        <input type="checkbox" id="tab5">
-        <Label for="tab5" class="tab-title list-item_education panel_list-item_text">Образование</Label>
-      </li>
-      <li formGroupName="experience" class="info_list-tab">
-        <input type="checkbox" id="tab6">
-        <Label for="tab6" class="tab-title list-item_exp panel_list-item_text">Стаж</Label>
-        <form class="tab-exp_content tab-content">
-          <input class="tab-text_from" type="text" placeholder="От">
-          <input class="tab-text_to" type="text" placeholder="До">
-        </form>
-      </li>
-      <li formGroupName="gender" class="info_list-tab">
-        <input type="checkbox" id="tab7">
-        <Label for="tab7" class="tab-title list-item_sex panel_list-item_text">Пол</Label>
-        <ul class="tab-project_content tab-content">
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="man" formControlName="man">
-            <Label class="name_of_sex" for="man">Мужчина</Label>
-          </li>
-          <li class="tab-project_content_item">
-            <input type="checkbox" id="woman" formControlName="woman">
-            <Label class="name_of_sex" for="woman">Женщина</Label>
-          </li>
-        </ul>
-      </li>
-      <li formGroupName="age" class="info_list-tab">
-        <input type="checkbox" id="tab8">
-        <Label for="tab8" class="tab-title list-item_age panel_list-item_text">Возраст</Label>
-        <form class="tab-exp_content tab-content">
-          <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
-          <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
-        </form>
-      </li>
-    </ul>
-    <ul class="configuration-list">
-      <li class="save-item">
-        <button type="submit" class="btn btn-save">Применить</button>
-      </li>
-      <li class="reset-item">
-        <button type="reset" class="btn btn-reset">Сбросить</button>
-      </li>
-    </ul>
+    <form [formGroup]="filtrationForm" (ngSubmit)="apply()">
+      <ul class="info_accordion">
+        <li class="info_list-tab" formGroupName="status">
+          <input type="checkbox" id="tab1">
+          <Label for="tab1" class="tab-title list-item_status panel_list-item_text">Статус</Label>
+          <ul class="tab-project_content tab-content">
+            <li class="tab-project_content_item">
+              <input type="checkbox" id="status1" formControlName="work">
+              <Label for="status1" class="name_of_status">Работает</Label>
+            </li>
+            <li class="tab-project_content_item">
+              <input type="checkbox" id="status2" formControlName="vacation">
+              <Label for="status2" class="name_of_status">В отпуске</Label>
+            </li>
+            <li class="tab-project_content_item">
+              <input type="checkbox" id="status3" formControlName="dismissed">
+              <Label for="status3" class="name_of_status">Уволен</Label>
+            </li>
+          </ul>
+        </li>
+        <li class="info_list-tab" *ngFor="let optionsGroup of optionsGroups; let i = index"
+          [formGroupName]="optionsGroup.optionsGroupName">
+          <input type="checkbox" id="{{i}}">
+          <label for="{{i}}"
+            class="tab-title list-project panel_list-item_text">{{optionsGroup.optionsGroupNameRu}}</label>
+          <ul class="tab-project_content tab-content">
+            <li class="tab-project_content_item" *ngFor="let projectOption of optionsGroup.options; let i = index">
+              <input type="checkbox" id="{{projectOption}}" [formControlName]="projectOption">
+              <Label class="name_of_project" for="{{projectOption}}">{{projectOption}}</Label>
+            </li>
+          </ul>
+        </li>
+        <li class="info_list-tab" formGroupName="salary">
+          <input type="checkbox" id="tab5">
+          <Label for="tab5" class="tab-title list-item_salary panel_list-item_text">Зарплата</Label>
+          <div class="tab-exp_content tab-content">
+            <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
+            <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
+          </div>
+        </li>
+        <li class="info_list-tab" formGroupName="experience">
+          <input type="checkbox" id="tab6">
+          <Label for="tab6" class="tab-title list-item_exp panel_list-item_text">Стаж</Label>
+          <div class="tab-exp_content tab-content">
+            <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
+            <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
+          </div>
+        </li>
+        <li class="info_list-tab" formGroupName="gender">
+          <input type="checkbox" id="tab7">
+          <Label for="tab7" class="tab-title list-item_sex panel_list-item_text">Пол</Label>
+          <ul class="tab-project_content tab-content">
+            <li class="tab-project_content_item">
+              <input type="checkbox" id="man" formControlName="man">
+              <Label class="name_of_sex" for="man">Мужчина</Label>
+            </li>
+            <li class="tab-project_content_item">
+              <input type="checkbox" id="woman" formControlName="woman">
+              <Label class="name_of_sex" for="woman">Женщина</Label>
+            </li>
+          </ul>
+        </li>
+        <li class="info_list-tab" formGroupName="age">
+          <input type="checkbox" id="tab8">
+          <Label for="tab8" class="tab-title list-item_age panel_list-item_text">Возраст</Label>
+          <div class="tab-exp_content tab-content">
+            <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
+            <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
+          </div>
+        </li>
+      </ul>
+      <ul class="configuration-list">
+        <li class="save-item">
+          <button type="submit" class="btn btn-save">Применить</button>
+        </li>
+        <li class="reset-item">
+          <button type="reset" class="btn btn-reset">Сбросить</button>
+        </li>
+      </ul>
+    </form>
   </div>
-  <div *ngFor="let optionsGroup of optionsGroups" [formGroupName]="optionsGroup.optionsGroupName">
-    <p>{{optionsGroup.optionsGroupNameRu}}</p>
-    <ul>
-      <li *ngFor="let projectOption of optionsGroup.options; let i = index">
-        <input type="checkbox" id="{{projectOption}}" [formControlName]="projectOption">
-        <Label for="{{projectOption}}">{{projectOption}}</Label>
-      </li>
-    </ul>
-  </div>
-  <ng-template #loading>...loading</ng-template>
+  <ng-template #loading>
+    loading
+  </ng-template>
 </div>
