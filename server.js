@@ -24,7 +24,7 @@ app.get('/users', (req, res) =>
     let user = base.users.find(function (user){
       return user.email === reqParams.email;
     });
-    if (user === undefined){
+    if (!user){
       console.log("ERROR");
       return res.sendStatus(400);
     }
@@ -51,7 +51,7 @@ app.get('/employees', (req, res) => {
       let employee = base.employees[reqParams.company].find(function (employee){
         return employee.email === reqParams.email;
       });
-      if (employee === undefined){
+      if (!employee){
         console.log("ERROR");
         return res.sendStatus(400);
       }
@@ -77,7 +77,7 @@ app.post('/users', jsonParser, (req, res) => {
   let user = base.users.find(function (user){
     return user.email === req.body.email;
   });
-  if (user === undefined){
+  if (!user){
     base.users.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
@@ -94,14 +94,49 @@ app.post('/employees', jsonParser, (req, res) => {
   let employee = base.employees[req.query.company].find(function (employee){
     return employee.email === req.body.email;
   });
-  if (employee === undefined){
-    base.employees.push(req.body);
+  if (!employee){
+    base.employees[req.query.company].push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
   else{
     console.log("ERROR");
     return res.sendStatus(400);
+  }
+});
+
+
+app.put('/employees', jsonParser, (req, res) => {
+  if(!req.body) return res.sendStatus(400);
+  let employee = base.employees[req.query.company].find(function (employee){
+    return employee.email === req.body.email;
+  });
+  if (!employee){
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+  else {
+    const newEmployees = base.employees[req.query.company].map((emp) => emp.email === req.body.email ? emp = req.body : emp );
+    base.employees[req.query.company] = newEmployees;
+    const json = JSON.stringify(base);
+    fs.writeFileSync('dbImit/base.json', json);
+  }
+});
+
+app.put('/users', jsonParser, (req, res) => {
+  if(!req.body) return res.sendStatus(400);
+  let user = base.users.find(function (user){
+    return user.email === req.body.email;
+  });
+  if (!user){
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+  else {
+    const newUsers = base.users.map((u) => u.email === req.body.email ? u = req.body : u );
+    base.users = newUsers;
+    const json = JSON.stringify(base);
+    fs.writeFileSync('dbImit/base.json', json);
   }
 });
 
