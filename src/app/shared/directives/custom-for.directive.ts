@@ -17,6 +17,7 @@ export class CustomForDirective implements OnChanges {
   ngOnChanges() {
     this.container.clear();
     const maxIndex = this.appCustomForStart + this.appCustomForCount;
+    if (this.appCustomForStart > this.appCustomForOf.length){ return; }
 
     for (let i = this.appCustomForStart; i < maxIndex; i++) {
       if (i >= this.appCustomForOf.length) { break; }

@@ -1,4 +1,4 @@
 {
-  "users":[{"company": "ArtSofte", "email":"admin@mail.ru","password":"admin123"}],
+  "users":[{"companyName": "ArtSofte", "email":"admin@mail.ru","password":"admin123"}],
   "employees":[]
 }

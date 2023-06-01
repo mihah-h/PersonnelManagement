@@ -89,7 +89,7 @@ app.post('/users', jsonParser, (req, res) => {
 });
 
 //отправляет employee, если он не повторяется в базе
-app.post('/employees/', jsonParser, (req, res) => {
+app.post('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   let employee = base.employees[req.query.company].find(function (employee){
     return employee.email === req.body.email;
