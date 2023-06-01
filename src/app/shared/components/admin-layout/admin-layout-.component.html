@@ -2,13 +2,13 @@
   <div class="header-container">
     <div class="header-line">
       <div class="header-left-container">
-        <a href="#" class="link">
+        <a class="link" [routerLink]="['/admin']">
           <h1 class="header-name">PManag</h1>
         </a>
       </div>
       <ul class="header-right-container">
         <li class="settings">
-          <a href="#">
+          <a [routerLink]="['/admin', 'settings']">
             <svg transform="translate(0,2)" fill="#475569" width="26" height="26" viewBox="0 0 26 26"
                  xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"

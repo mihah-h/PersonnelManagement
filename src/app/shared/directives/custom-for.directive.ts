@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Employee } from '../interfaces/employee-interfaces';
 
 @Directive({
@@ -16,7 +16,7 @@ export class CustomForDirective implements OnChanges {
 
   ngOnChanges() {
     this.container.clear();
-    let maxIndex = this.appCustomForStart + this.appCustomForCount;
+    const maxIndex = this.appCustomForStart + this.appCustomForCount;
 
     for (let i = this.appCustomForStart; i < maxIndex; i++) {
       if (i >= this.appCustomForOf.length) { break; }

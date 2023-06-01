@@ -18,7 +18,7 @@ export class ListEmployeesPageComponent implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private employeeService: EmployeeService
   ) {}
 

@@ -1,3 +1,8 @@
+.header {
+  position: sticky;
+  top: 0;
+}
+
 .header-container {
   padding: 22px 191px 23px 168px;
   background: var(--white-color);

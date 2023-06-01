@@ -11,7 +11,7 @@ import { EmployeeAddedPageComponent } from './employee-added-page/employee-added
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
 import { SearchEmployeesPipe } from "./shared/pipes/search-employees.pipe";
-import {FormControl, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ValidationMessageComponent } from "./shared/components/validation-message/validation-message.component";
 import { AuthService } from "./shared/services/auth.service";
 import {HttpClientModule} from "@angular/common/http";
@@ -42,7 +42,8 @@ import {FiltrationEmployeesPipe} from "./shared/pipes/filtration-employees.pipe"
     ReactiveFormsModule,
     ValidationMessageComponent,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [AuthService, EmployeeService],
   bootstrap: [AppComponent]

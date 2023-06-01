@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { UserLogin } from "../shared/interfaces/auth-interfaces";
 import { AuthService } from "../shared/services/auth.service";
-import { ActivatedRoute, Router } from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit{
 
   loginForm!: FormGroup
   submitted = false
@@ -43,7 +43,7 @@ export class LoginPageComponent {
       email: this.loginForm.value.emailLogin,
       password: this.loginForm.value.passwordLogin
     }
-    this.router.navigate(['/admin'])
+    this.router.navigate(['/admin', 'list-employees'])
     this.auth.login(user).subscribe(() => {
       this.loginForm.reset()
       this.submitted = false

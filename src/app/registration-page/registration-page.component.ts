@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
@@ -10,7 +10,7 @@ import { valueMatchValidator } from "../shared/validators/valueMatchValidator";
   templateUrl: './registration-page.component.html',
   styleUrls: ['../login-page/login-page.component.css']
 })
-export class RegistrationPageComponent {
+export class RegistrationPageComponent implements OnInit{
   registrationForm!: FormGroup
   submitted = false
 

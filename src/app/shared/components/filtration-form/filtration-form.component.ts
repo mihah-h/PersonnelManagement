@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup} from "@angular/forms";
 import {EmployeesInformation, OptionsGroup} from "../../interfaces/employee-interfaces";
 import {Observable} from "rxjs";
 import {Params} from "@angular/router";
@@ -20,9 +20,6 @@ export class FiltrationFormComponent implements OnInit{
 
   @Output()
   filteringParametersAreSetEvent = new EventEmitter();
-
-  constructor() {
-  }
 
   ngOnInit() {
     this.filtrationForm = new FormGroup({
@@ -52,14 +49,14 @@ export class FiltrationFormComponent implements OnInit{
     this.employeesInformation$.subscribe(employeesInformation => {
       this.optionsGroups = employeesInformation.options
 
-      for (let optionGroup of this.optionsGroups) {
+      for (const optionGroup of this.optionsGroups) {
         this.filtrationForm.addControl(optionGroup.optionsGroupName, new FormGroup({}))
         const optionsGroupName = this.filtrationForm.controls[optionGroup.optionsGroupName] as FormGroup
-        for (let option of optionGroup.options) {
+        for (const option of optionGroup.options) {
           optionsGroupName.addControl(option, new FormControl(false))
         }
-        console.log(this.filtrationForm.value)
       }
+      console.log(this.filtrationForm)
     })
   }
 
@@ -67,9 +64,9 @@ export class FiltrationFormComponent implements OnInit{
 
   apply() {
     const queryParams: Params = {}
-    for (let param in this.filtrationForm.value) {
+    for (const param in this.filtrationForm.value) {
       let queryParamValue: string
-      for (let paramValue in this.filtrationForm.value[param]) {
+      for (const paramValue in this.filtrationForm.value[param]) {
         queryParamValue = typeof(this.filtrationForm.value[param][paramValue]) === "number" ?
           this.filtrationForm.value[param][paramValue] : paramValue
         if (this.filtrationForm.value[param][paramValue]) {
@@ -78,6 +75,7 @@ export class FiltrationFormComponent implements OnInit{
         }
       }
     }
+    console.log(this.filtrationForm)
     this.filteringParametersAreSetEvent.emit(queryParams)
   }
 }

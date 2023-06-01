@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { catchError, Observable, tap } from "rxjs";
+import { Observable, tap } from "rxjs";
 import { UserLogin, UserLoginResponse, AdminRegistration } from "../interfaces/auth-interfaces";
 
 
