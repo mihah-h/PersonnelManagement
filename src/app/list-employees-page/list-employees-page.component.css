@@ -242,7 +242,9 @@ a {
   display: block;
 }
 
-.name_of_project {
+.name_of_project,
+.name_of_status,
+.name_of_sex {
   padding-left: 10px;
   padding-top: 5px;
   position: relative;
@@ -259,11 +261,15 @@ a {
   border-radius: 4px;
 }
 
-.name_of_project:hover {
+.name_of_project:hover,
+.name_of_status:hover,
+.name_of_sex:hover {
   background-color: var(--blue-light-color);
 }
 
-.name_of_project::before {
+.name_of_project::before,
+.name_of_status::before,
+.name_of_sex::before {
   margin-right: 12px;
   content: url(../../assets/img/icon_empty-square.svg);
 }
@@ -294,7 +300,9 @@ a {
   outline: 1px solid #3B82F6;
 }
 
-.tab-project_content_item :checked+.name_of_project::before {
+.tab-project_content_item :checked+.name_of_project::before,
+.tab-project_content_item :checked+.name_of_status::before,
+.tab-project_content_item :checked+.name_of_sex::before {
   content: url(../../assets/img/icon_blue-square.svg);
 }
 

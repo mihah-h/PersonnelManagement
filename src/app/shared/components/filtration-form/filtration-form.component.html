@@ -1,141 +1,106 @@
 <div class="main-left">
   <div *ngIf="optionsGroups; else loading" class="filter-container">
-    <form [formGroup]="filtrationForm"
-      (ngSubmit)="apply()">
-      <div formGroupName="status">
-        <p>Статус</p>
-        <ul>
-          <li >
+    <ul class="info_accordion" [formGroup]="filtrationForm" (ngSubmit)="apply()">
+      <li formGroupName="status" class="info_list-tab">
+        <input type="checkbox" id="tab1">
+        <Label for="tab1" class="tab-title list-item_status panel_list-item_text">Статус</Label>
+        <ul class="tab-project_content tab-content">
+          <li class="tab-project_content_item">
             <input type="checkbox" id="status1" formControlName="work">
-            <Label for="status1">Работает</Label>
+            <Label for="status1" class="name_of_status">Работает</Label>
           </li>
-          <li>
+          <li class="tab-project_content_item">
             <input type="checkbox" id="status2" formControlName="vacation">
-            <Label for="status2" >В отпуске</Label>
+            <Label for="status2" class="name_of_status">В отпуске</Label>
           </li>
-          <li >
+          <li class="tab-project_content_item">
             <input type="checkbox" id="status3" formControlName="dismissed">
-            <Label for="status3" >Уволен</Label>
+            <Label for="status3" class="name_of_status">Уволен</Label>
           </li>
         </ul>
-      </div>
-      <div *ngFor="let optionsGroup of optionsGroups" [formGroupName]="optionsGroup.optionsGroupName">
-        <p>{{optionsGroup.optionsGroupNameRu}}</p>
-        <ul>
-          <li *ngFor="let projectOption of optionsGroup.options; let i = index">
-            <input type="checkbox" id="{{projectOption}}" [formControlName]="projectOption">
-            <Label for="{{projectOption}}">{{projectOption}}</Label>
+      </li>
+      <li class="info_list-tab">
+        <input type="checkbox" id="tab2">
+        <Label for="tab2" class="tab-title list-project panel_list-item_text">Проект</Label>
+        <ul class="tab-project_content tab-content">
+          <li class="tab-project_content_item">
+            <input type="checkbox" id="name1">
+            <Label for="name1" class="name_of_project">Abanking</Label>
+          </li>
+          <li class="tab-project_content_item">
+            <input type="checkbox" id="name2">
+            <Label for="name2" class="name_of_project">Nopaper</Label>
+          </li>
+          <li class="tab-project_content_item">
+            <input type="checkbox" id="name3">
+            <Label for="name3" class="project_tradedealer name_of_project">TradeDealer</Label>
           </li>
         </ul>
-      </div>
-      <div formGroupName="salary">
-        <p>Зарплата</p>
-        <ul>
-          <li>
-            <input type="number" placeholder="От" formControlName="from">
-          </li>
-          <li >
-            <input type="number" placeholder="До" formControlName="to">
-          </li>
-        </ul>
-      </div>
-      <div formGroupName="experience" >
-        <p>Стаж</p>
-        <ul>
-          <li>
-            <input type="number" placeholder="От" formControlName="from">
-          </li>
-          <li >
-            <input type="number" placeholder="До" formControlName="to">
-          </li>
-        </ul>
-      </div>
-      <div formGroupName="gender">
-        <p>Статус</p>
-        <ul>
-          <li>
+      </li>
+      <li class="info_list-tab">
+        <input type="checkbox" id="tab3">
+        <Label for="tab3" class="tab-title list-item_post panel_list-item_text">Должность</Label>
+      </li>
+      <li formGroupName="salary" class="info_list-tab">
+        <input type="checkbox" id="tab4">
+        <Label for="tab4" class="tab-title list-item_salary panel_list-item_text">Зарплата</Label>
+        <form class="tab-exp_content tab-content">
+          <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
+          <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
+        </form>
+      </li>
+      <li class="info_list-tab">
+        <input type="checkbox" id="tab5">
+        <Label for="tab5" class="tab-title list-item_education panel_list-item_text">Образование</Label>
+      </li>
+      <li formGroupName="experience" class="info_list-tab">
+        <input type="checkbox" id="tab6">
+        <Label for="tab6" class="tab-title list-item_exp panel_list-item_text">Стаж</Label>
+        <form class="tab-exp_content tab-content">
+          <input class="tab-text_from" type="text" placeholder="От">
+          <input class="tab-text_to" type="text" placeholder="До">
+        </form>
+      </li>
+      <li formGroupName="gender" class="info_list-tab">
+        <input type="checkbox" id="tab7">
+        <Label for="tab7" class="tab-title list-item_sex panel_list-item_text">Пол</Label>
+        <ul class="tab-project_content tab-content">
+          <li class="tab-project_content_item">
             <input type="checkbox" id="man" formControlName="man">
-            <Label for="man">Мжчина</Label>
+            <Label class="name_of_sex" for="man">Мужчина</Label>
           </li>
-          <li>
+          <li class="tab-project_content_item">
             <input type="checkbox" id="woman" formControlName="woman">
-            <Label for="woman" >Женшина</Label>
+            <Label class="name_of_sex" for="woman">Женщина</Label>
           </li>
         </ul>
-      </div>
-      <div formGroupName="age">
-        <p>Возраст</p>
-        <ul>
-          <li>
-            <input type="number" placeholder="От" formControlName="from">
-          </li>
-          <li >
-            <input type="number" placeholder="До" formControlName="to">
-          </li>
-        </ul>
-      </div>
-      <button type="submit">Применить</button>
-    </form>
-<!--    <ul class="info_accordion">-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab1">-->
-<!--        <Label for="tab1" class="tab-title list-item_status panel_list-item_text">Статус</Label>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab2">-->
-<!--        <Label for="tab2" class="tab-title list-project panel_list-item_text">Проект</Label>-->
-<!--        <ul class="tab-project_content tab-content">-->
-<!--          <li class="tab-project_content_item">-->
-<!--            <input type="checkbox" id="name1">-->
-<!--            <Label for="name1" class="name_of_project">Abanking</Label>-->
-<!--          </li>-->
-<!--          <li class="tab-project_content_item">-->
-<!--            <input type="checkbox" id="name2">-->
-<!--            <Label for="name2" class="name_of_project">Nopaper</Label>-->
-<!--          </li>-->
-<!--          <li class="tab-project_content_item">-->
-<!--            <input type="checkbox" id="name3">-->
-<!--            <Label for="name3" class="project_tradedealer name_of_project">TradeDealer</Label>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab3">-->
-<!--        <Label for="tab3" class="tab-title list-item_post panel_list-item_text">Должность</Label>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab4">-->
-<!--        <Label for="tab4" class="tab-title list-item_salary panel_list-item_text">Зарплата</Label>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab5">-->
-<!--        <Label for="tab5" class="tab-title list-item_education panel_list-item_text">Образование</Label>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab6">-->
-<!--        <Label for="tab6" class="tab-title list-item_exp panel_list-item_text">Стаж</Label>-->
-<!--        <ul class="tab-exp_content tab-content">-->
-<!--          <input class="tab-text_from" type="text" placeholder="От">-->
-<!--          <input class="tab-text_to" type="text" placeholder="До">-->
-<!--        </ul>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab7">-->
-<!--        <Label for="tab7" class="tab-title list-item_sex panel_list-item_text">Пол</Label>-->
-<!--      </li>-->
-<!--      <li class="info_list-tab">-->
-<!--        <input type="checkbox" id="tab8">-->
-<!--        <Label for="tab8" class="tab-title list-item_age panel_list-item_text">Возраст</Label>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--    <ul class="configuration-list">-->
-<!--      <li class="save-item">-->
-<!--        <button class="btn btn-save">Применить</button>-->
-<!--      </li>-->
-<!--      <li class="reset-item">-->
-<!--        <button class="btn btn-reset">Сбросить</button>-->
-<!--      </li>-->
-<!--    </ul>-->
+      </li>
+      <li formGroupName="age" class="info_list-tab">
+        <input type="checkbox" id="tab8">
+        <Label for="tab8" class="tab-title list-item_age panel_list-item_text">Возраст</Label>
+        <form class="tab-exp_content tab-content">
+          <input class="tab-text_from" type="number" placeholder="От" formControlName="from">
+          <input class="tab-text_to" type="number" placeholder="До" formControlName="to">
+        </form>
+      </li>
+    </ul>
+    <ul class="configuration-list">
+      <li class="save-item">
+        <button type="submit" class="btn btn-save">Применить</button>
+      </li>
+      <li class="reset-item">
+        <button type="reset" class="btn btn-reset">Сбросить</button>
+      </li>
+    </ul>
+  </div>
+  <div *ngFor="let optionsGroup of optionsGroups" [formGroupName]="optionsGroup.optionsGroupName">
+    <p>{{optionsGroup.optionsGroupNameRu}}</p>
+    <ul>
+      <li *ngFor="let projectOption of optionsGroup.options; let i = index">
+        <input type="checkbox" id="{{projectOption}}" [formControlName]="projectOption">
+        <Label for="{{projectOption}}">{{projectOption}}</Label>
+      </li>
+    </ul>
   </div>
   <ng-template #loading>...loading</ng-template>
 </div>
