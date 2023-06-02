@@ -26,6 +26,7 @@ export class FiltrationEmployeesPipe implements PipeTransform{
 
   checkEmployeeParam(employeeParamValue: string | string[] | PeriodInCompany[],
                      param: string, paramValues: string): boolean {
+    console.log(paramValues.split('-')[0])
     if (param === 'salary' || param === 'age' || param === 'experience') {
       return ((employeeParamValue >= paramValues.split('-')[0]
         && employeeParamValue < paramValues.split('-')[1])

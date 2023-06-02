@@ -78,4 +78,8 @@ export class FiltrationFormComponent implements OnInit{
     console.log(this.filtrationForm)
     this.filteringParametersAreSetEvent.emit(queryParams)
   }
+
+  reset() {
+    this.filteringParametersAreSetEvent.emit()
+  }
 }

@@ -19,6 +19,7 @@ import {EmployeeService} from "./shared/services/employee.service";
 import {FiltrationFormComponent} from "./shared/components/filtration-form/filtration-form.component";
 import {EmployeeListItemComponent} from "./shared/components/employee-list-item/employee-list-item.component";
 import {FiltrationEmployeesPipe} from "./shared/pipes/filtration-employees.pipe";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {FiltrationEmployeesPipe} from "./shared/pipes/filtration-employees.pipe"
     ValidationMessageComponent,
     HttpClientModule,
     FormsModule,
+    SharedModule,
 
   ],
   providers: [AuthService, EmployeeService],

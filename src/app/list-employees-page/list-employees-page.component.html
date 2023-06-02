@@ -75,7 +75,7 @@
           <button class="btn btn-add" (click)="router.navigate(['/admin', 'adding-employee'])">Добавить
             сотрудника</button>
           <div class="search-form">
-            <input class="search-panel" placeholder="Поиск" type="text">
+            <input class="search-panel" placeholder="Поиск" type="text" [(ngModel)]="searchParameter">
             <svg class="search-svg" width="16" height="16" viewBox="0 0 16 16" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path fill="#64748B" fill-rule="evenodd" clip-rule="evenodd"
@@ -135,11 +135,24 @@
             </div>
           </div>
         </div>
+        <select [(ngModel)]="sortingParameter">
+          <option value="alphabet">По алфавиту</option>
+          <option value="salaryAscending" selected>Зарплате ▲</option>
+          <option value="salaryDescending">Зарплате ▼</option>
+          <option value="experienceAscending">Стажу ▲</option>
+          <option value="experienceDescending" selected>Стажу ▼</option>
+          <option value="ageAscending">Возрасту ▲</option>
+          <option value="ageDescending">Возрасту ▼</option>
+        </select>
         <div class="employess-info">
           <ul class="employees-list">
             <ng-template #loading>...Загрузка</ng-template>
             <div *ngIf="employees; else loading">
-              <app-employee-list-item *ngFor="let employee of employees | filtrationEmployees:params"
+              <app-employee-list-item
+                  *ngFor="let employee of employees
+                  | filtrationEmployees:filtrationParameters
+                  | sortingEmployees:sortingParameter
+                  | searchEmployees:searchParameter"
                 [employee]="employee"></app-employee-list-item>
             </div>
             <li class="employees-item">

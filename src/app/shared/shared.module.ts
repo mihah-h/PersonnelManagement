@@ -9,10 +9,11 @@ import { SortingPipe } from './pipes/sorting.pipe';
 
   ],
   exports: [
+    SortingPipe
 
   ],
   declarations: [
-  
+
     SortingPipe
   ],
 })

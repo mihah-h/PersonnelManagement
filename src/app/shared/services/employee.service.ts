@@ -82,7 +82,7 @@ export class EmployeeService {
     })
   }
 
-  get() {
-    this.http.get('http://localhost:3000/employees?company=ArtSofte').subscribe((s => console.log(s)))
-  }
+  // get() {
+  //   this.http.get('http://localhost:3000/employees?company=ArtSofte').subscribe((s => console.log(s)))
+  // }
 }

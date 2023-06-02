@@ -1,16 +1,17 @@
 import { Pipe, PipeTransform } from "@angular/core";
+import {Employee} from "../interfaces/employee-interfaces";
 
 @Pipe({
   name: 'searchEmployees'
 })
 export class SearchEmployeesPipe implements PipeTransform{
-  transform(employees: string[], search = ''): any {
+  transform(employees: Employee[], search = ''): any {
     if (!search.trim()) {
       return employees
     }
 
     return employees.filter(employee => {
-      return employee.toLowerCase().includes(search.toLowerCase())
+      return employee.surname.toLowerCase().includes(search.toLowerCase())
     })
   }
 

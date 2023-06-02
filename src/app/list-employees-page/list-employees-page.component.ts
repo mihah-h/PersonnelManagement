@@ -3,6 +3,7 @@ import {Observable, Subscription} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {EmployeeService} from "../shared/services/employee.service";
 import {Employee, EmployeesInformation} from "../shared/interfaces/employee-interfaces";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-list-employees-page',
@@ -14,7 +15,9 @@ export class ListEmployeesPageComponent implements OnInit{
   employeesInformationSub!: Subscription
   employees!: Employee[]
   employeesInformation$!: Observable<EmployeesInformation>
-  params!: Params
+  filtrationParameters!: Params
+  sortingParameter: string = 'alphabet'
+  searchParameter: string = ''
 
   constructor(
     private route: ActivatedRoute,
@@ -24,19 +27,22 @@ export class ListEmployeesPageComponent implements OnInit{
 
   ngOnInit() {
     this.employeesInformation$ = this.employeeService.getEmployeesInformation()
-    console.log(this.employeeService.get())
     this.employeesInformationSub = this.employeesInformation$.subscribe(employeesInformation => {
       this.employees = employeesInformation.employees
     })
 
     this.route.queryParams.subscribe(queryParams => {
-      this.params = queryParams
+      this.filtrationParameters = queryParams
     })
-
 
   }
 
   take($queryParams: Params) {
+    this.router.navigate([], { queryParams: $queryParams })
+
+  }
+
+  takeSort($queryParams: Params) {
     this.router.navigate([], { queryParams: $queryParams })
 
   }
