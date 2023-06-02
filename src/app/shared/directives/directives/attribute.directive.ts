@@ -13,7 +13,7 @@ export class AttributeDirective {
     private el: ElementRef,
     private renderer: Renderer2
   ) { }
-  hover() {
-    this.el.nativeElement.style.color='#3B82F6'
+  click() {
+    this.el.nativeElement.style.color = '#3B82F6'
   }
 }
