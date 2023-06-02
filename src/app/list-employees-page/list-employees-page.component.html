@@ -6,7 +6,7 @@
     <div class="main-info">
       <div class="main-left">
         <app-filtration-form [employeesInformation$]="employeesInformation$"
-            (filteringParametersAreSetEvent)="take($event)"></app-filtration-form>
+          (filteringParametersAreSetEvent)="take($event)"></app-filtration-form>
         <!-- <div class="filter-container">
           <ul class="info_accordion">
             <li class="info_list-tab">
@@ -85,75 +85,27 @@
           </div>
           <div class="burger-container">
             <div class="sort-panel"><a [routerLink]="['/admin']">Сортировка по:
-                <span class="sort_panel_salary">
-                  Зарплате ▲
-                </span></a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="alph">
-                  <label for="alph" class="sort-item_text">
-                    Алфавиту
-                  </label>
-                </li>
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="salary-up">
-                  <label for="salary-up" class="sort-item_text">
-                    Зарплате ▲
-                  </label>
-                </li>
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="salary-down">
-                  <label for="salary-down" class="sort-item_text">
-                    Зарплате ▼
-                  </label>
-                </li>
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="exp-up">
-                  <label for="exp-up" class="sort-item_text">
-                    Стажу ▲
-                  </label>
-                </li>
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="exp-down">
-                  <label for="exp-down" class="sort-item_text">
-                    Стажу ▼
-                  </label>
-                </li>
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="age-up">
-                  <label for="age-up" class="sort-item_text">
-                    Возрасту ▲
-                  </label>
-                </li>
-                <li class="dropdown-menu_item">
-                  <input type="checkbox" id="age-down">
-                  <label for="age-down" class="sort-item_text">
-                    Возрасту ▼
-                  </label>
-                </li>
-              </ul>
+                <select class="sort_param" [(ngModel)]="sortingParameter">
+                  <option class="sort_element" value="alphabet">Алфавиту</option>
+                  <option class="sort_element" value="salaryAscending" selected>Зарплате ▲</option>
+                  <option class="sort_element" value="salaryDescending">Зарплате ▼</option>
+                  <option class="sort_element" value="experienceAscending">Стажу ▲</option>
+                  <option class="sort_element" value="experienceDescending" selected>Стажу ▼</option>
+                  <option class="sort_element" value="ageAscending">Возрасту ▲</option>
+                  <option class="sort_element" value="ageDescending">Возрасту ▼</option>
+                </select>
+              </a>
             </div>
           </div>
         </div>
-        <select [(ngModel)]="sortingParameter">
-          <option value="alphabet">По алфавиту</option>
-          <option value="salaryAscending" selected>Зарплате ▲</option>
-          <option value="salaryDescending">Зарплате ▼</option>
-          <option value="experienceAscending">Стажу ▲</option>
-          <option value="experienceDescending" selected>Стажу ▼</option>
-          <option value="ageAscending">Возрасту ▲</option>
-          <option value="ageDescending">Возрасту ▼</option>
-        </select>
         <div class="employess-info">
           <ul class="employees-list">
             <ng-template #loading>...Загрузка</ng-template>
             <div *ngIf="employees; else loading">
-              <app-employee-list-item
-                  *ngFor="let employee of employees
+              <app-employee-list-item *ngFor="let employee of employees
                   | filtrationEmployees:filtrationParameters
                   | sortingEmployees:sortingParameter
-                  | searchEmployees:searchParameter"
-                [employee]="employee"></app-employee-list-item>
+                  | searchEmployees:searchParameter" [employee]="employee"></app-employee-list-item>
             </div>
             <li class="employees-item">
               <img class="employees-photo"

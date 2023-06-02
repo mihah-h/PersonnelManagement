@@ -571,11 +571,40 @@ a {
 }
 
 .burger-container {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
 }
 
-.sort-panel {
-  position: relative;
+.burger-container:focus-within .sort_param {
+  color: var(--blue-color);
+}
+
+.sort_param {
+  width: 115px;
+  display: inline-flex;
+  border: none;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* color: var(--gray-color); */
+}
+
+.sort_param option {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  display: flex;
+  align-items: center;
+
+  /* Light Version/Neutral/Blue Gray 600 */
+
+  color: #475569;
 }
 
 .burger-container:focus-within .sort_panel_salary {
@@ -640,7 +669,7 @@ a {
 }
 
 .sort-panel {
-  display: flex;
+  display: inline-flex;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -648,17 +677,6 @@ a {
   line-height: 24px;
   /* identical to box height, or 150% */
   color: var(--blue-dark-color);
-}
-
-.sort-panel::after {
-  content: url(../../assets/img/line-icon.svg);
-  height: 19px;
-  display: flex;
-  align-items: center;
-}
-
-.sort_panel_salary {
-  color: var(--gray-color);
 }
 
 .sort-link {
