@@ -21,6 +21,7 @@ import {EmployeeListItemComponent} from "./shared/components/employee-list-item/
 import {SharedModule} from "./shared/shared.module";
 import {PipesModule} from "./shared/pipes/pipes/pipes.module";
 import {DirectivesModule} from "./shared/directives/directives/directives.module";
+import {GuardAuth} from "./shared/services/guard.auth";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import {DirectivesModule} from "./shared/directives/directives/directives.module
     DirectivesModule
 
   ],
-  providers: [AuthService, EmployeeService],
+  providers: [AuthService, EmployeeService, GuardAuth],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

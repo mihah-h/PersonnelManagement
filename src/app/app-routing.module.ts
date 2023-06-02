@@ -8,12 +8,13 @@ import { EmployeePageComponent } from "./employee-page/employee-page.component";
 import { AddingEmployeePageComponent } from "./adding-employee-page/adding-employee-page.component";
 import { EmployeeAddedPageComponent } from "./employee-added-page/employee-added-page.component";
 import { SettingsPageComponent } from "./settings-page/settings-page.component";
+import {GuardAuth} from "./shared/services/guard.auth";
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginPageComponent},
   {path: 'registration', component: RegistrationPageComponent},
-  {path: 'admin', component: AdminLayoutComponent, children: [
+  {path: 'admin', component: AdminLayoutComponent, canActivate: [GuardAuth], children: [
       {path: '', redirectTo: '/admin/list-employees', pathMatch: 'full'},
       {path: 'list-employees', component: ListEmployeesPageComponent},
       {path: 'adding-employee', component: AddingEmployeePageComponent},

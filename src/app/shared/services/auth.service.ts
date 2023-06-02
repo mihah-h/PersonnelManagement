@@ -15,6 +15,7 @@ export class AuthService {
   }
 
   login(user: UserLogin): Observable<UserLoginResponse | null> {
+    localStorage.setItem('token', '23323223')
     return this.http.post<UserLoginResponse>('', user)
       .pipe(
         tap(this.setToken)
@@ -29,6 +30,7 @@ export class AuthService {
 
   logout() {
     this.setToken(null)
+    localStorage.clear()
   }
 
   isAuthenticated(): boolean {
