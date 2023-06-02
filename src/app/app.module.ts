@@ -21,7 +21,15 @@ import {EmployeeListItemComponent} from "./shared/components/employee-list-item/
 import {SharedModule} from "./shared/shared.module";
 import {PipesModule} from "./shared/pipes/pipes/pipes.module";
 import {DirectivesModule} from "./shared/directives/directives/directives.module";
+<<<<<<< Updated upstream
 import {GuardAuth} from "./shared/services/guard.auth";
+=======
+<<<<<<< HEAD
+import { AttributeDirective } from './shared/directives/directives/attribute.directive';
+=======
+import {GuardAuth} from "./shared/services/guard.auth";
+>>>>>>> f5208b6ccafb9e9312aee26883324b33bb211aef
+>>>>>>> Stashed changes
 
 @NgModule({
   declarations: [
@@ -36,6 +44,7 @@ import {GuardAuth} from "./shared/services/guard.auth";
     AdminLayoutComponent,
     FiltrationFormComponent,
     EmployeeListItemComponent,
+    AttributeDirective,
   ],
   imports: [
     BrowserModule,
