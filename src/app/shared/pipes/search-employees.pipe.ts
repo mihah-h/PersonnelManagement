@@ -5,7 +5,7 @@ import {Employee} from "../interfaces/employee-interfaces";
   name: 'searchEmployees'
 })
 export class SearchEmployeesPipe implements PipeTransform{
-  transform(employees: Employee[], search = ''): any {
+  transform(employees: Employee[], search = ''): Employee[] {
     if (!search.trim()) {
       return employees
     }

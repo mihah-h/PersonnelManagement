@@ -3,6 +3,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { EmployeeListItemComponent } from './components/employee-list-item/employee-list-item.component';
 import { FiltrationFormComponent } from './components/filtration-form/filtration-form.component';
 import { SortingPipe } from './pipes/sorting.pipe';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { SortingPipe } from './pipes/sorting.pipe';
   ],
   declarations: [
 
-    SortingPipe
+    SortingPipe,
+      PaginationPipe
   ],
 })
 export class SharedModule {
