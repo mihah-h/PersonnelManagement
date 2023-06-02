@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Employee} from "../../interfaces/employee-interfaces";
+import {Employee} from "../../interfaces/employeeInterfaces/employee";
 
 @Component({
   selector: 'app-employee-list-item',

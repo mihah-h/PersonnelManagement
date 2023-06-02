@@ -1,6 +1,8 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import {Params} from "@angular/router";
-import {Employee, PeriodInCompany} from "../interfaces/employee-interfaces";
+// import {Employee, PeriodInCompany} from "../interfaces/employee-interfaces";
+import {Employee} from "../interfaces/employeeInterfaces/employee";
+import {PeriodInCompany} from "../interfaces/employeeInterfaces/periodInCompany";
 
 @Pipe({
   name: 'filtrationEmployees'

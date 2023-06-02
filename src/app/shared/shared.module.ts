@@ -10,13 +10,10 @@ import { PaginationPipe } from './pipes/pagination.pipe';
 
   ],
   exports: [
-    SortingPipe
 
   ],
   declarations: [
 
-    SortingPipe,
-      PaginationPipe
   ],
 })
 export class SharedModule {

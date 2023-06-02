@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Employee} from "../interfaces/employee-interfaces";
+import {Employee} from "../interfaces/employeeInterfaces/employee";
 import {Params} from "@angular/router";
 
 @Pipe({

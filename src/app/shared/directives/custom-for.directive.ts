@@ -1,5 +1,5 @@
 import { Directive, Input, OnChanges, TemplateRef, ViewContainerRef } from '@angular/core';
-import { Employee } from '../interfaces/employee-interfaces';
+import {Employee} from "../interfaces/employeeInterfaces/employee";
 
 @Directive({
   selector: '[appCustomFor]',

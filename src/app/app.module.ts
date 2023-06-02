@@ -18,8 +18,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {EmployeeService} from "./shared/services/employee.service";
 import {FiltrationFormComponent} from "./shared/components/filtration-form/filtration-form.component";
 import {EmployeeListItemComponent} from "./shared/components/employee-list-item/employee-list-item.component";
-import {FiltrationEmployeesPipe} from "./shared/pipes/filtration-employees.pipe";
 import {SharedModule} from "./shared/shared.module";
+import {PipesModule} from "./shared/pipes/pipes/pipes.module";
+import {DirectivesModule} from "./shared/directives/directives/directives.module";
 
 @NgModule({
   declarations: [
@@ -32,10 +33,8 @@ import {SharedModule} from "./shared/shared.module";
     EmployeeAddedPageComponent,
     RegistrationPageComponent,
     AdminLayoutComponent,
-    SearchEmployeesPipe,
     FiltrationFormComponent,
     EmployeeListItemComponent,
-    FiltrationEmployeesPipe
   ],
   imports: [
     BrowserModule,
@@ -45,6 +44,8 @@ import {SharedModule} from "./shared/shared.module";
     HttpClientModule,
     FormsModule,
     SharedModule,
+    PipesModule,
+    DirectivesModule
 
   ],
   providers: [AuthService, EmployeeService],

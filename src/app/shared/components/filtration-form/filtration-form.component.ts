@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
-import {EmployeesInformation, OptionsGroup} from "../../interfaces/employee-interfaces";
+import {EmployeesInformation} from "../../interfaces/employeeInterfaces/employeesInformation";
+import {OptionsGroup} from "../../interfaces/employeeInterfaces/optionsGroup";
 import {Observable} from "rxjs";
 import {Params} from "@angular/router";
 

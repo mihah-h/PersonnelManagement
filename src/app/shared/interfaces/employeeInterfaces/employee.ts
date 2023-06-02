@@ -1,16 +1,4 @@
-export interface PeriodInCompany {
-  project: string
-  position: string
-  salary: string
-  date: string
-}
-
-export interface OptionsGroup{
-  optionsGroupNameRu: string
-  optionsGroupName: string
-  options: string[]
-}
-
+import {PeriodInCompany} from "./periodInCompany";
 
 export interface Employee {
   photo: string
@@ -34,10 +22,3 @@ export interface Employee {
   vacations: string[]
   historyInCompany: PeriodInCompany[]
 }
-
-export interface EmployeesInformation {
-  employees: Employee[]
-  options: OptionsGroup[]
-}
-
-

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable, Subscription} from "rxjs";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {EmployeeService} from "../shared/services/employee.service";
-import {Employee, EmployeesInformation} from "../shared/interfaces/employee-interfaces";
+import {Employee} from "../shared/interfaces/employeeInterfaces/employee";
+import {EmployeesInformation} from "../shared/interfaces/employeeInterfaces/employeesInformation";
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
