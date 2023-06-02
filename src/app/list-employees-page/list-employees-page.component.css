@@ -575,6 +575,7 @@ a {
   flex-direction: row;
 }
 
+.burger-container:hover .sort_param,
 .burger-container:focus-within .sort_param {
   color: var(--blue-color);
 }
@@ -588,6 +589,7 @@ a {
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
+  transition: color 0.1s ease-in-out;
   /* color: var(--gray-color); */
 }
 
@@ -677,6 +679,10 @@ a {
   line-height: 24px;
   /* identical to box height, or 150% */
   color: var(--blue-dark-color);
+}
+
+.sort-panel a {
+  cursor: default;
 }
 
 .sort-link {

@@ -84,7 +84,7 @@
             </svg>
           </div>
           <div class="burger-container">
-            <div class="sort-panel"><a [routerLink]="['/admin']">Сортировка по:
+            <div class="sort-panel"><a class="sort-panel-click" [routerLink]="['/admin']">Сортировка по:
                 <select class="sort_param" [(ngModel)]="sortingParameter">
                   <option class="sort_element" value="alphabet">Алфавиту</option>
                   <option class="sort_element" value="salaryAscending" selected>Зарплате ▲</option>
