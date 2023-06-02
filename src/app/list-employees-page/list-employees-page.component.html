@@ -7,68 +7,6 @@
       <div class="main-left">
         <app-filtration-form [employeesInformation$]="employeesInformation$"
           (filteringParametersAreSetEvent)="take($event)"></app-filtration-form>
-        <!-- <div class="filter-container">
-          <ul class="info_accordion">
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab1">
-              <Label for="tab1" class="tab-title list-item_status panel_list-item_text">Статус</Label>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab2">
-              <Label for="tab2" class="tab-title list-project panel_list-item_text">Проект</Label>
-              <ul class="tab-project_content tab-content">
-                <li class="tab-project_content_item">
-                  <input type="checkbox" id="name1">
-                  <Label for="name1" class="name_of_project">Abanking</Label>
-                </li>
-                <li class="tab-project_content_item">
-                  <input type="checkbox" id="name2">
-                  <Label for="name2" class="name_of_project">Nopaper</Label>
-                </li>
-                <li class="tab-project_content_item">
-                  <input type="checkbox" id="name3">
-                  <Label for="name3" class="project_tradedealer name_of_project">TradeDealer</Label>
-                </li>
-              </ul>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab3">
-              <Label for="tab3" class="tab-title list-item_post panel_list-item_text">Должность</Label>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab4">
-              <Label for="tab4" class="tab-title list-item_salary panel_list-item_text">Зарплата</Label>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab5">
-              <Label for="tab5" class="tab-title list-item_education panel_list-item_text">Образование</Label>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab6">
-              <Label for="tab6" class="tab-title list-item_exp panel_list-item_text">Стаж</Label>
-              <ul class="tab-exp_content tab-content">
-                <input class="tab-text_from" type="text" placeholder="От">
-                <input class="tab-text_to" type="text" placeholder="До">
-              </ul>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab7">
-              <Label for="tab7" class="tab-title list-item_sex panel_list-item_text">Пол</Label>
-            </li>
-            <li class="info_list-tab">
-              <input type="checkbox" id="tab8">
-              <Label for="tab8" class="tab-title list-item_age panel_list-item_text">Возраст</Label>
-            </li>
-          </ul>
-          <ul class="configuration-list">
-            <li class="save-item">
-              <button class="btn btn-save">Применить</button>
-            </li>
-            <li class="reset-item">
-              <button class="btn btn-reset">Сбросить</button>
-            </li>
-          </ul>
-        </div> -->
       </div>
       <div class="main-right">
         <div class="middle-panel">
@@ -83,9 +21,9 @@
                 fill="#64748B" />
             </svg>
           </div>
-          <div class="burger-container">
-            <div class="sort-panel"><a class="sort-panel-click" [routerLink]="['/admin']">Сортировка по:
-                <select class="sort_param" [(ngModel)]="sortingParameter">
+          <div appAttribute class="burger-container">
+            <div appAttribute class="sort-panel"><a class="sort-panel-click" [routerLink]="['/admin']">Сортировка по:
+                <select appAttribute class="sort_param" [(ngModel)]="sortingParameter">
                   <option class="sort_element" value="alphabet">Алфавиту</option>
                   <option class="sort_element" value="salaryAscending" selected>Зарплате ▲</option>
                   <option class="sort_element" value="salaryDescending">Зарплате ▼</option>
