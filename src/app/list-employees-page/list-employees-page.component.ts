@@ -24,6 +24,7 @@ export class ListEmployeesPageComponent implements OnInit{
 
   ngOnInit() {
     this.employeesInformation$ = this.employeeService.getEmployeesInformation()
+    console.log(this.employeeService.get())
     this.employeesInformationSub = this.employeesInformation$.subscribe(employeesInformation => {
       this.employees = employeesInformation.employees
     })

@@ -1,10 +1,12 @@
 import { Injectable } from "@angular/core";
 import { EmployeesInformation } from "../interfaces/employee-interfaces";
 import { Observable } from "rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class EmployeeService {
-
+  constructor(private http: HttpClient) {
+  }
   getEmployeesInformation(): Observable<EmployeesInformation> {
     return new Observable(observer => {
       setTimeout(() => {
@@ -78,5 +80,9 @@ export class EmployeeService {
         })
       }, 1000)
     })
+  }
+
+  get() {
+    this.http.get('http://localhost:3000/employees?company=ArtSofte').subscribe((s => console.log(s)))
   }
 }
