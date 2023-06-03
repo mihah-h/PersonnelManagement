@@ -103,6 +103,12 @@
   width: 317px;
 }
 
+.adding-employee-page-first-list-item input[type="date"]:before,
+.adding-employee-page-second-list-item input[type="date"]:before,
+.adding-employee-page-third-list-item input[type="date"]:before {
+  content: attr(placeholder);
+}
+
 .adding-employee-page_select-style {
   border: none;
   background-color: #EFF6FF;
