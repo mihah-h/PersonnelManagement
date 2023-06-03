@@ -308,3 +308,18 @@
   background-color: #3B82F6;
   border-color: #3B82F6;
 }
+
+.adding-employee-page-input-date {
+  border: none;
+  outline: none;
+  max-height: 20px;
+  background-color: transparent;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  /* or 171% */
+  align-items: center;
+  color: var(--gray-darker-color);
+}
