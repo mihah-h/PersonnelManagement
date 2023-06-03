@@ -1,6 +1,8 @@
 <li class="employees-item">
+  <button (click)="goEmployeePage()">
   <img class="employees-photo" src="../../assets/img/portrait-of-beautiful-young-woman-standing-on-grey-wall_3.png"
     alt="">
+  </button>
   <div class="name_with_status">
     <h3 class="employees-name">{{employee.name}} {{employee.surname}} <br> {{employee.patronymic}}</h3>
     <span class="employees-status status-work">Работает с {{employee.employmentDate}}</span>

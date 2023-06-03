@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Router, RouterModule} from "@angular/router";
+import {EmployeeService} from "../shared/services/employee.service";
+import {OptionsGroup} from "../shared/interfaces/employeeInterfaces/optionsGroup";
 
 @Component({
   selector: 'app-adding-employee-page',
@@ -10,11 +12,15 @@ import {Router, RouterModule} from "@angular/router";
 export class AddingEmployeePageComponent implements OnInit{
 
   newEmployeeForm!: FormGroup
+  optionsGroup!: OptionsGroup[]
 
-  constructor(private router: Router) {
+  constructor(private employees: EmployeeService, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.employees.getEmployeesInformation().
+    subscribe(employeesInformation => this.optionsGroup = employeesInformation.options)
+
     this.newEmployeeForm = new FormGroup({
       photo: new FormControl(''),
       name: new FormControl(''),

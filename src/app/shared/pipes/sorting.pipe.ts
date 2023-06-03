@@ -21,46 +21,28 @@ export class SortingPipe implements PipeTransform {
       })
     }
     if (param === 'salaryAscending') {
-      return employees.sort(function (employee1, employee2) {
-        const textA = employee1.salary
-        const textB = employee2.salary
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })
+      return employees.sort((employee1, employee2) =>
+        parseFloat(employee1.salary) - parseFloat(employee2.salary))
     }
     if (param === 'salaryDescending') {
-      return employees.sort(function (employee1, employee2) {
-        const textA = employee1.salary
-        const textB = employee2.salary
-        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
-      })
+      return employees.sort((employee1, employee2) =>
+        parseFloat(employee2.salary) - parseFloat(employee1.salary))
     }
     if (param === 'experienceAscending') {
-      return employees.sort(function (employee1, employee2) {
-        const textA = employee1.experience
-        const textB = employee2.experience
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })
+      return employees.sort((employee1, employee2) =>
+        parseFloat(employee1.experience) - parseFloat(employee2.experience))
     }
     if (param === 'experienceDescending') {
-      return employees.sort(function (employee1, employee2) {
-        const textA = employee1.experience
-        const textB = employee2.experience
-        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
-      })
+      return employees.sort((employee1, employee2) =>
+        parseFloat(employee2.experience) - parseFloat(employee1.experience))
     }
     if (param === 'ageAscending') {
-      return employees.sort(function (employee1, employee2) {
-        const textA = employee1.age
-        const textB = employee2.age
-        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-      })
+      return employees.sort((employee1, employee2) =>
+        parseFloat(employee1.age) - parseFloat(employee2.age))
     }
     if (param === 'ageDescending') {
-      return employees.sort(function (employee1, employee2) {
-        const textA = employee1.age
-        const textB = employee2.age
-        return (textA > textB) ? -1 : (textA < textB) ? 1 : 0;
-      })
+      return employees.sort((employee1, employee2) =>
+        parseFloat(employee2.age) - parseFloat(employee1.age))
     }
 
     return employees
