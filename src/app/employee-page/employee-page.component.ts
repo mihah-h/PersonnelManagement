@@ -22,7 +22,6 @@ export class EmployeePageComponent {
     // this.employeeInformation = this.route.params
     //   .pipe(switchMap((params: Params) => {
     //     return this.employee.getEmployeesInformation()
-    //       .pipe(switchMap((employee => employee.employees.filter(emp => emp.email === params))))
     //   }))
   }
 }

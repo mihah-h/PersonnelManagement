@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {ErrorHandler, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import {SharedModule} from "./shared/shared.module";
 import {PipesModule} from "./shared/pipes/pipes/pipes.module";
 import {DirectivesModule} from "./shared/directives/directives/directives.module";
 import {GuardAuth} from "./shared/services/guard.auth";
+import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.service";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,12 @@ import {GuardAuth} from "./shared/services/guard.auth";
     DirectivesModule
 
   ],
-  providers: [AuthService, EmployeeService, GuardAuth],
+  providers: [
+    AuthService,
+    EmployeeService,
+    GuardAuth,
+    {provide: ErrorHandler, useClass: GlobalErrorHandlerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,7 +6,7 @@ import {CustomForDirective} from "../custom-for.directive";
 
 @NgModule({
   declarations: [
-    CustomForDirective
+    CustomForDirective,
   ],
   imports: [
     CommonModule
