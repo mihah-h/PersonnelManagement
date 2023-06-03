@@ -15,6 +15,7 @@ app.use(function(req, res, next) {
 });
 
 
+
 //запрос вида .get('http://localhost:3000/users').subscribe((data: User[]) => (this.users = data));
 //получение всех объектов user, если через ? указан email, то поиск по email
 app.get('/users', (req, res) =>
@@ -37,7 +38,6 @@ app.get('/users', (req, res) =>
   };
 });
 
-
 //получение всех объектов employee
 // app.get('/employees', (req, res) => res.status(200).json(base.employees));
 
@@ -48,7 +48,7 @@ app.get('/employees', (req, res) => {
   reqParams = req.query;
   if ('company' in reqParams){
     if ('email' in reqParams){
-      let employee = base.employees[reqParams.company].find(function (employee){
+      let employee = base.employees[reqParams.company].employeesInfo.find(function (employee){
         return employee.email === reqParams.email;
       });
       if (!employee){
@@ -61,7 +61,7 @@ app.get('/employees', (req, res) => {
     }
     else{
       employeesInCompany = [];
-      for (employee of base.employees[reqParams.company]){
+      for (employee of base.employees[reqParams.company].employeesInfo){
         employeesInCompany.push(employee);
       }
       res.status(200).json(employeesInCompany);
@@ -69,10 +69,25 @@ app.get('/employees', (req, res) => {
   }
 });
 
+app.get('/options', (req, res) => {
+  reqParams = req.query;
+  if ('company' in reqParams){
+    if ('option' in reqParams){
+      res.status(200).json(base.employees[reqParams.company].options[reqParams.option]);
+    }
+    else{
+      res.status(200).json(base.employees[reqParams.company].options);
+    }
+  }
+  else{
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+});
 
-//запрос вида .post('http://localhost:3000/users', newUser).subscribe((data: User) => {(*любая обработка*)});
-//отправляет user, если он не повторяется в базе
-app.post('/users', jsonParser, (req, res) => {
+
+
+app.post('/users/register', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   let user = base.users.find(function (user){
     return user.email === req.body.email;
@@ -84,18 +99,37 @@ app.post('/users', jsonParser, (req, res) => {
   }
   else{
     console.log("ERROR");
-    return res.sendStatus(400);
+    return res.sendStatus(409);
+  }
+});
+
+app.post('/users/auth', (req, res) =>
+{
+  if(!req.body) return res.sendStatus(400);
+  const user = base.users.find(function (u){
+    return u.email === req.body.email;
+  });
+  if (user && user.password === req.body.password){
+    const token = jwt.sign(user, JWT_Secret);
+    res.status(200).send({
+      signed_user: user,
+      token: token
+    });
+  }
+  else{
+    console.log("ERROR");
+    return res.sendStatus(409);
   }
 });
 
 //отправляет employee, если он не повторяется в базе
 app.post('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  let employee = base.employees[req.query.company].find(function (employee){
+  let employee = base.employees[req.query.company].employeesInfo.find(function (employee){
     return employee.email === req.body.email;
   });
   if (!employee){
-    base.employees[req.query.company].push(req.body);
+    base.employees[req.query.company].employeesInfo.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
@@ -105,10 +139,27 @@ app.post('/employees', jsonParser, (req, res) => {
   }
 });
 
+app.post('/options', jsonParser, (req, res) => {
+  if(!req.body) return res.sendStatus(400);
+  const option = base.employees[req.query.company].options.find(function (opt){
+    return opt.optionsGroupName === req.body.optionsGroupName;
+  });
+  if (!option){
+    base.employees[req.query.company].options.push(req.body);
+    const json = JSON.stringify(base);
+    fs.writeFileSync('dbImit/base.json', json);
+  }
+  else{
+    console.log("ERROR");
+    return res.sendStatus(409);
+  }
+});
+
+
 
 app.put('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  let employee = base.employees[req.query.company].find(function (employee){
+  let employee = base.employees[req.query.company].employeesInfo.find(function (employee){
     return employee.email === req.body.email;
   });
   if (!employee){
@@ -116,8 +167,8 @@ app.put('/employees', jsonParser, (req, res) => {
     return res.sendStatus(400);
   }
   else {
-    const newEmployees = base.employees[req.query.company].map((emp) => emp.email === req.body.email ? emp = req.body : emp );
-    base.employees[req.query.company] = newEmployees;
+    const newEmployees = base.employees[req.query.company].employeesInfo.map((emp) => emp.email === req.body.email ? emp = req.body : emp );
+    base.employees[req.query.company].employeesInfo = newEmployees;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
@@ -135,6 +186,23 @@ app.put('/users', jsonParser, (req, res) => {
   else {
     const newUsers = base.users.map((u) => u.email === req.body.email ? u = req.body : u );
     base.users = newUsers;
+    const json = JSON.stringify(base);
+    fs.writeFileSync('dbImit/base.json', json);
+  }
+});
+
+app.put('/options', jsonParser, (req, res) => {
+  if(!req.body) return res.sendStatus(400);
+  const option = base.employees[req.query.company].options.find(function (opt){
+    return opt.optionsGroupName === req.body.optionsGroupName;
+  });
+  if (!option){
+    console.log("ERROR");
+    return res.sendStatus(400);
+  }
+  else {
+    const newOptions = base.employees[req.query.company].options.map((opt) => opt.optionsGroupName === req.body.optionsGroupName ? opt = req.body : opt );
+    base.employees[req.query.company].options = newOptions;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }

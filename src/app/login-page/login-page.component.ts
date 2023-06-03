@@ -10,7 +10,6 @@ import { Router } from "@angular/router";
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent implements OnInit{
-
   loginForm!: FormGroup
   submitted = false
 
@@ -34,23 +33,26 @@ export class LoginPageComponent implements OnInit{
 
   submit() {
     if (this.loginForm.invalid) {
-      return
+      return;
     }
 
-    this.submitted = true
+    this.submitted = true;
 
     const user: UserLogin = {
       email: this.loginForm.value.emailLogin,
       password: this.loginForm.value.passwordLogin
     }
-    this.router.navigate(['/admin', 'list-employees'])
+
+    // this.router.navigate(['/admin', 'list-employees']);
     this.auth.login(user).subscribe(() => {
-      this.loginForm.reset()
-      this.submitted = false
-      this.router.navigate(['/admin'])
-    }, (err) => {
-      console.log(err)
-      this.submitted = false
+      this.loginForm.reset();
+      this.submitted = false;
+      this.router.navigate(['/admin']);
+    },
+    (err: Response) => {
+      // this.router.navigate(['/admin', 'list-employees']);
+      this.submitted = false;
+      console.log(err);
     })
   }
 }

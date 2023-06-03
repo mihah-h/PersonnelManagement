@@ -1,4 +1,2 @@
-{
-  "users":[{"companyName": "ArtSofte", "email":"admin@mail.ru","password":"admin123"}],
-  "employees":[]
-}
+{"users":[{"email":"head@mail.ru","company":"ArtSofte","password":"qwerty123","status":"head"},{"email":"emp@mail.ru","company":"ArtSofte","password":"qwerty","status":"employee"},{"companyName":"SomeCompany","email":"admin@mail.ru","password":"123456","status":"head"}],
+"employees":[]}

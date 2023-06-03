@@ -3,15 +3,15 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../shared/services/auth.service";
 import {Router} from "@angular/router";
 import {UserLogin} from "../shared/interfaces/auth-interfaces/userLogin";
-import {AdminRegistration} from "../shared/interfaces/auth-interfaces/adminRegistration";
+import {UserRegistration} from "../shared/interfaces/auth-interfaces/userRegistration";
 import { valueMatchValidator } from "../shared/validators/valueMatchValidator";
 
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
-  styleUrls: ['../login-page/login-page.component.css']
+  styleUrls: ['../login-page/login-page.component.css'],
 })
-export class RegistrationPageComponent implements OnInit{
+export class RegistrationPageComponent implements OnInit {
   registrationForm!: FormGroup
   submitted = false
 
@@ -43,31 +43,27 @@ export class RegistrationPageComponent implements OnInit{
 
   submit() {
     if (this.registrationForm.invalid) {
-      return
+      return;
     }
 
-    const admin: AdminRegistration = {
+    this.submitted = true;
+
+    const head: UserRegistration = {
       companyName: this.registrationForm.value.companyName,
       email: this.registrationForm.value.email,
-      password: this.registrationForm.value.password
+      password: this.registrationForm.value.password,
+      status: "head"
     }
 
-    this.auth.register(admin).subscribe(() => {
-      this.submitted = false
-
-      const userLogin: UserLogin = {
-        email: admin.email,
-        password: admin.password
-      }
-
-      this.auth.login(userLogin).subscribe(() =>
-        this.router.navigate(['/admin'])
-      )
-
-      this.registrationForm.reset()
-
-    }, () => {
-      this.submitted = false
-    })
+    // this.router.navigate(['/login']);
+    this.auth.register(head).subscribe(() => {
+      this.registrationForm.reset();
+      this.submitted = false;
+      this.router.navigate(['/login']);
+    },
+    (err: Response) => {
+      console.log(err);
+      this.submitted = false;
+    });
   }
 }
