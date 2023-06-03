@@ -100,7 +100,7 @@
 .adding-employee-page-education,
 .adding-employee-page-salary,
 .adding-employee-page-project {
-  width: 278px;
+  width: 317px;
 }
 
 .adding-employee-page_select-style {
@@ -113,6 +113,7 @@
   font-size: 14px;
   line-height: 24px;
   color: #1E293B;
+  width: 317px;
 }
 
 .adding-employee-page-input {

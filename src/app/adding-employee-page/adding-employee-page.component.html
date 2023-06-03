@@ -57,7 +57,8 @@
             <!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
             <!--                fill="#64748B" />-->
             <!--            </svg>-->
-            <input type="text" list="project" />
+            <input class="adding-employee-page-input adding-employee-page-project" type="text" list="project"
+              placeholder="Проект" />
             <datalist id="project">
               <option *ngFor="let option of optionsGroup[0].options" [value]="option">{{option}}</option>
             </datalist>
@@ -65,12 +66,12 @@
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-salary" placeholder="Зарплата" type="text"
               name="salary" id="" formControlName="salary">
-            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"
+            <!-- <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"
               xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"
                 fill="#64748B" />
-            </svg>
+            </svg> -->
           </li>
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-birthday" placeholder="Дата рождения"
@@ -95,7 +96,8 @@
             <!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
             <!--                fill="#64748B" />-->
             <!--            </svg>-->
-            <input type="text" list="status" />
+            <input class="adding-employee-page-input adding-employee-page-post" type="text" list="status"
+              placeholder="Должность" />
             <datalist id="status">
               <option *ngFor="let option of optionsGroup[1].options" [value]="option">{{option}}</option>
             </datalist>
@@ -109,7 +111,8 @@
             <!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
             <!--                fill="#64748B" />-->
             <!--            </svg>-->
-            <input type="text" list="education" />
+            <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"
+              type="text" list="education" />
             <datalist id="education">
               <option *ngFor="let option of optionsGroup[2].options" [value]="option">{{option}}</option>
             </datalist>
