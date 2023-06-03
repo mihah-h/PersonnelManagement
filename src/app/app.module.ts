@@ -24,6 +24,7 @@ import {DirectivesModule} from "./shared/directives/directives/directives.module
 import {GuardAuth} from "./shared/services/guard.auth";
 import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.service";
 import { AttributeDirective } from './shared/directives/directives/attribute.directive';
+import { StyleDirective } from './shared/directives/directives/style.directive';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AttributeDirective } from './shared/directives/directives/attribute.dir
     FiltrationFormComponent,
     EmployeeListItemComponent,
     AttributeDirective,
+    StyleDirective,
   ],
   imports: [
     BrowserModule,

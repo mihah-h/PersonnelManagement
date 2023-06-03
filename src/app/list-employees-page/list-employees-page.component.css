@@ -388,10 +388,10 @@ a {
   transition: background 0.1s linear, border-color 0.1s linear;
 }
 
-.btn-save:hover {
+/* .btn-save:hover {
   background: var(--blue-color);
   border-color: var(--blue-color);
-}
+} */
 
 .btn-reset {
   width: 260px;
@@ -432,10 +432,10 @@ a {
   transition: background 0.1s linear, border-color 0.1s linear;
 }
 
-.btn-add:hover {
+/* .btn-add:hover {
   background: var(--blue-color);
   border-color: var(--blue-color);
-}
+} */
 
 .search-form {
   margin-right: 16.5px;
