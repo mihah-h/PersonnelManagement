@@ -23,6 +23,7 @@ import {PipesModule} from "./shared/pipes/pipes/pipes.module";
 import {DirectivesModule} from "./shared/directives/directives/directives.module";
 import {GuardAuth} from "./shared/services/guard.auth";
 import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.service";
+import { AttributeDirective } from './shared/directives/directives/attribute.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.
     AdminLayoutComponent,
     FiltrationFormComponent,
     EmployeeListItemComponent,
+    AttributeDirective,
   ],
   imports: [
     BrowserModule,
