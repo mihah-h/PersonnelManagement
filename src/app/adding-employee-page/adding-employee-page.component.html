@@ -25,17 +25,17 @@
                 type="text" name="lastname" id="" formControlName="lastname">
             </li>
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-sex">
-<!--              <input class="adding-employee-page-input adding-employee-page-sex" placeholder="Пол" type="text" name="gender"-->
-<!--                id="" formControlName="gender">-->
-<!--              <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
-<!--                xmlns="http://www.w3.org/2000/svg">-->
-<!--                <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                  d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
-<!--                  fill="#64748B" />-->
-<!--              </svg>-->
-              <select>
+              <!--              <input class="adding-employee-page-input adding-employee-page-sex" placeholder="Пол" type="text" name="gender"-->
+              <!--                id="" formControlName="gender">-->
+              <!--              <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
+              <!--                xmlns="http://www.w3.org/2000/svg">-->
+              <!--                <path fill-rule="evenodd" clip-rule="evenodd"-->
+              <!--                  d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
+              <!--                  fill="#64748B" />-->
+              <!--              </svg>-->
+              <select class="adding-employee-page_select-style">
                 <option value="man">Мужчина</option>
-                <option value="woman">Женшина</option>
+                <option value="woman">Женщина</option>
               </select>
             </li>
           </ul>
@@ -45,17 +45,18 @@
         <ul class="adding-employee-page-second-list">
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-email"
-              placeholder="Email (будет использоватся для авторизации)" type="text" name="email" id="" formControlName="email">
+              placeholder="Email (будет использоватся для авторизации)" type="text" name="email" id=""
+              formControlName="email">
           </li>
           <li class="adding-employee-page-second-list-item">
-<!--            <input class="adding-employee-page-input adding-employee-page-project" placeholder="Проект" type="text"-->
-<!--              name="project" id="" formControlName="project">-->
-<!--            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
-<!--              xmlns="http://www.w3.org/2000/svg">-->
-<!--              <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
-<!--                fill="#64748B" />-->
-<!--            </svg>-->
+            <!--            <input class="adding-employee-page-input adding-employee-page-project" placeholder="Проект" type="text"-->
+            <!--              name="project" id="" formControlName="project">-->
+            <!--            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
+            <!--              xmlns="http://www.w3.org/2000/svg">-->
+            <!--              <path fill-rule="evenodd" clip-rule="evenodd"-->
+            <!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
+            <!--                fill="#64748B" />-->
+            <!--            </svg>-->
             <input type="text" list="project" />
             <datalist id="project">
               <option *ngFor="let option of optionsGroup[0].options" [value]="option">{{option}}</option>
@@ -86,28 +87,28 @@
               name="phoneNumber" id="" formControlName="phoneNumber">
           </li>
           <li class="adding-employee-page-third-list-item">
-<!--            <input class="adding-employee-page-input adding-employee-page-post" placeholder="Должность" type="text"-->
-<!--              name="status" id="" formControlName="status">-->
-<!--            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
-<!--              xmlns="http://www.w3.org/2000/svg">-->
-<!--              <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
-<!--                fill="#64748B" />-->
-<!--            </svg>-->
+            <!--            <input class="adding-employee-page-input adding-employee-page-post" placeholder="Должность" type="text"-->
+            <!--              name="status" id="" formControlName="status">-->
+            <!--            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
+            <!--              xmlns="http://www.w3.org/2000/svg">-->
+            <!--              <path fill-rule="evenodd" clip-rule="evenodd"-->
+            <!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
+            <!--                fill="#64748B" />-->
+            <!--            </svg>-->
             <input type="text" list="status" />
             <datalist id="status">
               <option *ngFor="let option of optionsGroup[1].options" [value]="option">{{option}}</option>
             </datalist>
           </li>
           <li class="adding-employee-page-third-list-item">
-<!--            <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"-->
-<!--              type="text" name="education" id="" formControlName="education">-->
-<!--            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
-<!--              xmlns="http://www.w3.org/2000/svg">-->
-<!--              <path fill-rule="evenodd" clip-rule="evenodd"-->
-<!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
-<!--                fill="#64748B" />-->
-<!--            </svg>-->
+            <!--            <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"-->
+            <!--              type="text" name="education" id="" formControlName="education">-->
+            <!--            <svg class="input-svg" width="18" height="10" viewBox="0 0 18 10" fill="none"-->
+            <!--              xmlns="http://www.w3.org/2000/svg">-->
+            <!--              <path fill-rule="evenodd" clip-rule="evenodd"-->
+            <!--                d="M18.0002 1.00025C18.0002 1.25625 17.9023 1.51225 17.7073 1.70725L9.70725 9.70725C9.31625 10.0982 8.68425 10.0982 8.29325 9.70725L0.29325 1.70725C-0.09775 1.31625 -0.09775 0.68425 0.29325 0.29325C0.68425 -0.09775 1.31625 -0.09775 1.70725 0.29325L9.00025 7.58625L16.2932 0.29325C16.6842 -0.09775 17.3162 -0.09775 17.7073 0.29325C17.9023 0.48825 18.0002 0.74425 18.0002 1.00025Z"-->
+            <!--                fill="#64748B" />-->
+            <!--            </svg>-->
             <input type="text" list="education" />
             <datalist id="education">
               <option *ngFor="let option of optionsGroup[2].options" [value]="option">{{option}}</option>
@@ -115,12 +116,13 @@
           </li>
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-date-interview"
-              placeholder="Дата собеседования" type="date" name="dateOfInterview" id="" formControlName="dateOfInterview">
+              placeholder="Дата собеседования" type="date" name="dateOfInterview" id=""
+              formControlName="dateOfInterview">
           </li>
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-date-first-day"
-              placeholder="Дата первого рабочего дня" type="date" name="dateOfThirstWorkingDay"
-                   id="" formControlName="dateOfThirstWorkingDay">
+              placeholder="Дата первого рабочего дня" type="date" name="dateOfThirstWorkingDay" id=""
+              formControlName="dateOfThirstWorkingDay">
           </li>
         </ul>
       </div>

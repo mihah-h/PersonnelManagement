@@ -103,10 +103,21 @@
   width: 278px;
 }
 
+.adding-employee-page_select-style {
+  border: none;
+  background-color: #EFF6FF;
+  outline: none;
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1E293B;
+}
+
 .adding-employee-page-input {
   border: none;
   outline: none;
-  flex-direction: column;
   max-height: 20px;
   background-color: transparent;
   font-family: 'Golos Text';
@@ -290,4 +301,3 @@
   background-color: #3B82F6;
   border-color: #3B82F6;
 }
-
