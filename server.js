@@ -30,11 +30,11 @@ app.get('/users', (req, res) =>
       return res.sendStatus(400);
     }
     else{
-      return res.sendStatus(200).json(user);
+      res.status(200).json(user);
     };
   }
   else{
-    return res.sendStatus(200).json(base.users);
+    res.status(200).json(base.users);
   };
 });
 
@@ -57,11 +57,11 @@ app.get('/employees', (req, res) => {
         return res.sendStatus(400);
       }
       else{
-        return res.sendStatus(200).json(employee);
+        res.status(200).json(employee);
       }
     }
     else{
-      return res.sendStatus(200).json(base.companies[searchIndex].employees);
+      res.status(200).json(base.companies[searchIndex].employees);
     }
   }
   console.log("ERROR");
@@ -74,10 +74,10 @@ app.get('/options', (req, res) => {
     const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
     if ('option' in reqParams){
       const searchIndexOption = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === reqParams.option);
-      return res.sendStatus(200).json(base.companies[searchIndex].options[searchIndexOption]);
+      res.status(200).json(base.companies[searchIndex].options[searchIndexOption]);
     }
     else{
-      return res.sendStatus(200).json(base.companies[searchIndex].options);
+      res.status(200).json(base.companies[searchIndex].options);
     }
   }
   else{
