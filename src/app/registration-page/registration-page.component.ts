@@ -55,7 +55,7 @@ export class RegistrationPageComponent implements OnInit {
       status: "head"
     }
 
-    // this.router.navigate(['/login']);
+    this.router.navigate(['/login']);
     this.auth.register(head).subscribe(() => {
       this.registrationForm.reset();
       this.submitted = false;

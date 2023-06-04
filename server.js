@@ -20,9 +20,9 @@ app.use(function(req, res, next) {
 //получение всех объектов user, если через ? указан email, то поиск по email
 app.get('/users', (req, res) =>
 {
-  reqParams = req.query;
+  const reqParams = req.query;
   if ('email' in reqParams){
-    let user = base.users.find(function (user){
+    const user = base.users.find(function (user){
       return user.email === reqParams.email;
     });
     if (!user){
@@ -39,16 +39,17 @@ app.get('/users', (req, res) =>
 });
 
 //получение всех объектов employee
-// app.get('/employees', (req, res) => res.status(200).json(base.employees));
+// app.get('/employees', (req, res) => res.status(200).json(base.companies));
 
 //получение объекта employee с определенным полем email(если гарантируется, что email не повторяются у разных employee)
 //в определенной компании, если в параметрах запроса указаны компания и почта; если указана только компания, то
 //вернет всех сотрудников компании
 app.get('/employees', (req, res) => {
-  reqParams = req.query;
+  const reqParams = req.query;
   if ('company' in reqParams){
+    const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
     if ('email' in reqParams){
-      let employee = base.employees[reqParams.company].employeesInfo.find(function (employee){
+      const employee = base.companies[searchIndex].employees.find(function (employee){
         return employee.email === reqParams.email;
       });
       if (!employee){
@@ -60,23 +61,21 @@ app.get('/employees', (req, res) => {
       }
     }
     else{
-      employeesInCompany = [];
-      for (employee of base.employees[reqParams.company].employeesInfo){
-        employeesInCompany.push(employee);
-      }
-      res.status(200).json(employeesInCompany);
+      res.status(200).json(base.companies[searchIndex].employees);
     }
   }
 });
 
 app.get('/options', (req, res) => {
-  reqParams = req.query;
+  const reqParams = req.query;
   if ('company' in reqParams){
+    const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
     if ('option' in reqParams){
-      res.status(200).json(base.employees[reqParams.company].options[reqParams.option]);
+      const searchIndexOption = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === reqParams.option);
+      res.status(200).json(base.companies[searchIndex].options[searchIndexOption]);
     }
     else{
-      res.status(200).json(base.employees[reqParams.company].options);
+      res.status(200).json(base.companies[searchIndex].options);
     }
   }
   else{
@@ -89,10 +88,24 @@ app.get('/options', (req, res) => {
 
 app.post('/users/register', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  let user = base.users.find(function (user){
+  const user = base.users.find(function (user){
     return user.email === req.body.email;
   });
   if (!user){
+    if (req.body.status === "head"){
+      const index = base.companies.findIndex(el => el.company === req.body.company);
+      if (index === -1){
+        base.companies.push({
+          "company": req.body.company,
+          "employees":[],
+          "options":[]
+        });
+      }
+      else{
+        console.log("ERROR");
+        return res.sendStatus(400);
+      }
+    }
     base.users.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
@@ -125,11 +138,12 @@ app.post('/users/auth', (req, res) =>
 //отправляет employee, если он не повторяется в базе
 app.post('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  let employee = base.employees[req.query.company].employeesInfo.find(function (employee){
+  const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  const employee = base.companies[searchIndex].employees.find(function (employee){
     return employee.email === req.body.email;
   });
   if (!employee){
-    base.employees[req.query.company].employeesInfo.push(req.body);
+    base.companies[searchIndex].employees.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
@@ -141,11 +155,12 @@ app.post('/employees', jsonParser, (req, res) => {
 
 app.post('/options', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  const option = base.employees[req.query.company].options.find(function (opt){
+  const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  const option = base.companies[searchIndex].options.find(function (opt){
     return opt.optionsGroupName === req.body.optionsGroupName;
   });
   if (!option){
-    base.employees[req.query.company].options.push(req.body);
+    base.companies[searchIndex].options.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
@@ -156,10 +171,10 @@ app.post('/options', jsonParser, (req, res) => {
 });
 
 
-
 app.put('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  let employee = base.employees[req.query.company].employeesInfo.find(function (employee){
+  const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  const employee = base.companies[searchIndex].employees.find(function (employee){
     return employee.email === req.body.email;
   });
   if (!employee){
@@ -167,8 +182,8 @@ app.put('/employees', jsonParser, (req, res) => {
     return res.sendStatus(400);
   }
   else {
-    const newEmployees = base.employees[req.query.company].employeesInfo.map((emp) => emp.email === req.body.email ? emp = req.body : emp );
-    base.employees[req.query.company].employeesInfo = newEmployees;
+    const newEmployees = base.companies[searchIndex].employees.map((emp) => emp.email === req.body.email ? emp = req.body : emp );
+    base.companies[searchIndex].employees= newEmployees;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
@@ -176,7 +191,7 @@ app.put('/employees', jsonParser, (req, res) => {
 
 app.put('/users', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  let user = base.users.find(function (user){
+  const user = base.users.find(function (user){
     return user.email === req.body.email;
   });
   if (!user){
@@ -193,7 +208,8 @@ app.put('/users', jsonParser, (req, res) => {
 
 app.put('/options', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
-  const option = base.employees[req.query.company].options.find(function (opt){
+  const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  const option = base.companies[searchIndex ].options.find(function (opt){
     return opt.optionsGroupName === req.body.optionsGroupName;
   });
   if (!option){
@@ -201,8 +217,8 @@ app.put('/options', jsonParser, (req, res) => {
     return res.sendStatus(400);
   }
   else {
-    const newOptions = base.employees[req.query.company].options.map((opt) => opt.optionsGroupName === req.body.optionsGroupName ? opt = req.body : opt );
-    base.employees[req.query.company].options = newOptions;
+    const newOptions = base.companies[searchIndex ].options.map((opt) => opt.optionsGroupName === req.body.optionsGroupName ? opt = req.body : opt );
+    base.companies[searchIndex ].options = newOptions;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
   }
