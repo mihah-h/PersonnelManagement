@@ -388,11 +388,6 @@ a {
   transition: background 0.1s linear, border-color 0.1s linear;
 }
 
-/* .btn-save:hover {
-  background: var(--blue-color);
-  border-color: var(--blue-color);
-} */
-
 .btn-reset {
   width: 260px;
   height: 40px;
@@ -403,11 +398,6 @@ a {
   padding: 10px 80px;
   transition: background 0.1s linear, border-color 0.1s linear;
 }
-
-/* .btn-reset:hover {
-  color: var(--blue-color);
-  border-color: var(--blue-color);
-} */
 
 .middle-panel {
   display: flex;
@@ -431,11 +421,6 @@ a {
   margin-right: 10px;
   transition: background 0.1s linear, border-color 0.1s linear;
 }
-
-/* .btn-add:hover {
-  background: var(--blue-color);
-  border-color: var(--blue-color);
-} */
 
 .search-form {
   margin-right: 16.5px;

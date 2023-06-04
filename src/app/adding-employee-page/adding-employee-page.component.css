@@ -304,11 +304,6 @@
   transition: background-color 0.1s linear, border-color 0.1s linear;
 }
 
-/* .adding-employee-page-btn-add:hover {
-  background-color: #3B82F6;
-  border-color: #3B82F6;
-} */
-
 .adding-employee-page-input-date {
   border: none;
   outline: none;

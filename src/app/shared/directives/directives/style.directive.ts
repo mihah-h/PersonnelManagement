@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive,  HostBinding, Input} from '@angular/core';
 
 @Directive({
   selector: '[appStyle]',
@@ -9,19 +9,27 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 })
 export class StyleDirective {
+
   @Input() dStyles: { borderColor?: string, backgroundColor?: string, color?: string };
-  constructor(private el: ElementRef, private renderer: Renderer2) {
+
+  @HostBinding('style.borderColor') elBorderColor: string | undefined | null = null;
+  @HostBinding('style.backgroundColor') elBackgroundColor: string | undefined | null = null;
+  @HostBinding('style.color') elColor: string | undefined | null = null;
+
+  constructor() {
 
   }
+
   onEnter() {
-    this.renderer.setStyle(this.el.nativeElement, 'borderColor', this.dStyles.borderColor);
-    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.dStyles.backgroundColor);
-    this.renderer.setStyle(this.el.nativeElement, 'color', this.dStyles.color);
+    this.elBorderColor = this.dStyles.borderColor;
+    this.elBackgroundColor = this.dStyles.backgroundColor;
+    this.elColor = this.dStyles.color;
   }
+
   onLeave() {
-    this.renderer.setStyle(this.el.nativeElement, 'borderColor', null);
-    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', null);
-    this.renderer.setStyle(this.el.nativeElement, 'color', null);
+    this.elBorderColor = null;
+    this.elBackgroundColor = null;
+    this.elColor = null;
   }
 
 }
