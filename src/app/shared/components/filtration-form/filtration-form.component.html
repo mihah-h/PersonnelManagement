@@ -73,10 +73,12 @@
       </ul>
       <ul class="configuration-list">
         <li class="save-item">
-          <button appStyle type="submit" class="btn btn-save">Применить</button>
+          <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" type="submit"
+            class="btn btn-save">Применить</button>
         </li>
         <li class="reset-item">
-          <button appStyle type="reset" class="btn btn-reset" (click)="reset()">Сбросить</button>
+          <button appStyle [dStyles]="{borderColor:'#3B82F6', color:'#3B82F6'}" type="reset"
+            class="btn btn-reset" (click)="reset()">Сбросить</button>
         </li>
       </ul>
     </form>
@@ -85,4 +87,3 @@
     loading
   </ng-template>
 </div>
-

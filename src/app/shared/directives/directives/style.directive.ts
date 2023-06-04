@@ -9,17 +9,19 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
 
 })
 export class StyleDirective {
-
+  @Input() dStyles: { borderColor?: string, backgroundColor?: string, color?: string };
   constructor(private el: ElementRef, private renderer: Renderer2) {
 
   }
   onEnter() {
-    this.renderer.setStyle(this.el.nativeElement, 'border-color', '#3B82F6');
-    this.renderer.setStyle(this.el.nativeElement, 'background-color', '#3B82F6');
+    this.renderer.setStyle(this.el.nativeElement, 'borderColor', this.dStyles.borderColor);
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', this.dStyles.backgroundColor);
+    this.renderer.setStyle(this.el.nativeElement, 'color', this.dStyles.color);
   }
   onLeave() {
-    this.renderer.setStyle(this.el.nativeElement, 'border-color', '#93C5FD');
-    this.renderer.setStyle(this.el.nativeElement, 'background-color', '#93C5FD');
+    this.renderer.setStyle(this.el.nativeElement, 'borderColor', null);
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', null);
+    this.renderer.setStyle(this.el.nativeElement, 'color', null);
   }
 
 }

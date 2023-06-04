@@ -404,10 +404,10 @@ a {
   transition: background 0.1s linear, border-color 0.1s linear;
 }
 
-.btn-reset:hover {
+/* .btn-reset:hover {
   color: var(--blue-color);
   border-color: var(--blue-color);
-}
+} */
 
 .middle-panel {
   display: flex;

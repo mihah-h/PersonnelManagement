@@ -361,16 +361,16 @@
   background-color: var(--red-light-color);
 }
 
-.employee-page_btn_fire:hover {
+/* .employee-page_btn_fire:hover {
   background-color: var(--red-color);
   border-color: var(--red-color);
-}
+} */
 
 .employee-page_btn_add {
   background-color: var(--blue-sea-color);
 }
 
-.employee-page_btn_add:hover {
+/* .employee-page_btn_add:hover {
   background-color: var(--blue-color);
   border-color: var(--blue-color);
-}
+} */
