@@ -14,18 +14,16 @@ export class AuthService {
     return localStorage.getItem('token')
   }
 
-  login(user: UserLogin): Observable<UserLoginResponse | null> {
-    console.log(user);
+  login(user: UserLogin): Observable<UserLogin | null> {
     localStorage.setItem('token', '23323223')
-    return this.http.post<UserLoginResponse>('http://localhost:3000/users/auth', user)
-      .pipe(
-        tap(this.setToken)
-      )
+    return this.http.post<UserLogin>('http://localhost:3000/users/auth', user)
+      // .pipe(
+      //   tap(this.setToken)
+      // )
   }
 
 
   register(user: UserRegistration): Observable<UserRegistration> {
-    // console.log(user);
     return this.http.post<UserRegistration>('http://localhost:3000/users/register', user);
   }
 

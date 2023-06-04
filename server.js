@@ -30,11 +30,11 @@ app.get('/users', (req, res) =>
       return res.sendStatus(400);
     }
     else{
-      res.status(200).json(user);
+      return res.sendStatus(200).json(user);
     };
   }
   else{
-    res.status(200).json(base.users);
+    return res.sendStatus(200).json(base.users);
   };
 });
 
@@ -57,13 +57,15 @@ app.get('/employees', (req, res) => {
         return res.sendStatus(400);
       }
       else{
-        res.status(200).json(employee);
+        return res.sendStatus(200).json(employee);
       }
     }
     else{
-      res.status(200).json(base.companies[searchIndex].employees);
+      return res.sendStatus(200).json(base.companies[searchIndex].employees);
     }
   }
+  console.log("ERROR");
+  return res.sendStatus(404);
 });
 
 app.get('/options', (req, res) => {
@@ -72,10 +74,10 @@ app.get('/options', (req, res) => {
     const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
     if ('option' in reqParams){
       const searchIndexOption = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === reqParams.option);
-      res.status(200).json(base.companies[searchIndex].options[searchIndexOption]);
+      return res.sendStatus(200).json(base.companies[searchIndex].options[searchIndexOption]);
     }
     else{
-      res.status(200).json(base.companies[searchIndex].options);
+      return res.sendStatus(200).json(base.companies[searchIndex].options);
     }
   }
   else{
@@ -87,16 +89,17 @@ app.get('/options', (req, res) => {
 
 
 app.post('/users/register', jsonParser, (req, res) => {
+  console.log(req.body);
   if(!req.body) return res.sendStatus(400);
   const user = base.users.find(function (user){
     return user.email === req.body.email;
   });
   if (!user){
     if (req.body.status === "head"){
-      const index = base.companies.findIndex(el => el.company === req.body.company);
+      const index = base.companies.findIndex(el => el.company === req.body.companyName);
       if (index === -1){
         base.companies.push({
-          "company": req.body.company,
+          "company": req.body.companyName,
           "employees":[],
           "options":[]
         });
@@ -109,6 +112,7 @@ app.post('/users/register', jsonParser, (req, res) => {
     base.users.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
   else{
     console.log("ERROR");
@@ -118,6 +122,7 @@ app.post('/users/register', jsonParser, (req, res) => {
 
 app.post('/users/auth', (req, res) =>
 {
+  console.log(req.body);
   if(!req.body) return res.sendStatus(400);
   const user = base.users.find(function (u){
     return u.email === req.body.email;
@@ -128,6 +133,7 @@ app.post('/users/auth', (req, res) =>
       signed_user: user,
       token: token
     });
+    return res.sendStatus(200);
   }
   else{
     console.log("ERROR");
@@ -138,31 +144,32 @@ app.post('/users/auth', (req, res) =>
 //отправляет employee, если он не повторяется в базе
 app.post('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
+  if(!('company' in req.query)) return res.sendStatus(409);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
-  const employee = base.companies[searchIndex].employees.find(function (employee){
-    return employee.email === req.body.email;
-  });
-  if (!employee){
+  if (searchIndex === -1) return res.sendStatus(404);
+  const index = base.companies[searchIndex].employees.findIndex(el => el.email === req.body.email);
+  if (index === -1){
     base.companies[searchIndex].employees.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
   else{
     console.log("ERROR");
-    return res.sendStatus(400);
+    return res.sendStatus(403);
   }
 });
 
 app.post('/options', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
-  const option = base.companies[searchIndex].options.find(function (opt){
-    return opt.optionsGroupName === req.body.optionsGroupName;
-  });
-  if (!option){
+  if (searchIndex === -1) return res.sendStatus(404);
+  const index = base.companies[searchIndex].employees.findIndex(el => el.email === req.body.email);
+  if (index === -1){
     base.companies[searchIndex].options.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
   else{
     console.log("ERROR");
@@ -186,6 +193,7 @@ app.put('/employees', jsonParser, (req, res) => {
     base.companies[searchIndex].employees= newEmployees;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
 });
 
@@ -203,6 +211,7 @@ app.put('/users', jsonParser, (req, res) => {
     base.users = newUsers;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
 });
 
@@ -221,6 +230,7 @@ app.put('/options', jsonParser, (req, res) => {
     base.companies[searchIndex ].options = newOptions;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
 });
 

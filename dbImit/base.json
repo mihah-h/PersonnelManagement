@@ -1,2 +1,1 @@
-{"users":[{"email":"head@mail.ru","company":"ArtSofte","password":"qwerty123","status":"head"},{"email":"emp@mail.ru","company":"ArtSofte","password":"qwerty","status":"employee"},{"companyName":"SomeCompany","email":"admin@mail.ru","password":"123456","status":"head"}],
-"companies":[]}
+{"users":[{"email":"head@mail.ru","company":"ArtSofte","password":"qwerty123","status":"head"},{"email":"emp@mail.ru","company":"ArtSofte","password":"qwerty","status":"employee"}],"companies":[{"company":"ArtSofte","employees":[],"options":[]}]}
