@@ -48,6 +48,7 @@ app.get('/employees', (req, res) => {
   const reqParams = req.query;
   if ('company' in reqParams){
     const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
+    if (searchIndex === -1) return res.sendStatus(404);
     if ('email' in reqParams){
       const employee = base.companies[searchIndex].employees.find(function (employee){
         return employee.email === reqParams.email;
@@ -72,8 +73,10 @@ app.get('/optionsGroups', (req, res) => {
   const reqParams = req.query;
   if ('company' in reqParams){
     const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
+    if (searchIndex === -1) return res.sendStatus(400);
     if ('option' in reqParams){
       const searchIndexOption = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === reqParams.option);
+      if (searchIndexOption === -1) return res.sendStatus(400);
       res.status(200).json(base.companies[searchIndex].options[searchIndexOption]);
     }
     else{
@@ -202,6 +205,7 @@ app.post('/optionsGroups', jsonParser, (req, res) => {
 app.put('/employees', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  if (searchIndex === -1) return res.sendStatus(400);
   const employee = base.companies[searchIndex].employees.find(function (employee){
     return employee.email === req.body.email;
   });
@@ -239,6 +243,7 @@ app.put('/users', jsonParser, (req, res) => {
 app.put('/optionsGroups', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  if (searchIndex === -1) return res.sendStatus(400);
   const option = base.companies[searchIndex ].options.find(function (opt){
     return opt.optionsGroupName === req.body.optionsGroupName;
   });
