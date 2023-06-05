@@ -4,6 +4,7 @@ import { EmployeeListItemComponent } from './components/employee-list-item/emplo
 import { FiltrationFormComponent } from './components/filtration-form/filtration-form.component';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { PaginationPipe } from './pipes/pagination.pipe';
+import { ErrorMessageDynamicComponent } from './components/error-message-dynamic/error-message-dynamic.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,8 @@ import { PaginationPipe } from './pipes/pagination.pipe';
   ],
   declarations: [
 
+  
+    ErrorMessageDynamicComponent
   ],
 })
 export class SharedModule {

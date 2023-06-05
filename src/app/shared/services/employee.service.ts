@@ -139,9 +139,9 @@ export class EmployeeService {
       + this.auth.userCompanyName)
   }
 
-  addEmployee(newEmployee: Employee) {
+  addEmployee(newEmployee: Employee): Observable<string> {
     return this.http.post('http://localhost:3000/employees?company='
-      + this.auth.userCompanyName, newEmployee)
+      + this.auth.userCompanyName, newEmployee, {responseType: "text"})
   }
 
   getEmployee(employeeEmail: string): Observable<Employee> {
@@ -150,13 +150,12 @@ export class EmployeeService {
   }
 
   getOptionsGroup(): Observable<OptionsGroup[]> {
-    return this.http.get<OptionsGroup[]>('http://localhost:3000/optionsGroups?company=' + this.auth.userCompanyName)
+    return this.http.get<OptionsGroup[]>('http://localhost:3000/optionsGroups?company='
+      + this.auth.userCompanyName)
   }
 
-  addNewOption(optionsGroupName: string, newOption: string) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+  addNewOption(optionsGroupName: string, newOption: string): Observable<string> {
     return this.http.post('http://localhost:3000/optionsGroups?company='
-      + this.auth.userCompanyName + '&optionsGroupName=' + optionsGroupName + '&option=' + newOption)
+      + this.auth.userCompanyName + '&optionsGroupName=' + optionsGroupName + '&option=' + newOption, "", {responseType: "text"})
   }
 }

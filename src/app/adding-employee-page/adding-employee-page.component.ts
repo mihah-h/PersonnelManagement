@@ -72,15 +72,16 @@ export class AddingEmployeePageComponent implements OnInit{
     ).subscribe()
     if (this.newEmployeeForm.value.project
       && !this.optionsGroups[0].options.includes(this.newEmployeeForm.value.project)) {
-      this.employeeService.addNewOption('project', this.newEmployeeForm.value.project ).subscribe()
+      console.log(this.newEmployeeForm.value.project)
+      this.employeeService.addNewOption('project', this.newEmployeeForm.value.project).subscribe()
     }
     if (this.newEmployeeForm.value.position
       && !this.optionsGroups[1].options.includes(this.newEmployeeForm.value.position)) {
-      this.employeeService.addNewOption('position', this.newEmployeeForm.value.position ).subscribe()
+      this.employeeService.addNewOption('position', this.newEmployeeForm.value.position).subscribe()
     }
     if (this.newEmployeeForm.value.education
       && !this.optionsGroups[2].options.includes(this.newEmployeeForm.value.education)) {
-      this.employeeService.addNewOption('education', this.newEmployeeForm.value.education ).subscribe()
+      this.employeeService.addNewOption('education', this.newEmployeeForm.value.education).subscribe()
     }
 
   }
