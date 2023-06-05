@@ -60,4 +60,5 @@
   height: 44px;
   background-color: #93C5FD;
   border-radius: 4px;
+  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 }

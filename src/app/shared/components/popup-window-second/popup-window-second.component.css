@@ -100,6 +100,7 @@
   height: 44px;
   background-color: #93C5FD;
   border-radius: 4px;
+  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 }
 
 .label_add-vacation {
@@ -135,10 +136,10 @@
 
 }
 
-.popup_for_vacation input[type='checkbox'] {
+/* .popup_for_vacation input[type='checkbox'] {
   display: none;
 }
 
 .popup_for_vacation~.popup_employee-list-second {
   display: block;
-}
+} */
