@@ -41,4 +41,9 @@ export class EmployeeService {
   putEmployee(employee: Employee): Observable<string> {
     return this.http.put('http://localhost:3000/employees?company=' + this.auth.userCompanyName, employee, {responseType: "text"})
   }
+
+  deleteEmployee(employee: Employee): Observable<Employee> {
+    return this.http.delete<Employee>('http://localhost:3000/optionsGroups?company=ArtSofte'
+      + this.auth.userCompanyName + '&email=' + employee.email)
+  }
 }
