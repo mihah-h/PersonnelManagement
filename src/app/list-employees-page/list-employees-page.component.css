@@ -699,6 +699,8 @@ a {
 
 .employees-photo {
   margin-right: 10px;
+  width: 80px;
+  height: 80px;
 }
 
 .name_with_status {
@@ -1040,4 +1042,8 @@ a {
   align-items: center;
   text-align: center;
   color: var(--blue-dark-color);
+}
+
+.employeeButton {
+
 }

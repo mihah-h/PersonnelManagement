@@ -1,4 +1,5 @@
-<main class="employee-page_main" *ngIf="employee$ | async as employee; else loading">
+<ng-template #popupContainer></ng-template>
+<main class="employee-page_main" *ngIf="employee; else loading">
   <div class="employee-page_container">
     <ul class="employee-page_left-side">
       <li class="employee-page_left-side_item employee-page_left-side_main-info">
@@ -17,7 +18,7 @@
           </div>
         </div>
         <div class="employee-page_left-side_main-info-rightside_edit">
-          <img class="employees-page_edit" src="../../assets/img/icon-edit.svg" alt="">
+          <img class="employees-page_edit" src="../../assets/img/icon-edit.svg" alt="" (click)="showPopupWindow()">
         </div>
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_status">

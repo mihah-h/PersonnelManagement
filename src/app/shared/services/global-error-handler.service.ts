@@ -9,7 +9,8 @@ export class GlobalErrorHandlerService implements ErrorHandler {
   }
 
   handleError(error: { message: any; }) {
-    this.errorMessage.showErrorMessage(error)
+    this.errorMessage.showErrorMessage()
+    console.log(error)
   }
 
 }

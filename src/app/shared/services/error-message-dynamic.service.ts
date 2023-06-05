@@ -10,7 +10,7 @@ export class ErrorMessageDynamicService {
     this.viewContainer = viewContainer
   }
 
-  showErrorMessage(error: { message: any; }) {
+  showErrorMessage() {
       this.viewContainer.clear()
       const component = this.viewContainer.createComponent(ErrorMessageDynamicComponent)
       component.instance.closeErrorMessage.subscribe(() => {

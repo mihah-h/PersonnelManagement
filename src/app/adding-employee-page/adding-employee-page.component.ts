@@ -3,7 +3,6 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {Router, RouterModule} from "@angular/router";
 import {EmployeeService} from "../shared/services/employee.service";
 import {OptionsGroup} from "../shared/interfaces/employeeInterfaces/optionsGroup";
-import {PeriodInCompany} from "../shared/interfaces/employeeInterfaces/periodInCompany";
 
 @Component({
   selector: 'app-adding-employee-page',

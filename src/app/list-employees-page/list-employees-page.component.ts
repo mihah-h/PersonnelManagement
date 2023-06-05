@@ -27,10 +27,6 @@ export class ListEmployeesPageComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.employeesInformation$ = this.employeeService.getEmployeesInformation()
-    this.employeesInformationSub = this.employeesInformation$.subscribe(employeesInformation => {
-      
-    })
     this.employeeService.getEmployees().subscribe(employees => this.employees = employees)
 
     this.route.queryParams.subscribe(queryParams => {

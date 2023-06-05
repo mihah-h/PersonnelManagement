@@ -8,13 +8,14 @@ import {StyleDirective} from "../style.directive";
 
 @NgModule({
   declarations: [
-    CustomForDirective,
     AttributeDirective,
     CustomForDirective,
     StyleDirective
   ],
   exports: [
-    StyleDirective
+    StyleDirective,
+    CustomForDirective,
+    AttributeDirective,
   ],
   imports: [
     CommonModule

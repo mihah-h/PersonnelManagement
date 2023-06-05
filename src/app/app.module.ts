@@ -23,9 +23,9 @@ import {PipesModule} from "./shared/pipes/pipes/pipes.module";
 import {DirectivesModule} from "./shared/directives/directives/directives.module";
 import {GuardAuth} from "./shared/services/guard.auth";
 import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.service";
-import { AttributeDirective } from './shared/directives/attribute.directive';
-import { StyleDirective } from './shared/directives/style.directive';
 import {ErrorMessageDynamicService} from "./shared/services/error-message-dynamic.service";
+import {ErrorMessageDynamicComponent} from "./shared/components/error-message-dynamic/error-message-dynamic.component";
+import {PopupWindowFirstComponent} from "./shared/components/popup-window-first/popup-window-first.component";
 
 @NgModule({
   declarations: [
@@ -40,6 +40,8 @@ import {ErrorMessageDynamicService} from "./shared/services/error-message-dynami
     AdminLayoutComponent,
     FiltrationFormComponent,
     EmployeeListItemComponent,
+    ErrorMessageDynamicComponent,
+    PopupWindowFirstComponent
   ],
   imports: [
     BrowserModule,
