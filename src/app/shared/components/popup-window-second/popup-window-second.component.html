@@ -1,0 +1,19 @@
+<div *ngIf="optionsGroups" class="popupContainer">
+  <button (click)="closePopupWindow.next()">Закрыть</button>
+  <Form [formGroup]="dataEditingForm" (ngSubmit)="save()">
+    <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"
+           type="text" list="education" formControlName="education"/>
+    <datalist id="education">
+      <ng-container *ngFor="let option of optionsGroups[2].options">
+        <option *ngIf="option" [value]="option">{{option}}</option>
+      </ng-container>
+    </datalist>
+    <input type="date" formControlName="birthDate">
+    <input type="date" formControlName="interviewDate">
+    <input type="date" formControlName="employmentDate">
+    <input type="date" formControlName="firstWorkingDayDate">
+    <input type="date" formControlName="newVacationsStart">
+    <input type="date" formControlName="newVacationsEnd">
+    <button type="submit">Сохранить</button>
+  </Form>
+</div>

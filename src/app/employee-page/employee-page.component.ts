@@ -5,6 +5,7 @@ import {Observable, switchMap} from "rxjs";
 import {EmployeeService} from "../shared/services/employee.service";
 import {ErrorMessageDynamicComponent} from "../shared/components/error-message-dynamic/error-message-dynamic.component";
 import {PopupWindowFirstComponent} from "../shared/components/popup-window-first/popup-window-first.component";
+import {PopupWindowSecondComponent} from "../shared/components/popup-window-second/popup-window-second.component";
 
 @Component({
   selector: 'app-employee-page',
@@ -34,9 +35,16 @@ export class EmployeePageComponent implements OnInit{
     this.employee$.subscribe(response => this.employee = response)
   }
 
-  showPopupWindow() {
+  showFirstPopupWindow() {
     this.popupContainer.clear()
     const component = this.popupContainer.createComponent(PopupWindowFirstComponent)
+    component.instance.employee = this.employee
+    component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
+  }
+
+  showSecondPopupWindow() {
+    this.popupContainer.clear()
+    const component = this.popupContainer.createComponent(PopupWindowSecondComponent)
     component.instance.employee = this.employee
     component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
   }

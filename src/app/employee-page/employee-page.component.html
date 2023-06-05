@@ -4,7 +4,7 @@
     <ul class="employee-page_left-side">
       <li class="employee-page_left-side_item employee-page_left-side_main-info">
         <div class="employee-page_left-side_main-info-leftside">
-          <img class="employees-page_photo" src="../../assets/img/employee-page_main-info.png" alt="">
+          <img class="employees-page_photo" src="../../assets/img/adding-incognito.png" alt="">
         </div>
         <div class="employee-page_left-side_main-info-rightside">
           <span class="employees-page_name">{{employee.surname}} {{employee.name}} <br> {{employee.patronymic}}</span>
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="employee-page_left-side_main-info-rightside_edit">
-          <img class="employees-page_edit" src="../../assets/img/icon-edit.svg" alt="" (click)="showPopupWindow()">
+          <img class="employees-page_edit" src="../../assets/img/icon-edit.svg" alt="" (click)="showFirstPopupWindow()">
         </div>
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_status">
@@ -40,7 +40,7 @@
           <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span> {{employee.gender}}
           </span>
           <div class="employee-page_add-edit">
-            <img class="employee-page_add-edit-icon" src="../../assets/img/icon-edit.svg" alt="">
+            <img class="employee-page_add-edit-icon" src="../../assets/img/icon-edit.svg" alt="" (click)="showSecondPopupWindow()">
           </div>
         </div>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Образование: </span>
@@ -61,7 +61,7 @@
         </span>
         <span class="employee-page_add-text-item employee-page_add-text-vacations"><span
             class="employee-page_status_first_word employee-page_status_first_word-vacations"> Отпуски: </span>
-          (12.02.2023-28.02.2023), <br> (01.04.2023-07.04.2023)
+          <span *ngFor="let vacationDate of employee.vacations">({{vacationDate}}),</span>
         </span>
       </li>
     </ul>
