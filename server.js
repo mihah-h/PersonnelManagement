@@ -68,7 +68,7 @@ app.get('/employees', (req, res) => {
   return res.sendStatus(404);
 });
 
-app.get('/options', (req, res) => {
+app.get('/optionsGroups', (req, res) => {
   const reqParams = req.query;
   if ('company' in reqParams){
     const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
@@ -135,7 +135,7 @@ app.post('/users/register', jsonParser, (req, res) => {
   }
 });
 
-app.post('/users/auth', (req, res) =>
+app.post('/users/auth', jsonParser, (req, res) =>
 {
   console.log(req.body);
   if(!req.body) return res.sendStatus(400);

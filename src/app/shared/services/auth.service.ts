@@ -14,7 +14,8 @@ export class AuthService {
     return localStorage.getItem('token')
   }
 
-  login(user: UserLogin): Observable<UserLogin | null> {
+  login(user: UserLogin): Observable<UserLogin> {
+    console.log(user);
     localStorage.setItem('token', '23323223')
     return this.http.post<UserLogin>('http://localhost:3000/users/auth', user)
       // .pipe(
@@ -22,8 +23,8 @@ export class AuthService {
       // )
   }
 
-
   register(user: UserRegistration): Observable<UserRegistration> {
+    console.log(user);
     return this.http.post<UserRegistration>('http://localhost:3000/users/register', user);
   }
 
