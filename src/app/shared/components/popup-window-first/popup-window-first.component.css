@@ -2,6 +2,10 @@
   max-width: 450px;
   max-height: 533px;
   position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -266.5px;
+  margin-left: -225px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 600;
@@ -11,10 +15,13 @@
   border-radius: 4px;
   border-radius: 4px;
   color: #FFFFFF;
-  margin-top: 52px;
-  margin-bottom: 187px;
-  margin-left: 50%;
-  margin-right: 50%;
+
+}
+
+@media (max-height:650px) {
+  .popupContainer {
+    margin-top: -220.5px;
+  }
 }
 
 .btn-close {
