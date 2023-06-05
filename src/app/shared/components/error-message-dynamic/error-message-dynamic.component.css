@@ -1,7 +1,7 @@
 .error-message {
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 10px;
+  right: 6px;
   width: 400px;
   height: 64px;
   font-family: 'Golos Text';
