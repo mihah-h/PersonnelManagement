@@ -1,19 +1,26 @@
 <div *ngIf="optionsGroups" class="popupContainer">
-  <button (click)="closePopupWindow.next()">Закрыть</button>
-  <Form [formGroup]="dataEditingForm" (ngSubmit)="save()">
-    <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"
-           type="text" list="education" formControlName="education"/>
+  <button class='btn-close' (click)="closePopupWindow.next()"></button>
+  <Form class="popup_employee-form" [formGroup]="dataEditingForm" (ngSubmit)="save()">
+    <input class="popup_input" placeholder="Образование" type="text" list="education" formControlName="education" />
     <datalist id="education">
       <ng-container *ngFor="let option of optionsGroups[2].options">
         <option *ngIf="option" [value]="option">{{option}}</option>
       </ng-container>
     </datalist>
-    <input type="date" formControlName="birthDate">
-    <input type="date" formControlName="interviewDate">
-    <input type="date" formControlName="employmentDate">
-    <input type="date" formControlName="firstWorkingDayDate">
-    <input type="date" formControlName="newVacationsStart">
-    <input type="date" formControlName="newVacationsEnd">
-    <button type="submit">Сохранить</button>
+    <ul>
+      <input class="popup_employee-element" type="date" formControlName="birthDate">
+      <input class="popup_employee-element" type="date" formControlName="interviewDate">
+      <input class="popup_employee-element" type="date" formControlName="employmentDate">
+      <input class="popup_employee-element" type="date" formControlName="firstWorkingDayDate">
+    </ul>
+    <div class="popup_for_vacation">
+      <input type="checkbox" id="add_vac">
+      <Label for="add_vac" class="label_add-vacation label_add-vacation-text">Добавить отпуск</Label>
+      <div class="popup_employee-list-second">
+        <input class="popup_employee-element-second" type="date" formControlName="newVacationsStart">
+        <input class="popup_employee-element-second" type="date" formControlName="newVacationsEnd">
+      </div>
+      <button class="popup-btn-save" type="submit">Сохранить</button>
+    </div>
   </Form>
 </div>
