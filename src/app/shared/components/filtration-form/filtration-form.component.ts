@@ -27,7 +27,6 @@ export class FiltrationFormComponent implements OnInit{
     this.filtrationForm = new FormGroup({
       status: new FormGroup({
         work: new FormControl(false),
-        vacation: new FormControl(false),
         dismissed: new FormControl(false)
       }),
       salary: new FormGroup({
