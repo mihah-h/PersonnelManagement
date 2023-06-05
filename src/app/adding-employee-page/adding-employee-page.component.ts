@@ -13,15 +13,14 @@ import {PeriodInCompany} from "../shared/interfaces/employeeInterfaces/periodInC
 export class AddingEmployeePageComponent implements OnInit{
 
   newEmployeeForm!: FormGroup
-  optionsGroup!: OptionsGroup[]
+  optionsGroups!: OptionsGroup[]
 
   constructor(private employeeService: EmployeeService, private router: Router) {
   }
 
   ngOnInit(): void {
-    this.employeeService.getEmployeesInformation().
-    subscribe(employeesInformation => this.optionsGroup = employeesInformation.options)
-
+    this.employeeService.getOptionsGroup().
+    subscribe(optionsGroup => this.optionsGroups = optionsGroup)
     this.newEmployeeForm = new FormGroup({
       photo: new FormControl(''),
       name: new FormControl(''),
@@ -43,7 +42,6 @@ export class AddingEmployeePageComponent implements OnInit{
   }
 
   addEmployee() {
-    console.log(this.newEmployeeForm.value.gender)
     this.employeeService.addEmployee({
         photo: '',
         name: this.newEmployeeForm.value.name,
@@ -58,12 +56,12 @@ export class AddingEmployeePageComponent implements OnInit{
         gender: this.newEmployeeForm.value.gender,
         education: this.newEmployeeForm.value.education,
         birthDate: this.newEmployeeForm.value.dateOfBirth,
-        age: '27',
+        age: '23',
         interviewDate: this.newEmployeeForm.value.dateOfInterview,
         employmentDate: this.newEmployeeForm.value.dateOfEmployment,
         experience: '3',
         firstWorkingDayDate: this.newEmployeeForm.value.dateOfThirstWorkingDay,
-        vacations: ['23'],
+        vacations: [],
         historyInCompany: [{
           project: this.newEmployeeForm.value.project,
           position:  this.newEmployeeForm.value.position,
@@ -71,8 +69,19 @@ export class AddingEmployeePageComponent implements OnInit{
           date:  this.newEmployeeForm.value.dateOfThirstWorkingDay,
         }],
       }
-    ).subscribe(c => console.log(c))
-    // this.router.navigate(['/admin', 'employee-added'])
+    ).subscribe()
+    if (this.newEmployeeForm.value.project
+      && !this.optionsGroups[0].options.includes(this.newEmployeeForm.value.project)) {
+      this.employeeService.addNewOption('project', this.newEmployeeForm.value.project ).subscribe()
+    }
+    if (this.newEmployeeForm.value.position
+      && !this.optionsGroups[1].options.includes(this.newEmployeeForm.value.position)) {
+      this.employeeService.addNewOption('position', this.newEmployeeForm.value.position ).subscribe()
+    }
+    if (this.newEmployeeForm.value.education
+      && !this.optionsGroups[2].options.includes(this.newEmployeeForm.value.education)) {
+      this.employeeService.addNewOption('education', this.newEmployeeForm.value.education ).subscribe()
+    }
 
   }
 }

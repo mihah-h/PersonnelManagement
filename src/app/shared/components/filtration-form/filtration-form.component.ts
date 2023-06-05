@@ -50,7 +50,8 @@ export class FiltrationFormComponent implements OnInit{
 
 
     this.employeeService.getOptionsGroup().subscribe(optionsGroups => {
-      for (const optionGroup of optionsGroups) {
+      this.optionsGroups = optionsGroups
+      for (const optionGroup of this.optionsGroups) {
         this.filtrationForm.addControl(optionGroup.optionsGroupName, new FormGroup({}))
         const optionsGroupName = this.filtrationForm.controls[optionGroup.optionsGroupName] as FormGroup
         for (const option of optionGroup.options) {

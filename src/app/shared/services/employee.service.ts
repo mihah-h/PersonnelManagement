@@ -135,18 +135,28 @@ export class EmployeeService {
   }
 
   getEmployees(): Observable<Employee[]>{
-    return this.http.get<Employee[]>('http://localhost:3000/employees?company=' + this.auth.userCompanyName)
+    return this.http.get<Employee[]>('http://localhost:3000/employees?company='
+      + this.auth.userCompanyName)
   }
 
   addEmployee(newEmployee: Employee) {
-    return this.http.post('http://localhost:3000/employees?company=' + this.auth.userCompanyName, newEmployee)
+    return this.http.post('http://localhost:3000/employees?company='
+      + this.auth.userCompanyName, newEmployee)
   }
 
   getEmployee(employeeEmail: string): Observable<Employee> {
-    return this.http.get<Employee>('http://localhost:3000/employees?company=' + this.auth.userCompanyName + '&email=' + employeeEmail)
+    return this.http.get<Employee>('http://localhost:3000/employees?company='
+      + this.auth.userCompanyName + '&email=' + employeeEmail)
   }
 
   getOptionsGroup(): Observable<OptionsGroup[]> {
     return this.http.get<OptionsGroup[]>('http://localhost:3000/optionsGroups?company=' + this.auth.userCompanyName)
+  }
+
+  addNewOption(optionsGroupName: string, newOption: string) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    return this.http.post('http://localhost:3000/optionsGroups?company='
+      + this.auth.userCompanyName + '&optionsGroupName=' + optionsGroupName + '&option=' + newOption)
   }
 }
