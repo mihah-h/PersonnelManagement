@@ -8,7 +8,7 @@ export class GlobalErrorHandlerService implements ErrorHandler {
   constructor(private errorMessage: ErrorMessageDynamicService) {
   }
 
-  handleError(error: { message: any; }) {
+  handleError(error: { message: String; }) {
     this.errorMessage.showErrorMessage()
     console.log(error)
   }

@@ -164,6 +164,7 @@ app.post('/employees', jsonParser, (req, res) => {
   if (searchIndex === -1) return res.sendStatus(404);
   const index = base.companies[searchIndex].employees.findIndex(el => el.email === req.body.email);
   if (index === -1){
+    // req.body.age = String((new Date() - new Date(req.body.birthDate)).getFullYear());
     base.companies[searchIndex].employees.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
@@ -183,10 +184,12 @@ app.post('/optionsGroups', jsonParser, (req, res) => {
   if (req.query.optionsGroupName){
     const optionIndex = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === req.query.optionsGroupName);
     if (optionIndex === -1) return res.sendStatus(404);
-    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.query.option) !== -1) return res.sendStatus(400);
-    base.companies[searchIndex].options[optionIndex].options.push(req.query.option.split('_').join(' '));
-    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.body.option) !== -1) return res.sendStatus(400);
-    base.companies[searchIndex].options[optionIndex].options.push(req.body.option);
+    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.query.option) === -1){
+      base.companies[searchIndex].options[optionIndex].options.push(req.query.option.split('_').join(' '));
+    }
+    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.body.option) === -1){
+      base.companies[searchIndex].options[optionIndex].options.push(req.body.option);
+    }
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
@@ -280,7 +283,7 @@ app.put('/optionsGroups', jsonParser, (req, res) => {
 
 app.delete('/employees', (req, res) => {
   if (!req.query.company) return res.sendStatus(400);
-  if (!req.query.email === undefined) return res.sendStatus(400);
+  if (!req.query.email) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
   if (searchIndex === -1) return res.sendStatus(400);
   let clearedEmps = base.companies[searchIndex].employees.filter((emp) => emp.email !== req.query.email);
