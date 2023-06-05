@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Employee} from "../../interfaces/employeeInterfaces/employee";
 import {EmployeeService} from "../../services/employee.service";
@@ -9,7 +9,7 @@ import {OptionsGroup} from "../../interfaces/employeeInterfaces/optionsGroup";
   templateUrl: './popup-window-second.component.html',
   styleUrls: ['./popup-window-second.component.css']
 })
-export class PopupWindowSecondComponent {
+export class PopupWindowSecondComponent implements OnInit{
 
   dataEditingForm!: FormGroup
   optionsGroups!: OptionsGroup[]

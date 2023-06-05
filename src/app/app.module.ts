@@ -26,6 +26,7 @@ import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.
 import {ErrorMessageDynamicService} from "./shared/services/error-message-dynamic.service";
 import {ErrorMessageDynamicComponent} from "./shared/components/error-message-dynamic/error-message-dynamic.component";
 import {PopupWindowFirstComponent} from "./shared/components/popup-window-first/popup-window-first.component";
+import { PopupWindowSecondComponent } from './shared/components/popup-window-second/popup-window-second.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {PopupWindowFirstComponent} from "./shared/components/popup-window-first/
     FiltrationFormComponent,
     EmployeeListItemComponent,
     ErrorMessageDynamicComponent,
-    PopupWindowFirstComponent
+    PopupWindowFirstComponent,
+    PopupWindowSecondComponent
   ],
   imports: [
     BrowserModule,

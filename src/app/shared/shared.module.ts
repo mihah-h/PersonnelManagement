@@ -13,13 +13,11 @@ import {NgForOf, NgIf} from "@angular/common";
 
   ],
   exports: [
-
   ],
   declarations: [
 
 
 
-    PopupWindowSecondComponent
   ],
 })
 export class SharedModule {
