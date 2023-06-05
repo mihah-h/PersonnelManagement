@@ -56,7 +56,7 @@ export class RegistrationPageComponent implements OnInit {
     }
 
     this.auth.register(head).subscribe(() => {
-      this.auth.login(this.registrationForm.value.email)
+      this.auth.login(this.registrationForm.value.email, this.registrationForm.value.password)
         .subscribe(() => this.router.navigate(['/admin', 'list-employees']))
       this.registrationForm.reset()
       this.submitted = false

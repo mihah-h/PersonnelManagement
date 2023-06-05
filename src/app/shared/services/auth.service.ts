@@ -14,8 +14,15 @@ export class AuthService {
     return localStorage.getItem('companyName')
   }
 
-  login(userEmail: string): Observable<UserLogin | null> {
-    return this.http.get<UserLogin>('http://localhost:3000/users?email=' + userEmail)
+  // login(userEmail: string): Observable<UserLogin | null> {
+  //   return this.http.get<UserLogin>('http://localhost:3000/users?email=' + userEmail)
+  //     .pipe(
+  //       tap(this.setUserCompanyName)
+  //     )
+  // }
+
+  login(userEmail: string, userPassword: string): Observable<UserLogin | null> {
+    return this.http.post<UserLogin>('http://localhost:3000/users/auth', {"email":userEmail, "password":userPassword})
       .pipe(
         tap(this.setUserCompanyName)
       )

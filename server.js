@@ -105,17 +105,17 @@ app.post('/users/register', jsonParser, (req, res) => {
           "company": req.body.companyName,
           "employees":[],
           "options":[{
-            "optionsGroupNameRu": "проект",
+            "optionsGroupNameRu": "Проект",
             "optionsGroupName": "project",
             "options": [],
           },
           {
-            "optionsGroupNameRu": "должность",
+            "optionsGroupNameRu": "Должность",
             "optionsGroupName": "position",
             "options": [],
           },
           {
-            "optionsGroupNameRu": "образование",
+            "optionsGroupNameRu": "Образование",
             "optionsGroupName": "education",
             "options": [],
           }
@@ -142,16 +142,13 @@ app.post('/users/auth', jsonParser, (req, res) =>
 {
   console.log(req.body);
   if(!req.body) return res.sendStatus(400);
-  const user = base.users.find(function (u){
-    return u.email === req.body.email;
-  });
-  if (user && user.password === req.body.password){
-    const token = jwt.sign(user, JWT_Secret);
-    res.status(200).send({
-      signed_user: user,
-      token: token
-    });
-    return res.sendStatus(200);
+  const userIndex = base.users.findIndex(el => el.email === req.body.email);
+  if (userIndex === -1){
+    console.log("ERROR");
+    return res.sendStatus(404);
+  }
+  if (base.users[userIndex].password === req.body.password){
+    res.status(200).json(base.users[userIndex]);
   }
   else{
     console.log("ERROR");
@@ -206,20 +203,19 @@ app.post('/optionsGroups', jsonParser, (req, res) => {
 
 
 app.put('/employees', jsonParser, (req, res) => {
-  if(!req.body) return res.sendStatus(400);
-  const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
-  if (searchIndex === -1) return res.sendStatus(400);
-  const employee = base.companies[searchIndex].employees.find(function (employee){
-    return employee.email === req.body.email;
-  });
-  if (!employee){
+  if(!req.body) return res.sendStatus(404);
+  const searchIndexCompany = base.companies.findIndex(el => el.company === req.query.company);
+  if (searchIndexCompany === -1){
     console.log("ERROR");
-    return res.sendStatus(400);
+    return res.sendStatus(404);
   }
-  else {
-    const newEmployees = base.companies[searchIndex].employees.map((emp) => emp.email === req.body.email ? emp = req.body : emp );
-    base.companies[searchIndex].employees= newEmployees;
-    base.companies[searchIndex].employees = newEmployees;
+  const searchIndexEmployee = base.companies[searchIndexCompany].findIndex(el => el.email === req.query.email);
+  if (searchIndexEmployee === -1){
+    console.log("ERROR");
+    return res.sendStatus(404);
+  }
+  else{
+    base.companies[searchIndexCompany].employees[searchIndexEmployee] = req.body;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
@@ -227,17 +223,32 @@ app.put('/employees', jsonParser, (req, res) => {
 });
 
 app.put('/users', jsonParser, (req, res) => {
-  if(!req.body) return res.sendStatus(400);
-  const user = base.users.find(function (user){
-    return user.email === req.body.email;
-  });
-  if (!user){
+  if(!req.body) return res.sendStatus(404);
+  const searchIndex = base.users.findIndex(el => el.email === req.query.email);
+  if (searchIndex === -1){
     console.log("ERROR");
-    return res.sendStatus(400);
+    return res.sendStatus(404);
   }
   else {
-    const newUsers = base.users.map((u) => u.email === req.body.email ? u = req.body : u );
-    base.users = newUsers;
+    if(Boolean(req.query.changePassword)){
+      if (!req.body.password) return res.sendStatus(400);
+      base.users[searchIndex].password = req.body.password;
+    }
+    if(Boolean(req.query.changeEmail)){
+      if (!req.body.email) return res.sendStatus(400);
+      const emailIndex = base.users.findIndex(el => el.email === req.body.email);
+      if (emailIndex !== -1) return res.sendStatus(400);
+      base.users[searchIndex].email = req.body.email;
+    }
+    if(Boolean(req.query.changeCompany)){
+      if (!req.body.companyName) return res.sendStatus(400);
+      const companyIndex = base.users.findIndex(el => el.companyName === req.body.companyName);
+      if (companyIndex !== -1) return res.sendStatus(400);
+      base.users[searchIndex].companyName = req.body.companyName;
+    }
+    else{
+      base.users[searchIndex] = req.body;
+    }
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);

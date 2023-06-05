@@ -38,8 +38,9 @@ export class LoginPageComponent implements OnInit{
 
     this.submitted = true;
     const userEmail: string = this.loginForm.value.email
+    const userPassword: string = this.loginForm.value.password
 
-    this.auth.login(userEmail)
+    this.auth.login(userEmail, userPassword)
       .subscribe(() => this.router.navigate(['/admin', 'list-employees']) )
   }
 }
