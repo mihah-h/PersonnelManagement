@@ -16,13 +16,13 @@
             </li>
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-surname">
               <input class="adding-employee-page-input adding-employee-page-surname" placeholder="Отчество" type="text"
-                name="surname" id="" formControlName="surname">
+                name="surname" formControlName="surname">
             </li>
           </ul>
           <ul class="adding-employee-page-block-second">
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-family-name">
               <input class="adding-employee-page-input adding-employee-page-family-name" placeholder="Фамилия"
-                type="text" name="lastname" id="" formControlName="lastname">
+                type="text" name="lastname" formControlName="lastname">
             </li>
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-sex">
               <select class="adding-employee-page_select-style" formControlName="gender">
@@ -37,57 +37,63 @@
         <ul class="adding-employee-page-second-list">
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-email"
-              placeholder="Email (будет использоватся для авторизации)" type="text" name="email" id=""
+              placeholder="Email (будет использоватся для авторизации)" type="text" name="email"
               formControlName="email">
           </li>
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-project" type="text" list="project"
               placeholder="Проект" formControlName="project"/>
               <datalist id="project">
-                <option *ngFor="let option of optionsGroups[0].options" [value]="option">{{option}}</option>
+                <ng-container *ngFor="let option of optionsGroups[0].options">
+                  <option *ngIf="option" [value]="option">{{option}}</option>
+                </ng-container>
               </datalist>
           </li>
           <li class="adding-employee-page-second-list-item">
             <input appAttribute class="adding-employee-page-input adding-employee-page-salary" placeholder="Зарплата"
-              type="text" name="salary" id="" formControlName="salary">
+              type="text" name="salary" formControlName="salary">
           </li>
           <li class="adding-employee-page-second-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-birthday"
-              placeholder="Дата рождения: &nbsp;" type="date" name="dateOfBirth" id="" formControlName="dateOfBirth">
+              placeholder="Дата рождения: &nbsp;" type="date" name="dateOfBirth" formControlName="dateOfBirth">
           </li>
           <li class="adding-employee-page-second-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-date"
-              placeholder="Дата принятия на работу: &nbsp;" type="date" name="dateOfEmployment" id=""
+              placeholder="Дата принятия на работу: &nbsp;" type="date" name="dateOfEmployment"
               formControlName="dateOfEmployment">
           </li>
         </ul>
         <ul class="adding-employee-page-third-list">
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-phone" placeholder="Телефон" type="tel"
-              name="phoneNumber" id="" formControlName="phoneNumber">
+              name="phoneNumber" formControlName="phoneNumber">
           </li>
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-post" type="text" list="status"
               placeholder="Должность" formControlName="position"/>
             <datalist id="status">
-              <option *ngFor="let option of optionsGroups[1].options" [value]="option">{{option}}</option>
+              <ng-container *ngFor="let option of optionsGroups[1].options">
+                <option *ngIf="option" [value]="option">{{option}}</option>
+              </ng-container>
             </datalist>
           </li>
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"
               type="text" list="education" formControlName="education"/>
             <datalist id="education">
-              <option *ngFor="let option of optionsGroups[2].options" [value]="option">{{option}}</option>
+              <ng-container *ngFor="let option of optionsGroups[2].options">
+                <option *ngIf="option" [value]="option">{{option}}</option>
+              </ng-container>
             </datalist>
           </li>
           <li class="adding-employee-page-third-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-date-interview"
-              placeholder="Дата собеседования: &nbsp;" type="date" name="dateOfInterview" id=""
+              placeholder="Дата собеседования: &nbsp;" type="date" name="dateOfInterview"
               formControlName="dateOfInterview">
           </li>
           <li class="adding-employee-page-third-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-date-first-day"
-              placeholder="Дата первого рабочего дня: &nbsp;" type="date" name="dateOfThirstWorkingDay" id=""
+              placeholder="Дата первого рабочего дня: &nbsp;" type="date" name="dateOfThirstWorkingDay"
               formControlName="dateOfThirstWorkingDay">
           </li>
         </ul>
