@@ -1,12 +1,12 @@
 .error-message {
   position: fixed;
-  bottom:0;
-  right:0;
+  bottom: 0;
+  right: 0;
   width: 400px;
   height: 64px;
-  font-family: 'Archivo';
+  font-family: 'Golos Text';
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   background: #EF4444;
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
@@ -15,8 +15,38 @@
 
 }
 
-.button {
-  width: 50px;
-  height: 30px;
-  background-color: #3B82F6;
+.btn-error {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  width: 400px;
+  height: 64px;
+  background-color: #EF4444;
+  box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
+  border-radius: 4px;
+}
+
+.btn-error::before {
+  content: url(../../../../assets/img/error-notification-icon.svg);
+  width: 32px;
+  height: 32px;
+  margin-right: 16px;
+}
+
+.btn-error::after {
+  content: url(../../../../assets/img/white-icon-svg.svg);
+  margin-left: 16px;
+  width: 21px;
+  height: 21px;
+}
+
+.btn-error_text {
+  width: 283px;
+  height: 28px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
 }
