@@ -101,7 +101,22 @@ app.post('/users/register', jsonParser, (req, res) => {
         base.companies.push({
           "company": req.body.companyName,
           "employees":[],
-          "options":[]
+          "options":[{
+            "optionsGroupNameRu": "проект",
+            "optionsGroupName": "project",
+            "options": [],
+          },
+          {
+            "optionsGroupNameRu": "должность",
+            "optionsGroupName": "position",
+            "options": [],
+          },
+          {
+            "optionsGroupNameRu": "образование",
+            "optionsGroupName": "education",
+            "options": [],
+          }
+          ]
         });
       }
       else{
@@ -160,20 +175,26 @@ app.post('/employees', jsonParser, (req, res) => {
   }
 });
 
-app.post('/options', jsonParser, (req, res) => {
+app.post('/optionsGroups', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
   if (searchIndex === -1) return res.sendStatus(404);
-  const index = base.companies[searchIndex].employees.findIndex(el => el.email === req.body.email);
-  if (index === -1){
-    base.companies[searchIndex].options.push(req.body);
+  if (req.query.optionsGroupName){
+    const optionIndex = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === req.query.optionsGroupName);
+    if (optionIndex === -1) return res.sendStatus(404);
+    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.body) !== -1) return res.sendStatus(400);
+    base.companies[searchIndex].options[optionIndex].options.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
   }
   else{
-    console.log("ERROR");
-    return res.sendStatus(409);
+    const optionIndex = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === req.body.optionsGroupName);
+    if (optionIndex !== -1) return res.sendStatus(400);
+    base.companies[searchIndex].options.push(req.body);
+    const json = JSON.stringify(base);
+    fs.writeFileSync('dbImit/base.json', json);
+    return res.sendStatus(200);
   }
 });
 
@@ -215,7 +236,7 @@ app.put('/users', jsonParser, (req, res) => {
   }
 });
 
-app.put('/options', jsonParser, (req, res) => {
+app.put('/optionsGroups', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
   const option = base.companies[searchIndex ].options.find(function (opt){
