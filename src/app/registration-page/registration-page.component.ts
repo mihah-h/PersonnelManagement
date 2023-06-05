@@ -55,16 +55,11 @@ export class RegistrationPageComponent implements OnInit {
       status: "head"
     }
 
-    // this.router.navigate(['/login']);
     this.auth.register(head).subscribe(() => {
-      this.registrationForm.reset();
-      this.submitted = false;
-      this.router.navigate(['/login']);
-    },
-    (err: Response) => {
-      console.log(err);
-      this.submitted = false;
-    },
-    () => { this.router.navigate(['/login']); });
+      this.auth.login(this.registrationForm.value.email)
+        .subscribe(() => this.router.navigate(['/admin', 'list-employees']))
+      this.registrationForm.reset()
+      this.submitted = false
+    })
   }
 }

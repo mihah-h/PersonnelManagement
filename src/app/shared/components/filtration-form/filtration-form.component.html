@@ -26,7 +26,7 @@
           <label for="{{i}}"
             class="tab-title list-project panel_list-item_text">{{optionsGroup.optionsGroupNameRu}}</label>
           <ul class="tab-project_content tab-content">
-            <li class="tab-project_content_item" *ngFor="let projectOption of optionsGroup.options; let i = index">
+            <li class="tab-project_content_item" *ngFor="let projectOption of optionsGroup.options; let l = index">
               <input type="checkbox" id="{{projectOption}}" [formControlName]="projectOption">
               <Label class="name_of_project" for="{{projectOption}}">{{projectOption}}</Label>
             </li>

@@ -1,4 +1,4 @@
-<main class="employee-page_main">
+<main class="employee-page_main" *ngIf="employee$ | async as employee; else loading">
   <div class="employee-page_container">
     <ul class="employee-page_left-side">
       <li class="employee-page_left-side_item employee-page_left-side_main-info">
@@ -6,14 +6,14 @@
           <img class="employees-page_photo" src="../../assets/img/employee-page_main-info.png" alt="">
         </div>
         <div class="employee-page_left-side_main-info-rightside">
-          <span class="employees-page_name">Макаров Артем <br> Владимирович</span>
+          <span class="employees-page_name">{{employee.surname}} {{employee.name}} <br> {{employee.patronymic}}</span>
           <div class="employee-page_left-side_main-info-rightside_phone">
             <img class="employees-page_phone" src="../../assets/img/icon-phone.svg" alt="">
-            <span class="employees-page_phone-text">+7 953 670 56 33</span>
+            <span class="employees-page_phone-text">{{employee.phoneNumber}}</span>
           </div>
           <div class="employee-page_left-side_main-info-rightside_email">
             <img class="employees-page_email" src="../../assets/img/icon-email.svg" alt="">
-            <span class="employees-page_email-text">Makarov.Artem@gmail.com</span>
+            <span class="employees-page_email-text">{{employee.email}}</span>
           </div>
         </div>
         <div class="employee-page_left-side_main-info-rightside_edit">
@@ -22,41 +22,41 @@
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_status">
         <span class="employee-page_status-item">
-          <span class="employee-page_status_first_word"> Статус: </span> Работает
+          <span class="employee-page_status_first_word"> Статус: </span> {{employee.status}}
         </span>
         <span class="employee-page_status-item">
-          <span class="employee-page_status_first_word">Проект:</span> Nopaper
+          <span class="employee-page_status_first_word">Проект:</span> {{employee.project}}
         </span>
         <span class="employee-page_status-item">
-          <span class="employee-page_status_first_word">Должность:</span> Младший разработчик
+          <span class="employee-page_status_first_word">Должность:</span> {{employee.position}}
         </span>
         <span class="employee-page_status-item">
-          <span class="employee-page_status_first_word">Заработная плата в месяц:</span> 65500р
+          <span class="employee-page_status_first_word">Заработная плата в месяц:</span> {{employee.salary}}р
         </span>
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_addition-info">
         <div class="employee-page_add-text">
-          <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span> Мужчина
+          <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span> {{employee.gender}}
           </span>
           <div class="employee-page_add-edit">
             <img class="employee-page_add-edit-icon" src="../../assets/img/icon-edit.svg" alt="">
           </div>
         </div>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Образование: </span>
-          Высшее
+          {{employee.education}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата рождения:
           </span>
-          21.01.2000
+          {{employee.birthDate}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата собеседования:
-          </span> 01.09.2022
+          </span> {{employee.interviewDate}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата принятия на
-            работу: </span> 12.09.2022
+            работу: </span> {{employee.employmentDate}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата первого рабочего
-            дня: </span> 13.09.2022
+            дня: </span> {{employee.firstWorkingDayDate}}
         </span>
         <span class="employee-page_add-text-item employee-page_add-text-vacations"><span
             class="employee-page_status_first_word employee-page_status_first_word-vacations"> Отпуски: </span>
@@ -128,3 +128,6 @@
     </ul>
   </div>
 </main>
+<ng-template #loading>
+  загрузка
+</ng-template>

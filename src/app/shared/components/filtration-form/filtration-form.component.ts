@@ -4,6 +4,7 @@ import {EmployeesInformation} from "../../interfaces/employeeInterfaces/employee
 import {OptionsGroup} from "../../interfaces/employeeInterfaces/optionsGroup";
 import {Observable} from "rxjs";
 import {Params} from "@angular/router";
+import {EmployeeService} from "../../services/employee.service";
 
 @Component({
   selector: 'app-filtration-form',
@@ -16,11 +17,11 @@ export class FiltrationFormComponent implements OnInit{
   filtrationForm!: FormGroup
   optionsGroups!: OptionsGroup[]
 
-  @Input()
-  employeesInformation$!: Observable<EmployeesInformation>
-
   @Output()
   filteringParametersAreSetEvent = new EventEmitter();
+
+  constructor(private employeeService: EmployeeService) {
+  }
 
   ngOnInit() {
     this.filtrationForm = new FormGroup({
@@ -47,10 +48,9 @@ export class FiltrationFormComponent implements OnInit{
       })
     })
 
-    this.employeesInformation$.subscribe(employeesInformation => {
-      this.optionsGroups = employeesInformation.options
 
-      for (const optionGroup of this.optionsGroups) {
+    this.employeeService.getOptionsGroup().subscribe(optionsGroups => {
+      for (const optionGroup of optionsGroups) {
         this.filtrationForm.addControl(optionGroup.optionsGroupName, new FormGroup({}))
         const optionsGroupName = this.filtrationForm.controls[optionGroup.optionsGroupName] as FormGroup
         for (const option of optionGroup.options) {

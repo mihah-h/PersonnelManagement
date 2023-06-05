@@ -37,21 +37,9 @@ export class LoginPageComponent implements OnInit{
     }
 
     this.submitted = true;
+    const userEmail: string = this.loginForm.value.email
 
-    const user: UserLogin = {
-      email: this.loginForm.value.email,
-      password: this.loginForm.value.password
-    }
-
-    // this.router.navigate(['/admin', 'list-employees']);
-    this.auth.login(user).subscribe(() => {
-      this.loginForm.reset();
-      this.submitted = false;
-      this.router.navigate(['/admin', 'list-employees']);
-    },
-    (err: Response) => {
-      console.log(err);
-      this.submitted = false;
-    })
+    this.auth.login(userEmail)
+      .subscribe(() => this.router.navigate(['/admin', 'list-employees']) )
   }
 }

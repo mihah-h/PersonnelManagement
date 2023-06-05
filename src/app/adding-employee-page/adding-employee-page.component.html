@@ -25,8 +25,8 @@
                 type="text" name="lastname" id="" formControlName="lastname">
             </li>
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-sex">
-              <select class="adding-employee-page_select-style">
-                <option value="man">Мужчина</option>
+              <select class="adding-employee-page_select-style" formControlName="gender">
+                <option value="man" >Мужчина</option>
                 <option value="woman">Женщина</option>
               </select>
             </li>
@@ -42,7 +42,7 @@
           </li>
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-project" type="text" list="project"
-              placeholder="Проект" />
+              placeholder="Проект" formControlName="project"/>
             <datalist id="project">
               <option *ngFor="let option of optionsGroup[0].options" [value]="option">{{option}}</option>
             </datalist>
@@ -68,14 +68,14 @@
           </li>
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-post" type="text" list="status"
-              placeholder="Должность" />
+              placeholder="Должность" formControlName="position"/>
             <datalist id="status">
               <option *ngFor="let option of optionsGroup[1].options" [value]="option">{{option}}</option>
             </datalist>
           </li>
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"
-              type="text" list="education" />
+              type="text" list="education" formControlName="education"/>
             <datalist id="education">
               <option *ngFor="let option of optionsGroup[2].options" [value]="option">{{option}}</option>
             </datalist>

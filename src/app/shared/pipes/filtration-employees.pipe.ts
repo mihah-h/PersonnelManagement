@@ -15,7 +15,7 @@ export class FiltrationEmployeesPipe implements PipeTransform{
     }
 
     return employees.filter((employee) => {
-      for (let param in params) {
+      for (const param in params) {
           if (!(this.checkEmployeeParam(employee[param as keyof Employee], param, params[param]))) {
             return false
           }
@@ -38,7 +38,7 @@ export class FiltrationEmployeesPipe implements PipeTransform{
           && employeeParamValue < paramValues.split('-')[1]))
     }
 
-    for (let paramValue of paramValues.split('-')) {
+    for (const paramValue of paramValues.split('-')) {
       if (employeeParamValue === paramValue) {
         return true
       }

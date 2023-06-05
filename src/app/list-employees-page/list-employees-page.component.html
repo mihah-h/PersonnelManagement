@@ -5,7 +5,7 @@
     </h2>
     <div class="main-info">
       <div class="main-left">
-        <app-filtration-form [employeesInformation$]="employeesInformation$"
+        <app-filtration-form
           (filteringParametersAreSetEvent)="take($event)"></app-filtration-form>
       </div>
       <div class="main-right">
@@ -22,7 +22,7 @@
             </svg>
           </div>
           <div class="burger-container">
-            <div class="sort-panel"><a class="sort-panel-click" [routerLink]="['/admin']">Сортировка по:
+            <div class="sort-panel"><a class="sort-panel-click">Сортировка по:
                 <select appAttribute="#3B82F6" class="sort_param" [(ngModel)]="sortingParameter">
                   <option class="sort_element" value="alphabet">Алфавиту</option>
                   <option class="sort_element" value="salaryAscending" selected>Зарплате ▲</option>

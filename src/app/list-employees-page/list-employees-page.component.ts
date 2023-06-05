@@ -17,8 +17,8 @@ export class ListEmployeesPageComponent implements OnInit{
   employees!: Employee[]
   employeesInformation$!: Observable<EmployeesInformation>
   filtrationParameters!: Params
-  sortingParameter: string = 'alphabet'
-  searchParameter: string = ''
+  sortingParameter = 'alphabet'
+  searchParameter = ''
 
   constructor(
     private route: ActivatedRoute,
@@ -29,12 +29,14 @@ export class ListEmployeesPageComponent implements OnInit{
   ngOnInit() {
     this.employeesInformation$ = this.employeeService.getEmployeesInformation()
     this.employeesInformationSub = this.employeesInformation$.subscribe(employeesInformation => {
-      this.employees = employeesInformation.employees
+      
     })
+    this.employeeService.getEmployees().subscribe(employees => this.employees = employees)
 
     this.route.queryParams.subscribe(queryParams => {
       this.filtrationParameters = queryParams
     })
+
 
   }
 

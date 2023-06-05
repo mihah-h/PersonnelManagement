@@ -10,36 +10,32 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  get token(): string | null {
-    return localStorage.getItem('token')
+  get userCompanyName(): string | null {
+    return localStorage.getItem('companyName')
   }
 
-  login(user: UserLogin): Observable<UserLogin> {
-    console.log(user);
-    localStorage.setItem('token', '23323223')
-    return this.http.post<UserLogin>('http://localhost:3000/users/auth', user)
-      // .pipe(
-      //   tap(this.setToken)
-      // )
+  login(userEmail: string): Observable<UserLogin | null> {
+    return this.http.get<UserLogin>('http://localhost:3000/users?email=' + userEmail)
+      .pipe(
+        tap(this.setUserCompanyName)
+      )
   }
 
-  register(user: UserRegistration): Observable<UserRegistration> {
-    console.log(user);
-    return this.http.post<UserRegistration>('http://localhost:3000/users/register', user);
+  register(user: UserRegistration): Observable<string> {
+    return this.http.post('http://localhost:3000/users/register', user, { responseType: "text"});
   }
 
   logout() {
-    this.setToken(null)
-    localStorage.clear()
+    this.setUserCompanyName(null)
   }
 
   isAuthenticated(): boolean {
-    return !!this.token
+    return !!this.userCompanyName
   }
 
-  private setToken(response: UserLoginResponse | null) {
+  private setUserCompanyName(response: UserLogin | null) {
     if (response) {
-      localStorage.setItem('token', response.token)
+      localStorage.setItem('companyName', response.companyName)
     } else {
       localStorage.clear()
     }

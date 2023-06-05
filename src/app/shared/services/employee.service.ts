@@ -2,10 +2,16 @@ import { Injectable } from "@angular/core";
 import {EmployeesInformation} from "../interfaces/employeeInterfaces/employeesInformation";
 import { Observable } from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {Employee} from "../interfaces/employeeInterfaces/employee";
+import {AuthService} from "./auth.service";
+import {OptionsGroup} from "../interfaces/employeeInterfaces/optionsGroup";
 
 @Injectable()
 export class EmployeeService {
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private auth: AuthService
+  ) {
   }
   getEmployeesInformation(): Observable<EmployeesInformation> {
     return new Observable(observer => {
@@ -128,7 +134,19 @@ export class EmployeeService {
     })
   }
 
-  // get() {
-  //   this.http.get('http://localhost:3000/employees?company=ArtSofte').subscribe((s => console.log(s)))
-  // }
+  getEmployees(): Observable<Employee[]>{
+    return this.http.get<Employee[]>('http://localhost:3000/employees?company=' + this.auth.userCompanyName)
+  }
+
+  addEmployee(newEmployee: Employee) {
+    return this.http.post('http://localhost:3000/employees?company=' + this.auth.userCompanyName, newEmployee)
+  }
+
+  getEmployee(employeeEmail: string): Observable<Employee> {
+    return this.http.get<Employee>('http://localhost:3000/employees?company=' + this.auth.userCompanyName + '&email=' + employeeEmail)
+  }
+
+  getOptionsGroup(): Observable<OptionsGroup[]> {
+    return this.http.get<OptionsGroup[]>('http://localhost:3000/optionsGroups?company=' + this.auth.userCompanyName)
+  }
 }
