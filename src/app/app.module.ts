@@ -25,6 +25,7 @@ import {GuardAuth} from "./shared/services/guard.auth";
 import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.service";
 import { AttributeDirective } from './shared/directives/directives/attribute.directive';
 import { StyleDirective } from './shared/directives/directives/style.directive';
+import {ErrorMessageDynamicService} from "./shared/services/error-message-dynamic.service";
 
 @NgModule({
   declarations: [
@@ -54,11 +55,13 @@ import { StyleDirective } from './shared/directives/directives/style.directive';
     DirectivesModule
 
   ],
+
   providers: [
     AuthService,
     EmployeeService,
     GuardAuth,
-    {provide: ErrorHandler, useClass: GlobalErrorHandlerService}
+    {provide: ErrorHandler, useClass: GlobalErrorHandlerService},
+    ErrorMessageDynamicService
   ],
   bootstrap: [AppComponent]
 })
