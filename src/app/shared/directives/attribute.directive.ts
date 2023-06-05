@@ -7,7 +7,7 @@ import { Directive, ElementRef, Input, Renderer2 } from '@angular/core';
   }
 })
 export class AttributeDirective {
-  @Input('appAttribute') color: string ='#1E293B';
+  @Input('appAttribute') color ='#1E293B';
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
 
