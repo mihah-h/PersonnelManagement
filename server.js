@@ -188,6 +188,8 @@ app.post('/optionsGroups', jsonParser, (req, res) => {
     if (optionIndex === -1) return res.sendStatus(404);
     if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.query.option) !== -1) return res.sendStatus(400);
     base.companies[searchIndex].options[optionIndex].options.push(req.query.option.split('_').join(' '));
+    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.body.option) !== -1) return res.sendStatus(400);
+    base.companies[searchIndex].options[optionIndex].options.push(req.body.option);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
@@ -217,6 +219,7 @@ app.put('/employees', jsonParser, (req, res) => {
   else {
     const newEmployees = base.companies[searchIndex].employees.map((emp) => emp.email === req.body.email ? emp = req.body : emp );
     base.companies[searchIndex].employees= newEmployees;
+    base.companies[searchIndex].employees = newEmployees;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
@@ -255,10 +258,25 @@ app.put('/optionsGroups', jsonParser, (req, res) => {
   else {
     const newOptions = base.companies[searchIndex ].options.map((opt) => opt.optionsGroupName === req.body.optionsGroupName ? opt = req.body : opt );
     base.companies[searchIndex ].options = newOptions;
+    base.companies[searchIndex].employees= newOptions;
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
   }
+});
+
+
+
+app.delete('/employees', (req, res) => {
+  if (!req.query.company) return res.sendStatus(400);
+  if (!req.query.email === undefined) return res.sendStatus(400);
+  const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
+  if (searchIndex === -1) return res.sendStatus(400);
+  let clearedEmps = base.companies[searchIndex].employees.filter((emp) => emp.email !== req.query.email);
+  base.companies[searchIndex].employees = clearedEmps ;
+  const json = JSON.stringify(base);
+  fs.writeFileSync('dbImit/base.json', json);
+  return res.sendStatus(200);
 });
 
 
