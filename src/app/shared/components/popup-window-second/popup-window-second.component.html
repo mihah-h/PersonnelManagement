@@ -7,19 +7,21 @@
         <option *ngIf="option" [value]="option">{{option}}</option>
       </ng-container>
     </datalist>
-    <ul>
+    <div>
       <input class="popup_employee-element" type="date" formControlName="birthDate">
       <input class="popup_employee-element" type="date" formControlName="interviewDate">
       <input class="popup_employee-element" type="date" formControlName="employmentDate">
       <input class="popup_employee-element" type="date" formControlName="firstWorkingDayDate">
-    </ul>
+      <span class="add_vac_text">Добавить отпуск:</span>
+      <input class="popup_employee-element" type="date" formControlName="newVacationsStart">
+      <input class="popup_employee-element" type="date" formControlName="newVacationsEnd">
+    </div>
     <div class="popup_for_vacation">
-      <input type="checkbox" id="add_vac">
-      <Label for="add_vac" class="label_add-vacation label_add-vacation-text">Добавить отпуск</Label>
-      <div class="popup_employee-list-second">
-        <input class="popup_employee-element-second" type="date" formControlName="newVacationsStart">
-        <input class="popup_employee-element-second" type="date" formControlName="newVacationsEnd">
-      </div>
+      <!-- <input type="checkbox" id="add_vac"> -->
+      <!-- <Label for="add_vac" class="label_add-vacation label_add-vacation-text">Добавить отпуск:</Label> -->
+
+      <!-- <input class="popup_employee-element-second" type="date" formControlName="newVacationsStart">
+      <input class="popup_employee-element-second" type="date" formControlName="newVacationsEnd"> -->
       <button class="popup-btn-save" type="submit">Сохранить</button>
     </div>
   </Form>

@@ -1,6 +1,6 @@
 .popupContainer {
   max-width: 450px;
-  max-height: 598px;
+  max-height: 700px;
   position: fixed;
   font-family: 'Golos Text';
   font-style: normal;
@@ -11,7 +11,6 @@
   border-radius: 4px;
   border-radius: 4px;
   color: #FFFFFF;
-  margin-top: 52px;
   margin-bottom: 187px;
   margin-left: 50%;
   margin-right: 50%;
@@ -25,6 +24,21 @@
   background-color: #EFF6FF;
   border-radius: 4px;
   margin-bottom: 31px;
+}
+
+.add_vac_text {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  /* identical to box height, or 143% */
+
+  display: flex;
+  align-items: center;
+
+  color: #64748B;
+
 }
 
 .popup_input:focus-within {
@@ -47,13 +61,19 @@
   padding: 30px 50px 40px 50px;
 }
 
-.popup_employee-element {
+.popup_employee-element:not(:last-child) {
   margin-bottom: 31px;
 }
 
-.popup_employee-element-second:not(:last-child) {
-  margin-bottom: 31px;
+@media (max-height: 800px) {
+  .popup_employee-element:not(:last-child) {
+    margin-bottom: 22px;
+  }
 }
+
+/* .popup_employee-element-second:not(:last-child) {
+  margin-bottom: 31px;
+} */
 
 .popup_employee-element,
 .popup_employee-element-second {
@@ -98,10 +118,6 @@
 .popup_employee-list-second {
   position: absolute;
   display: none;
-}
-
-.btn_add-vacation:focus-within .popup_employee-list-second {
-  display: block;
 }
 
 .label_add-vacation-text {

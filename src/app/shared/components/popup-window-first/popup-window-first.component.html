@@ -1,12 +1,12 @@
 <div class="popupContainer">
   <button class='btn-close' (click)="closePopupWindow.next()"></button>
   <Form class="popup_employee-form" [formGroup]="dataEditingForm" (ngSubmit)="save()">
-    <ul>
+    <div>
       <input class="popup_employee-element" type="text" formControlName="name">
       <input class="popup_employee-element" type="text" formControlName="surname">
       <input class="popup_employee-element" type="text" formControlName="patronymic">
       <input class="popup_employee-element" type="tel" formControlName="phoneNumber">
-    </ul>
+    </div>
     <button class="popup-btn-save" type="submit">Сохранить</button>
   </Form>
 </div>
