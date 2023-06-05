@@ -179,14 +179,15 @@ app.post('/employees', jsonParser, (req, res) => {
 });
 
 app.post('/optionsGroups', jsonParser, (req, res) => {
+  console.log(req.body);
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
   if (searchIndex === -1) return res.sendStatus(404);
   if (req.query.optionsGroupName){
     const optionIndex = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === req.query.optionsGroupName);
     if (optionIndex === -1) return res.sendStatus(404);
-    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.body) !== -1) return res.sendStatus(400);
-    base.companies[searchIndex].options[optionIndex].options.push(req.body);
+    if(base.companies[searchIndex].options[optionIndex].options.indexOf(req.query.option) !== -1) return res.sendStatus(400);
+    base.companies[searchIndex].options[optionIndex].options.push(req.query.option.split('_').join(' '));
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
     return res.sendStatus(200);
