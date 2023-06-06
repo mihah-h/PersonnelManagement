@@ -30,7 +30,6 @@ export class ListEmployeesPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getEmployeesSub = this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees)
-    this.loader = false;
     this.queryParamsSub = this.route.queryParams.subscribe(queryParams => {
       this.filtrationParameters = queryParams
     })

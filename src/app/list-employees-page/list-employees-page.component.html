@@ -4,12 +4,12 @@
     </h2>
     <div class="main-info">
       <div class="main-left">
-        <app-filtration-form
-          (filteringParametersAreSetEvent)="take($event)"></app-filtration-form>
+        <app-filtration-form (filteringParametersAreSetEvent)="take($event)"></app-filtration-form>
       </div>
       <div class="main-right">
         <div class="middle-panel">
-          <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="btn btn-add" (click)="router.navigate(['/admin', 'adding-employee'])">Добавить
+          <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="btn btn-add"
+            (click)="router.navigate(['/admin', 'adding-employee'])">Добавить
             сотрудника</button>
           <div class="search-form">
             <input class="search-panel" placeholder="Поиск" type="text" [(ngModel)]="searchParameter">
@@ -44,12 +44,15 @@
                   | searchEmployees:searchParameter" [employee]="employee"></app-employee-list-item>
             </div>
             <ng-template #loading>...Загрузка</ng-template>
+            <ngx-skeleton-loader count="{{totalCount}}" appearance="line" *ngIf="loader"></ngx-skeleton-loader>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </main>
+
+
 <!-- <footer class="footer">
   <div class="footer-container">
     <ul class="footer-list">
