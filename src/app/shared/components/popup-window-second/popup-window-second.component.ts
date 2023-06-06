@@ -41,7 +41,9 @@ export class PopupWindowSecondComponent implements OnInit , OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.putEmployeeSub.unsubscribe()
+    if (this.putEmployeeSub) {
+      this.putEmployeeSub.unsubscribe()
+    }
     this.getOptionsGroupSub.unsubscribe()
   }
 

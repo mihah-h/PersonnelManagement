@@ -46,7 +46,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.loginSub.unsubscribe()
+    if (this.loginSub) {
+      this.loginSub.unsubscribe()
+    }
   }
 
   animate() {

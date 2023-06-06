@@ -39,8 +39,12 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this.employeeSub.unsubscribe()
-    this.closePopupWindow1Sub.unsubscribe()
-    this.closePopupWindow2Sub.unsubscribe()
+    if (this.closePopupWindow1Sub) {
+      this.closePopupWindow1Sub.unsubscribe()
+    }
+    if (this.closePopupWindow2Sub) {
+      this.closePopupWindow2Sub.unsubscribe()
+    }
   }
 
   showFirstPopupWindow() {

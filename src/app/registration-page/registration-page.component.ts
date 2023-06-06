@@ -59,8 +59,12 @@ export class RegistrationPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.registerSub.unsubscribe()
-    this.loginSub.unsubscribe()
+    if (this.registerSub) {
+      this.registerSub.unsubscribe()
+    }
+    if (this.loginSub) {
+      this.loginSub.unsubscribe()
+    }
   }
 
   animate() {

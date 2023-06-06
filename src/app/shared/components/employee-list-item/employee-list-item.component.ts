@@ -19,7 +19,9 @@ export class EmployeeListItemComponent implements OnDestroy{
   }
 
   ngOnDestroy(): void {
-    this.deleteEmployeeSub.unsubscribe()
+    if (this.deleteEmployeeSub) {
+      this.deleteEmployeeSub.unsubscribe()
+    }
   }
 
   goEmployeePage() {

@@ -47,7 +47,6 @@ export class FiltrationFormComponent implements OnInit, OnDestroy{
       })
     })
 
-
     this.getOptionsGroupSub =  this.employeeService.getOptionsGroup().subscribe(optionsGroups => {
       this.optionsGroups = optionsGroups
       for (const optionGroup of this.optionsGroups) {

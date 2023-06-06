@@ -50,7 +50,9 @@ export class AddingEmployeePageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.getOptionsGroupSub.unsubscribe()
-    this.addEmployeeSub.unsubscribe()
+    if (this.addEmployeeSub) {
+      this.addEmployeeSub.unsubscribe()
+    }
     if (this.addNewOptionSub1) {
       this.addNewOptionSub1.unsubscribe()
     }
