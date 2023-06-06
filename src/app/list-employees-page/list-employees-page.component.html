@@ -43,8 +43,9 @@
                   | sortingEmployees:sortingParameter
                   | searchEmployees:searchParameter" [employee]="employee"></app-employee-list-item>
             </div>
-            <ng-template #loading>...Загрузка</ng-template>
-            <ngx-skeleton-loader [theme]="{height: '100px'}" count="{{totalCount}}" appearance="line" *ngIf="loader"></ngx-skeleton-loader>
+            <ng-template #loading>
+              <ngx-skeleton-loader [theme]="{height: '100px'}" count="{{totalCount}}" appearance="line"></ngx-skeleton-loader>
+            </ng-template>
           </ul>
         </div>
       </div>
