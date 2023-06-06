@@ -44,7 +44,8 @@
                   | searchEmployees:searchParameter" [employee]="employee"></app-employee-list-item>
             </div>
             <ng-template #loading>
-              <ngx-skeleton-loader [theme]="{height: '100px'}" count="{{totalCount}}" appearance="line"></ngx-skeleton-loader>
+              <ngx-skeleton-loader [theme]="{height: '100px', background: '#e1e1e3'}" count="{{totalCount}}"
+                appearance="line"></ngx-skeleton-loader>
             </ng-template>
           </ul>
         </div>
