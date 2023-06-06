@@ -29,7 +29,7 @@ export class EmployeeListItemComponent implements OnDestroy{
   }
 
   delete() {
-    this.deleteEmployeeSub = this.employeeService.deleteEmployee(this.employee).subscribe()
+    this.deleteEmployeeSub = this.employeeService.deleteEmployee(this.employee.email).subscribe()
   }
 
 }

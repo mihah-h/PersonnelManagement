@@ -65,8 +65,10 @@ export class PopupWindowSecondComponent implements OnInit , OnDestroy{
     this.employee.interviewDate = this.dataEditingForm.value.interviewDate
     this.employee.employmentDate = this.dataEditingForm.value.employmentDate
     this.employee.firstWorkingDayDate = this.dataEditingForm.value.firstWorkingDayDate
-    this.employee.vacations.push(this.dataEditingForm.value.newVacationsStart
-      + '-' + this.dataEditingForm.value.newVacationsEnd)
+    if (this.dataEditingForm.value.newVacationsStart || this.dataEditingForm.value.newVacationsEnd) {
+      this.employee.vacations.push(this.dataEditingForm.value.newVacationsStart
+        + '-' + this.dataEditingForm.value.newVacationsEnd)
+    }
 
   }
 }

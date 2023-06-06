@@ -37,15 +37,17 @@ export class EmployeeService {
 
   addNewOption(optionsGroupName: string, newOption: string): Observable<string> {
     return this.http.post(this.apiURL + '/optionsGroups?company='
-      + this.auth.userCompanyName + '&optionsGroupName=' + optionsGroupName + '&option=' + newOption, "", {responseType: "text"})
+      + this.auth.userCompanyName + '&optionsGroupName='
+      + optionsGroupName + '&option=' + newOption, "", {responseType: "text"})
   }
 
   putEmployee(employee: Employee): Observable<string> {
-    return this.http.put(this.apiURL + '/employees?company=' + this.auth.userCompanyName, employee, {responseType: "text"})
+    return this.http.put(this.apiURL + '/employees?company='
+      + this.auth.userCompanyName, employee, {responseType: "text"})
   }
 
-  deleteEmployee(employee: Employee): Observable<Employee> {
-    return this.http.delete<Employee>(this.apiURL + '/optionsGroups?company=ArtSofte'
-      + this.auth.userCompanyName + '&email=' + employee.email)
+  deleteEmployee(employeeEmail: string): Observable<Employee> {
+    return this.http.delete<Employee>(this.apiURL + '/optionsGroups?company='
+      + this.auth.userCompanyName + '&email=' + employeeEmail)
   }
 }
