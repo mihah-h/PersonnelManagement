@@ -5,6 +5,9 @@ import { Observable, Subscription, switchMap } from "rxjs";
 import { EmployeeService } from "../shared/services/employee.service";
 import { PopupWindowFirstComponent } from "../shared/components/popup-window-first/popup-window-first.component";
 import { PopupWindowSecondComponent } from "../shared/components/popup-window-second/popup-window-second.component";
+import {
+  AddCompanyHistoryPopupWindowComponent
+} from "../shared/components/add-company-history-popup-window/add-company-history-popup-window.component";
 
 @Component({
   selector: 'app-employee-page',
@@ -18,6 +21,7 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
   employeeSub!: Subscription
   closePopupWindow1Sub!: Subscription
   closePopupWindow2Sub!: Subscription
+  closeAddCompanyHistoryPopupWindow2Sub!: Subscription
 
   @ViewChild('popupContainer', { read: ViewContainerRef })
   private popupContainer: ViewContainerRef
@@ -61,4 +65,10 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
     this.closePopupWindow2Sub = component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
   }
 
+  showAddCompanyHistoryPopupWindow() {
+    this.popupContainer.clear()
+    const component = this.popupContainer.createComponent(AddCompanyHistoryPopupWindowComponent)
+    component.instance.employee = this.employee
+    this.closeAddCompanyHistoryPopupWindow2Sub = component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
+  }
 }

@@ -13,22 +13,26 @@
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-name">
               <input class="adding-employee-page-input adding-employee-page-name" placeholder="Имя" type="text" name=""
                 id="name" formControlName="name">
+              <app-validation-message [control]="newEmployeeForm.controls['name']"></app-validation-message>
             </li>
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-surname">
               <input class="adding-employee-page-input adding-employee-page-surname" placeholder="Отчество" type="text"
                 name="surname" formControlName="surname">
+              <app-validation-message [control]="newEmployeeForm.controls['surname']"></app-validation-message>
             </li>
           </ul>
           <ul class="adding-employee-page-block-second">
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-family-name">
               <input class="adding-employee-page-input adding-employee-page-family-name" placeholder="Фамилия"
                 type="text" name="lastname" formControlName="lastname">
+              <app-validation-message [control]="newEmployeeForm.controls['lastname']"></app-validation-message>
             </li>
             <li class="adding-employee-page-first-list-item adding-employee-page-first-list-sex">
               <select class="adding-employee-page_select-style" formControlName="gender">
                 <option value="man" >Мужчина</option>
                 <option value="woman">Женщина</option>
               </select>
+              <app-validation-message [control]="newEmployeeForm.controls['gender']"></app-validation-message>
             </li>
           </ul>
         </div>
@@ -39,10 +43,12 @@
             <input class="adding-employee-page-input adding-employee-page-email"
               placeholder="Email (будет использоватся для авторизации)" type="email" name="email"
               formControlName="email">
+            <app-validation-message [control]="newEmployeeForm.controls['email']"></app-validation-message>
           </li>
           <li class="adding-employee-page-second-list-item">
             <input class="adding-employee-page-input adding-employee-page-project" type="text" list="project"
               placeholder="Проект" formControlName="project"/>
+            <app-validation-message [control]="newEmployeeForm.controls['project']"></app-validation-message>
               <datalist id="project">
                 <ng-container *ngFor="let option of optionsGroups[0].options">
                   <option *ngIf="option" [value]="option">{{option}}</option>
@@ -52,26 +58,31 @@
           <li class="adding-employee-page-second-list-item">
             <input appAttribute class="adding-employee-page-input adding-employee-page-salary" placeholder="Зарплата"
               type="number" name="salary" formControlName="salary">
+            <app-validation-message [control]="newEmployeeForm.controls['salary']"></app-validation-message>
           </li>
           <li class="adding-employee-page-second-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-birthday"
               placeholder="Дата рождения: &nbsp;" type="date" name="dateOfBirth" formControlName="dateOfBirth">
+            <app-validation-message [control]="newEmployeeForm.controls['dateOfBirth']"></app-validation-message>
           </li>
           <li class="adding-employee-page-second-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-date"
               placeholder="Дата принятия на работу: &nbsp;" type="date" name="dateOfEmployment"
               formControlName="dateOfEmployment">
+            <app-validation-message [control]="newEmployeeForm.controls['dateOfEmployment']"></app-validation-message>
           </li>
         </ul>
         <ul class="adding-employee-page-third-list">
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-phone" placeholder="Телефон" type="tel"
               name="phoneNumber" formControlName="phoneNumber">
+            <app-validation-message [control]="newEmployeeForm.controls['phoneNumber']"></app-validation-message>
           </li>
           <li class="adding-employee-page-third-list-item">
-            <input class="adding-employee-page-input adding-employee-page-post" type="text" list="status"
+            <input class="adding-employee-page-input adding-employee-page-post" type="text" list="position"
               placeholder="Должность" formControlName="position"/>
-            <datalist id="status">
+            <app-validation-message [control]="newEmployeeForm.controls['position']"></app-validation-message>
+            <datalist id="position">
               <ng-container *ngFor="let option of optionsGroups[1].options">
                 <option *ngIf="option" [value]="option">{{option}}</option>
               </ng-container>
@@ -80,6 +91,7 @@
           <li class="adding-employee-page-third-list-item">
             <input class="adding-employee-page-input adding-employee-page-education" placeholder="Образование"
               type="text" list="education" formControlName="education"/>
+            <app-validation-message [control]="newEmployeeForm.controls['education']"></app-validation-message>
             <datalist id="education">
               <ng-container *ngFor="let option of optionsGroups[2].options">
                 <option *ngIf="option" [value]="option">{{option}}</option>
@@ -90,15 +102,19 @@
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-date-interview"
               placeholder="Дата собеседования: &nbsp;" type="date" name="dateOfInterview"
               formControlName="dateOfInterview">
+            <app-validation-message [control]="newEmployeeForm.controls['dateOfInterview']"></app-validation-message>
           </li>
           <li class="adding-employee-page-third-list-item">
             <input appAttribute="#1E293B" class="adding-employee-page-input-date adding-employee-page-date-first-day"
               placeholder="Дата первого рабочего дня: &nbsp;" type="date" name="dateOfThirstWorkingDay"
               formControlName="dateOfThirstWorkingDay">
+            <app-validation-message [control]="newEmployeeForm.controls['dateOfThirstWorkingDay']"></app-validation-message>
           </li>
         </ul>
       </div>
-      <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="adding-employee-page-btn-add" type="submit">Добавить</button>
+      <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}"
+              class="adding-employee-page-btn-add" type="submit"
+              [disabled]="newEmployeeForm.invalid" >Добавить</button>
     </form>
   </div>
 </main>

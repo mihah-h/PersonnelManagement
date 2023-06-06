@@ -7,7 +7,8 @@
           <img class="employees-page_photo" src="../../assets/img/adding-incognito.png" alt="">
         </div>
         <div class="employee-page_left-side_main-info-rightside">
-          <span class="employees-page_name">{{employee.surname}} {{employee.name}} <br> {{employee.patronymic}}</span>
+          <span class="employees-page_name">{{employee.surname}} {{employee.name}} <br>
+            {{employee.patronymic}}</span>
           <div class="employee-page_left-side_main-info-rightside_phone">
             <img class="employees-page_phone" src="../../assets/img/icon-phone.svg" alt="">
             <span class="employees-page_phone-text">{{employee.phoneNumber}}</span>
@@ -23,8 +24,12 @@
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_status">
         <span class="employee-page_status-item">
-          <span class="employee-page_status_first_word"> Статус: </span> {{employee.status}}
+          <span *ngIf="employee.status; else vacation"
+                class="employee-page_status_first_word"> Статус: </span> Работает
         </span>
+        <ng-template #vacation>
+          <span class="employee-page_status_first_word"> Статус: </span> В отпуске
+        </ng-template>
         <span class="employee-page_status-item">
           <span class="employee-page_status_first_word">Проект:</span> {{employee.project}}
         </span>
@@ -37,27 +42,37 @@
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_addition-info">
         <div class="employee-page_add-text">
-          <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span>
-            {{employee.gender}}
+          <span *ngIf="employee.gender === 'man'; else woman" class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span>
+            Мужчина
           </span>
+          <ng-template #woman>
+            <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span>
+            Женщина
+          </span>
+          </ng-template>
           <div class="employee-page_add-edit">
             <button class="employee-page_add-edit-icon" (click)="showSecondPopupWindow()"></button>
           </div>
         </div>
-        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Образование: </span>
+        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
+          Образование: </span>
           {{employee.education}}
         </span>
-        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата рождения:
+        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
+          Дата рождения:
           </span>
           {{employee.birthDate}}
         </span>
-        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата собеседования:
+        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
+          Дата собеседования:
           </span> {{employee.interviewDate}}
         </span>
-        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата принятия на
+        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
+          Дата принятия на
             работу: </span> {{employee.employmentDate}}
         </span>
-        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Дата первого рабочего
+        <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
+          Дата первого рабочего
             дня: </span> {{employee.firstWorkingDayDate}}
         </span>
         <span class="employee-page_add-text-item employee-page_add-text-vacations"><span
@@ -81,38 +96,21 @@
           <span class="employee-page_right-side_date_text employee-page_right-side_text">Дата</span>
         </li>
       </ul>
-      <ul class="employee-page_right-side_second-block">
+      <ul *ngFor="let historyItem of employee.historyInCompany" class="employee-page_right-side_second-block">
         <li class="employee-page_right-side_second-block_item employee-page_right-side_second-block_project">
-          <span class="employee-page_right-side_second-block_item-text"> Nopaper</span>
+          <span class="employee-page_right-side_second-block_item-text">{{historyItem.project}}</span>
         </li>
         <li class="employee-page_right-side_second-block_item employee-page_right-side_second-block_post">
-          <span class="employee-page_right-side_second-block_item-text"> Стажер <br> Разработчик</span>
+          <span class="employee-page_right-side_second-block_item-text">{{historyItem.position}}</span>
         </li>
         <li class="employee-page_right-side_second-block_item employee-page_right-side_second-block_salary">
-          <span class="employee-page_right-side_second-block_item-text">31200р</span>
+          <span class="employee-page_right-side_second-block_item-text">{{historyItem.salary}}р</span>
         </li>
         <li class="employee-page_right-side_second-block_item employee-page_right-side_second-block_date">
-          <span class="employee-page_right-side_second-block_item-text">12.09.2022</span>
+          <span class="employee-page_right-side_second-block_item-text">{{historyItem.date}}</span>
         </li>
         <li class="employee-page_right-side_second-block_edit">
           <button class="employee-page_right-side_second-block_item-edit"></button>
-        </li>
-      </ul>
-      <ul class="employee-page_right-side_third-block">
-        <li class="employee-page_right-side_third-block_item employee-page_right-side_third-block_project">
-          <span class="employee-page_right-side_third-block_item-text">Nopaper</span>
-        </li>
-        <li class="employee-page_right-side_third-block_item employee-page_right-side_third-block_post">
-          <span class="employee-page_right-side_third-block_item-text">Младший разработчик</span>
-        </li>
-        <li class="employee-page_right-side_third-block_item employee-page_right-side_third-block_salary">
-          <span class="employee-page_right-side_third-block_item-text">65500р</span>
-        </li>
-        <li class="employee-page_right-side_third-block_item employee-page_right-side_third-block_date">
-          <span class="employee-page_right-side_third-block_item-text">22.02.2023</span>
-        </li>
-        <li class="employee-page_right-side_third-block_edit">
-          <button class="employee-page_right-side_third-block_item-edit"></button>
         </li>
       </ul>
       <ul class="employee-page_right-side_fourth-block">
@@ -125,7 +123,7 @@
         </li>
         <li class="employee-page_right-side_fourth-block-item employee-page_right-side_fourth-block-btn">
           <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}"
-            class="employee-page_btn employee-page_btn_add"> Добавить </button>
+            class="employee-page_btn employee-page_btn_add" (click)="showAddCompanyHistoryPopupWindow()"> Добавить </button>
         </li>
       </ul>
     </ul>

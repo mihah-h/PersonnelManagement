@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Router } from "@angular/router";
 import { EmployeeService } from "../shared/services/employee.service";
 import { OptionsGroup } from "../shared/interfaces/employeeInterfaces/optionsGroup";
@@ -29,21 +29,53 @@ export class AddingEmployeePageComponent implements OnInit, OnDestroy {
     this.getOptionsGroupSub = this.employeeService.getOptionsGroup().
       subscribe(optionsGroup => this.optionsGroups = optionsGroup)
     this.newEmployeeForm = new FormGroup({
-      photo: new FormControl(''),
-      name: new FormControl(''),
-      surname: new FormControl(''),
-      lastname: new FormControl(''),
-      gender: new FormControl('man'),
-      email: new FormControl(''),
-      phoneNumber: new FormControl(''),
-      project: new FormControl(''),
-      position: new FormControl(''),
-      salary: new FormControl(''),
-      education: new FormControl(''),
-      dateOfBirth: new FormControl(''),
-      dateOfInterview: new FormControl(''),
-      dateOfEmployment: new FormControl(''),
-      dateOfThirstWorkingDay: new FormControl(''),
+      name: new FormControl('', [
+        Validators.required
+      ]),
+      surname: new FormControl('', [
+        Validators.required
+      ]),
+      lastname: new FormControl('',
+        [
+          Validators.required
+        ]),
+      gender: new FormControl('man',
+        [
+          Validators.required
+        ]),
+      email: new FormControl('',
+        [
+          Validators.required,
+          Validators.email
+        ]),
+      phoneNumber: new FormControl('',
+        [
+          Validators.required
+        ]),
+      project: new FormControl('', [
+          Validators.required
+        ]),
+      position: new FormControl('', [
+        Validators.required
+      ]),
+      salary: new FormControl('', [
+        Validators.required
+      ]),
+      education: new FormControl('', [
+        Validators.required
+      ]),
+      dateOfBirth: new FormControl('', [
+        Validators.required
+      ]),
+      dateOfInterview: new FormControl('', [
+        Validators.required
+      ]),
+      dateOfEmployment: new FormControl('', [
+        Validators.required
+      ]),
+      dateOfThirstWorkingDay: new FormControl('', [
+        Validators.required
+      ]),
 
     })
   }
@@ -111,4 +143,5 @@ export class AddingEmployeePageComponent implements OnInit, OnDestroy {
     ).subscribe(() => this.router.navigate(['/admin', 'list-employees']))
 
   }
+
 }

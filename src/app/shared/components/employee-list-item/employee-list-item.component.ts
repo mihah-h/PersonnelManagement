@@ -32,4 +32,34 @@ export class EmployeeListItemComponent implements OnDestroy{
     this.deleteEmployeeSub = this.employeeService.deleteEmployee(this.employee.email).subscribe()
   }
 
+  checkingSuccessEmployees() {
+    if (!this.employee.historyInCompany[this.employee.historyInCompany.length - 2]) {
+      return 'well'
+    }
+
+    if (this.findDifferenceMonths(this.createDate(this.employee.historyInCompany[this.employee.historyInCompany.length - 1].date),
+      this.createDate(this.employee.historyInCompany[this.employee.historyInCompany.length - 2].date)) < 6) {
+      return 'well'
+    }
+
+    if (this.findDifferenceMonths(this.createDate(this.employee.historyInCompany[this.employee.historyInCompany.length - 1].date),
+      this.createDate(this.employee.historyInCompany[this.employee.historyInCompany.length - 2].date)) < 12) {
+      return 'medium'
+    }
+
+    return 'badly'
+  }
+
+  createDate(strDate: string) {
+    const year = Number(strDate.substring(0, 5))
+    const mount = Number(strDate.substring(6, 7))
+    const day = Number(strDate.substring(8, 9))
+
+    return new Date(year, mount, day)
+  }
+
+  findDifferenceMonths(firstDate: Date , secondDate: Date) {
+    return secondDate.getMonth() - firstDate.getMonth() +
+      (12 * (secondDate.getFullYear() - firstDate.getFullYear()))
+  }
 }

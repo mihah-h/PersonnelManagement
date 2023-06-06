@@ -4,12 +4,15 @@ import { PopupWindowFirstComponent } from './components/popup-window-first/popup
 import {ReactiveFormsModule} from "@angular/forms";
 import { PopupWindowSecondComponent } from './components/popup-window-second/popup-window-second.component';
 import {NgForOf, NgIf} from "@angular/common";
+import { AddCompanyHistoryPopupWindowComponent } from './components/add-company-history-popup-window/add-company-history-popup-window.component';
+import {ValidationMessageComponent} from "./components/validation-message/validation-message.component";
 
 @NgModule({
   imports: [
     ReactiveFormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    ValidationMessageComponent
 
   ],
   exports: [
@@ -18,6 +21,8 @@ import {NgForOf, NgIf} from "@angular/common";
 
 
 
+
+    AddCompanyHistoryPopupWindowComponent
   ],
 })
 export class SharedModule {
