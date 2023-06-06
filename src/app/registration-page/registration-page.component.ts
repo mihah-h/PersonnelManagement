@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../shared/services/auth.service";
 import { Router } from "@angular/router";
-import { UserLogin } from "../shared/interfaces/auth-interfaces/userLogin";
 import { UserRegistration } from "../shared/interfaces/auth-interfaces/userRegistration";
 import { valueMatchValidator } from "../shared/validators/valueMatchValidator";
 import { transition, animate, state, style, trigger } from '@angular/animations';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-registration-page',
@@ -22,12 +22,12 @@ import { transition, animate, state, style, trigger } from '@angular/animations'
     ])
   ]
 })
-export class RegistrationPageComponent implements OnInit {
-  boxState = 'start'
 
-  animate() {
-    this.boxState = this.boxState === 'end' ? 'start' : 'end'
-  }
+export class RegistrationPageComponent implements OnInit, OnDestroy {
+
+  boxState = 'start'
+  registerSub!: Subscription
+  loginSub!: Subscription
 
   registrationForm!: FormGroup
   submitted = false
@@ -35,7 +35,7 @@ export class RegistrationPageComponent implements OnInit {
   constructor(
     public auth: AuthService,
     private router: Router,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.registrationForm = new FormGroup({
@@ -58,6 +58,15 @@ export class RegistrationPageComponent implements OnInit {
     })
   }
 
+  ngOnDestroy(): void {
+    this.registerSub.unsubscribe()
+    this.loginSub.unsubscribe()
+  }
+
+  animate() {
+    this.boxState = this.boxState === 'end' ? 'start' : 'end'
+  }
+
   submit() {
     if (this.registrationForm.invalid) {
       return;
@@ -72,8 +81,8 @@ export class RegistrationPageComponent implements OnInit {
       status: "head"
     }
 
-    this.auth.register(head).subscribe(() => {
-      this.auth.login(this.registrationForm.value.email, this.registrationForm.value.password)
+    this.registerSub = this.auth.register(head).subscribe(() => {
+      this.loginSub = this.auth.login(this.registrationForm.value.email, this.registrationForm.value.password)
         .subscribe(() => this.router.navigate(['/admin', 'list-employees']))
       this.registrationForm.reset()
       this.submitted = false

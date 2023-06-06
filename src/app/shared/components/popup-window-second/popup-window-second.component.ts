@@ -1,18 +1,21 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Employee} from "../../interfaces/employeeInterfaces/employee";
 import {EmployeeService} from "../../services/employee.service";
 import {OptionsGroup} from "../../interfaces/employeeInterfaces/optionsGroup";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-popup-window-second',
   templateUrl: './popup-window-second.component.html',
   styleUrls: ['./popup-window-second.component.css']
 })
-export class PopupWindowSecondComponent implements OnInit{
+export class PopupWindowSecondComponent implements OnInit , OnDestroy{
 
   dataEditingForm!: FormGroup
   optionsGroups!: OptionsGroup[]
+  getOptionsGroupSub!: Subscription
+  putEmployeeSub!: Subscription
 
   @Input()
   employee!: Employee
@@ -33,13 +36,18 @@ export class PopupWindowSecondComponent implements OnInit{
       newVacationsEnd: new FormControl(''),
     })
 
-    this.employeeService.getOptionsGroup().
-    subscribe(optionsGroups => this.optionsGroups = optionsGroups)
+    this.getOptionsGroupSub = this.employeeService.getOptionsGroup().
+      subscribe(optionsGroups => this.optionsGroups = optionsGroups)
+  }
+
+  ngOnDestroy(): void {
+    this.putEmployeeSub.unsubscribe()
+    this.getOptionsGroupSub.unsubscribe()
   }
 
   save() {
     this.changeUserData()
-    this.employeeService.putEmployee(this.employee).subscribe()
+    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
 
     if (this.dataEditingForm.value.education
       && !this.optionsGroups[2].options.includes(this.dataEditingForm.value.education)) {

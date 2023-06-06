@@ -11,7 +11,6 @@ import { AddingEmployeePageComponent } from './adding-employee-page/adding-emplo
 import { EmployeeAddedPageComponent } from './employee-added-page/employee-added-page.component';
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
-import { SearchEmployeesPipe } from "./shared/pipes/search-employees.pipe";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ValidationMessageComponent } from "./shared/components/validation-message/validation-message.component";
 import { AuthService } from "./shared/services/auth.service";
@@ -28,6 +27,7 @@ import { ErrorMessageDynamicService } from "./shared/services/error-message-dyna
 import { ErrorMessageDynamicComponent } from "./shared/components/error-message-dynamic/error-message-dynamic.component";
 import { PopupWindowFirstComponent } from "./shared/components/popup-window-first/popup-window-first.component";
 import { PopupWindowSecondComponent } from './shared/components/popup-window-second/popup-window-second.component';
+import {API_URL} from "./shared/provider";
 
 @NgModule({
   declarations: [
@@ -65,7 +65,8 @@ import { PopupWindowSecondComponent } from './shared/components/popup-window-sec
     EmployeeService,
     GuardAuth,
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
-    ErrorMessageDynamicService
+    { provide: API_URL, useFactory: () => 'http://localhost:3000' },
+    ErrorMessageDynamicService,
   ],
   bootstrap: [AppComponent]
 })

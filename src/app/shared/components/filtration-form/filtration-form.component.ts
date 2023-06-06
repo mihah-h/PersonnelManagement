@@ -1,27 +1,27 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {EmployeesInformation} from "../../interfaces/employeeInterfaces/employeesInformation";
-import {OptionsGroup} from "../../interfaces/employeeInterfaces/optionsGroup";
-import {Observable} from "rxjs";
-import {Params} from "@angular/router";
-import {EmployeeService} from "../../services/employee.service";
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { OptionsGroup } from "../../interfaces/employeeInterfaces/optionsGroup";
+import { Params } from "@angular/router";
+import { EmployeeService } from "../../services/employee.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-filtration-form',
   templateUrl: './filtration-form.component.html',
   styleUrls: ['../../../list-employees-page/list-employees-page.component.css']
 })
-export class FiltrationFormComponent implements OnInit{
+export class FiltrationFormComponent implements OnInit, OnDestroy{
 
-  filters!: []
   filtrationForm!: FormGroup
   optionsGroups!: OptionsGroup[]
+  getOptionsGroupSub!: Subscription
 
   @Output()
   filteringParametersAreSetEvent = new EventEmitter();
 
-  constructor(private employeeService: EmployeeService) {
-  }
+  constructor(
+    private employeeService: EmployeeService
+  ) {}
 
   ngOnInit() {
     this.filtrationForm = new FormGroup({
@@ -48,9 +48,8 @@ export class FiltrationFormComponent implements OnInit{
     })
 
 
-    this.employeeService.getOptionsGroup().subscribe(optionsGroups => {
+    this.getOptionsGroupSub =  this.employeeService.getOptionsGroup().subscribe(optionsGroups => {
       this.optionsGroups = optionsGroups
-      console.log(optionsGroups)
       for (const optionGroup of this.optionsGroups) {
         this.filtrationForm.addControl(optionGroup.optionsGroupName, new FormGroup({}))
         const optionsGroupName = this.filtrationForm.controls[optionGroup.optionsGroupName] as FormGroup
@@ -62,7 +61,9 @@ export class FiltrationFormComponent implements OnInit{
     })
   }
 
-
+  ngOnDestroy(): void {
+    this.getOptionsGroupSub.unsubscribe()
+  }
 
   apply() {
     const queryParams: Params = {}
@@ -77,7 +78,6 @@ export class FiltrationFormComponent implements OnInit{
         }
       }
     }
-    console.log(this.filtrationForm)
     this.filteringParametersAreSetEvent.emit(queryParams)
   }
 

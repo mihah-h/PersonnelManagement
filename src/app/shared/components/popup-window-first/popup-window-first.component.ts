@@ -1,16 +1,18 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {Employee} from "../../interfaces/employeeInterfaces/employee";
 import {EmployeeService} from "../../services/employee.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-popup-window-first',
   templateUrl: './popup-window-first.component.html',
   styleUrls: ['./popup-window-first.component.css']
 })
-export class PopupWindowFirstComponent implements OnInit{
+export class PopupWindowFirstComponent implements OnInit, OnDestroy{
 
   dataEditingForm!: FormGroup
+  putEmployeeSub!: Subscription
 
   @Input()
   employee!: Employee
@@ -29,9 +31,13 @@ export class PopupWindowFirstComponent implements OnInit{
     })
   }
 
+  ngOnDestroy(): void {
+    this.putEmployeeSub.unsubscribe()
+  }
+
   save() {
     this.changeUserData()
-    this.employeeService.putEmployee(this.employee).subscribe()
+    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
   }
 
   changeUserData() {
@@ -40,4 +46,5 @@ export class PopupWindowFirstComponent implements OnInit{
     this.employee.patronymic = this.dataEditingForm.value.patronymic
     this.employee.phoneNumber = this.dataEditingForm.value.phoneNumber
   }
+
 }

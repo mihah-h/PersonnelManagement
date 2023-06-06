@@ -1,35 +1,30 @@
-import { Injectable } from "@angular/core";
+import {Inject, Injectable} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
 import {UserLogin} from "../interfaces/auth-interfaces/userLogin";
 import {UserLoginResponse} from "../interfaces/auth-interfaces/userLoginResponse";
 import {UserRegistration} from "../interfaces/auth-interfaces/userRegistration";
+import {API_URL} from "../provider";
+
 
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, @Inject(API_URL) private apiURL: string) {}
 
   get userCompanyName(): string | null {
     return localStorage.getItem('companyName')
   }
 
-  // login(userEmail: string): Observable<UserLogin | null> {
-  //   return this.http.get<UserLogin>('http://localhost:3000/users?email=' + userEmail)
-  //     .pipe(
-  //       tap(this.setUserCompanyName)
-  //     )
-  // }
-
   login(userEmail: string, userPassword: string): Observable<UserLogin | null> {
-    return this.http.post<UserLogin>('http://localhost:3000/users/auth', {"email":userEmail, "password":userPassword})
+    return this.http.post<UserLogin>(this.apiURL + '/users/auth', {"email":userEmail, "password":userPassword})
       .pipe(
         tap(this.setUserCompanyName)
       )
   }
 
   register(user: UserRegistration): Observable<string> {
-    return this.http.post('http://localhost:3000/users/register', user, { responseType: "text"});
+    return this.http.post(this.apiURL + '/users/register', user, { responseType: "text"});
   }
 
   logout() {

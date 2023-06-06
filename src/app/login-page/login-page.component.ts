@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { UserLogin } from "../shared/interfaces/auth-interfaces/userLogin";
 import { AuthService } from "../shared/services/auth.service";
 import { Router } from "@angular/router";
 import { transition, animate, state, style, trigger } from '@angular/animations';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-login-page',
@@ -20,16 +20,12 @@ import { transition, animate, state, style, trigger } from '@angular/animations'
     ])
   ]
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent implements OnInit, OnDestroy {
 
   boxState = 'start'
-
-  animate() {
-    this.boxState = this.boxState === 'end' ? 'start' : 'end'
-  }
-
   loginForm!: FormGroup
   submitted = false
+  loginSub!: Subscription
 
   constructor(
     public auth: AuthService,
@@ -49,6 +45,14 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
+  ngOnDestroy(): void {
+    this.loginSub.unsubscribe()
+  }
+
+  animate() {
+    this.boxState = this.boxState === 'end' ? 'start' : 'end'
+  }
+
   submit() {
     if (this.loginForm.invalid) {
       return;
@@ -58,7 +62,7 @@ export class LoginPageComponent implements OnInit {
     const userEmail: string = this.loginForm.value.email
     const userPassword: string = this.loginForm.value.password
 
-    this.auth.login(userEmail, userPassword)
+    this.loginSub = this.auth.login(userEmail, userPassword)
       .subscribe(() => this.router.navigate(['/admin', 'list-employees']))
   }
 }

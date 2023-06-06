@@ -1,24 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable, Subscription} from "rxjs";
-import {ActivatedRoute, Params, Router} from "@angular/router";
-import {EmployeeService} from "../shared/services/employee.service";
-import {Employee} from "../shared/interfaces/employeeInterfaces/employee";
-import {EmployeesInformation} from "../shared/interfaces/employeeInterfaces/employeesInformation";
-import {FormControl, FormGroup} from "@angular/forms";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { ActivatedRoute, Params, Router } from "@angular/router";
+import { EmployeeService } from "../shared/services/employee.service";
+import { Employee } from "../shared/interfaces/employeeInterfaces/employee";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-list-employees-page',
   templateUrl: './list-employees-page.component.html',
   styleUrls: ['./list-employees-page.component.css']
 })
-export class ListEmployeesPageComponent implements OnInit{
+export class ListEmployeesPageComponent implements OnInit, OnDestroy{
 
-  employeesInformationSub!: Subscription
   employees!: Employee[]
-  employeesInformation$!: Observable<EmployeesInformation>
   filtrationParameters!: Params
   sortingParameter = 'alphabet'
   searchParameter = ''
+  getEmployeesSub!: Subscription
+  queryParamsSub!: Subscription
 
   constructor(
     private route: ActivatedRoute,
@@ -27,24 +25,20 @@ export class ListEmployeesPageComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    this.employeeService.getEmployees().subscribe(employees => this.employees = employees)
-
-    this.route.queryParams.subscribe(queryParams => {
+    this.getEmployeesSub = this.employeeService.getEmployees()
+      .subscribe(employees => this.employees = employees)
+    this.queryParamsSub = this.route.queryParams.subscribe(queryParams => {
       this.filtrationParameters = queryParams
     })
+  }
 
-
+  ngOnDestroy(): void {
+    this.getEmployeesSub.unsubscribe()
+    this.queryParamsSub.unsubscribe()
   }
 
   take($queryParams: Params) {
     this.router.navigate([], { queryParams: $queryParams })
 
   }
-
-  takeSort($queryParams: Params) {
-    this.router.navigate([], { queryParams: $queryParams })
-
-  }
-
-
 }

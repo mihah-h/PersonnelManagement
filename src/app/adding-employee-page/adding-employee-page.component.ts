@@ -1,25 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
-import { Router, RouterModule } from "@angular/router";
+import { Router } from "@angular/router";
 import { EmployeeService } from "../shared/services/employee.service";
 import { OptionsGroup } from "../shared/interfaces/employeeInterfaces/optionsGroup";
-import { transition, animate, state, style, trigger } from '@angular/animations';
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-adding-employee-page',
   templateUrl: './adding-employee-page.component.html',
   styleUrls: ['./adding-employee-page.component.css']
 })
-export class AddingEmployeePageComponent implements OnInit {
+export class AddingEmployeePageComponent implements OnInit, OnDestroy {
 
   newEmployeeForm!: FormGroup
   optionsGroups!: OptionsGroup[]
+  getOptionsGroupSub!: Subscription
+  addEmployeeSub!: Subscription
+  addNewOptionSub1!: Subscription
+  addNewOptionSub2!: Subscription
+  addNewOptionSub3!: Subscription
 
-  constructor(private employeeService: EmployeeService, private router: Router) {
-  }
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.employeeService.getOptionsGroup().
+    this.getOptionsGroupSub = this.employeeService.getOptionsGroup().
       subscribe(optionsGroup => this.optionsGroups = optionsGroup)
     this.newEmployeeForm = new FormGroup({
       photo: new FormControl(''),
@@ -41,8 +48,38 @@ export class AddingEmployeePageComponent implements OnInit {
     })
   }
 
+  ngOnDestroy(): void {
+    this.getOptionsGroupSub.unsubscribe()
+    this.addEmployeeSub.unsubscribe()
+    if (this.addNewOptionSub1) {
+      this.addNewOptionSub1.unsubscribe()
+    }
+    if (this.addNewOptionSub2) {
+      this.addNewOptionSub2.unsubscribe()
+    }
+    if (this.addNewOptionSub3) {
+      this.addNewOptionSub3.unsubscribe()
+    }
+  }
+
   addEmployee() {
-    this.employeeService.addEmployee({
+    if (this.newEmployeeForm.value.project
+      && !this.optionsGroups[0].options.includes(this.newEmployeeForm.value.project)) {
+      this.addNewOptionSub1 = this.employeeService.addNewOption('project',
+        this.newEmployeeForm.value.project).subscribe()
+    }
+    if (this.newEmployeeForm.value.position
+      && !this.optionsGroups[1].options.includes(this.newEmployeeForm.value.position)) {
+      this.addNewOptionSub2 = this.employeeService.addNewOption('position',
+        this.newEmployeeForm.value.position).subscribe()
+    }
+    if (this.newEmployeeForm.value.education
+      && !this.optionsGroups[2].options.includes(this.newEmployeeForm.value.education)) {
+      this.addNewOptionSub3 = this.employeeService.addNewOption('education',
+        this.newEmployeeForm.value.education).subscribe()
+    }
+
+    this.addEmployeeSub = this.employeeService.addEmployee({
       photo: '',
       name: this.newEmployeeForm.value.name,
       surname: this.newEmployeeForm.value.surname,
@@ -69,20 +106,7 @@ export class AddingEmployeePageComponent implements OnInit {
         date: this.newEmployeeForm.value.dateOfThirstWorkingDay,
       }],
     }
-    ).subscribe()
-    if (this.newEmployeeForm.value.project
-      && !this.optionsGroups[0].options.includes(this.newEmployeeForm.value.project)) {
-      console.log(this.newEmployeeForm.value.project)
-      this.employeeService.addNewOption('project', this.newEmployeeForm.value.project).subscribe()
-    }
-    if (this.newEmployeeForm.value.position
-      && !this.optionsGroups[1].options.includes(this.newEmployeeForm.value.position)) {
-      this.employeeService.addNewOption('position', this.newEmployeeForm.value.position).subscribe()
-    }
-    if (this.newEmployeeForm.value.education
-      && !this.optionsGroups[2].options.includes(this.newEmployeeForm.value.education)) {
-      this.employeeService.addNewOption('education', this.newEmployeeForm.value.education).subscribe()
-    }
+    ).subscribe(() => this.router.navigate(['/admin', 'list-employees']))
 
   }
 }

@@ -7,8 +7,6 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
 })
 export class ErrorMessageDynamicComponent {
 
-  @Input()
-  public message = 'error'
   @Output()
   closeErrorMessage = new EventEmitter<void>()
 
