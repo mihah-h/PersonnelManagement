@@ -50,7 +50,7 @@ app.get('/employees', (req, res) => {
     const searchIndex = base.companies.findIndex(el => el.company === reqParams.company);
     if (searchIndex === -1) return res.sendStatus(404);
     if ('email' in reqParams){
-      const employee = base.companies[searchIndex].employees.find(function (employee){
+      let employee = base.companies[searchIndex].employees.find(function (employee){
         return employee.email === reqParams.email;
       });
       if (!employee){
@@ -58,6 +58,22 @@ app.get('/employees', (req, res) => {
         return res.sendStatus(400);
       }
       else{
+        let BD = new Date(employee.birthDate);
+        let now = new Date();
+        let FD = new Date(employee.firstWorkingDayDate);
+        BD.setMinutes(BD.getMinutes() - now.getTimezoneOffset());
+        FD.setMinutes(FD.getMinutes() - now.getTimezoneOffset());
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        now = now.toISOString().substr(0, 19).replace('T',' ');
+        BD = BD.toISOString().substr(0, 19).replace('T',' ');
+        FD = FD.toISOString().substr(0, 19).replace('T',' ');
+        let age = now.substr(0, 4) - BD.substr(0, 4);
+        if(now.substr(5) < BD.substr(5)) --age;
+        let experience = now.substr(0, 4) - FD.substr(0, 4);
+        if(now.substr(5) < FD.substr(5)) --experience;
+        employee.age = String(age);
+        employee.experience = String(experience);
+
         res.status(200).json(employee);
       }
     }
@@ -274,21 +290,14 @@ app.put('/optionsGroups', jsonParser, (req, res) => {
   if(!req.body) return res.sendStatus(400);
   const searchIndex = base.companies.findIndex(el => el.company === req.query.company);
   if (searchIndex === -1) return res.sendStatus(400);
-  const option = base.companies[searchIndex ].options.find(function (opt){
-    return opt.optionsGroupName === req.body.optionsGroupName;
-  });
-  if (!option){
-    console.log("ERROR");
-    return res.sendStatus(400);
-  }
-  else {
-    const newOptions = base.companies[searchIndex ].options.map((opt) => opt.optionsGroupName === req.body.optionsGroupName ? opt = req.body : opt );
-    base.companies[searchIndex ].options = newOptions;
-    base.companies[searchIndex].employees= newOptions;
-    const json = JSON.stringify(base);
-    fs.writeFileSync('dbImit/base.json', json);
-    return res.sendStatus(200);
-  }
+  if(!req.query.groupName) return res.sendStatus(400);
+  const searchGroupIndex = base.companies[searchIndex].options.findIndex(el => el.optionsGroupName === req.query.groupName);
+  if (searchGroupIndex === -1) return res.sendStatus(400);
+
+  base.companies[searchIndex].options[searchGroupIndex] = req.body;
+  const json = JSON.stringify(base);
+  fs.writeFileSync('dbImit/base.json', json);
+  return res.sendStatus(200);
 });
 
 
