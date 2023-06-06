@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="employee-page_left-side_main-info-rightside_edit">
-          <img class="employees-page_edit" src="../../assets/img/icon-edit.svg" alt="" (click)="showFirstPopupWindow()">
+          <button class="employees-page_edit" (click)="showFirstPopupWindow()"></button>
         </div>
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_status">
@@ -37,10 +37,11 @@
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_addition-info">
         <div class="employee-page_add-text">
-          <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span> {{employee.gender}}
+          <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span>
+            {{employee.gender}}
           </span>
           <div class="employee-page_add-edit">
-            <img class="employee-page_add-edit-icon" src="../../assets/img/icon-edit.svg" alt="" (click)="showSecondPopupWindow()">
+            <button class="employee-page_add-edit-icon" (click)="showSecondPopupWindow()"></button>
           </div>
         </div>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Образование: </span>
@@ -94,7 +95,7 @@
           <span class="employee-page_right-side_second-block_item-text">12.09.2022</span>
         </li>
         <li class="employee-page_right-side_second-block_edit">
-          <img class="employee-page_right-side_second-block_item-edit" src="../../assets/img/icon-edit.svg" alt="">
+          <button class="employee-page_right-side_second-block_item-edit"></button>
         </li>
       </ul>
       <ul class="employee-page_right-side_third-block">
@@ -111,7 +112,7 @@
           <span class="employee-page_right-side_third-block_item-text">22.02.2023</span>
         </li>
         <li class="employee-page_right-side_third-block_edit">
-          <img class="employee-page_right-side_third-block_item-edit" src="../../assets/img/icon-edit.svg" alt="">
+          <button class="employee-page_right-side_third-block_item-edit"></button>
         </li>
       </ul>
       <ul class="employee-page_right-side_fourth-block">
@@ -119,7 +120,8 @@
           <img class="employee-page_graphics_img" src="../../assets/img/icon_graphics.svg" alt="">
         </li>
         <li class="employee-page_right-side_fourth-block-item employee-page_right-side_fourth-block-btn">
-          <button appStyle [dStyles]="{borderColor:'#EF4444', backgroundColor:'#EF4444'}" class="employee-page_btn employee-page_btn_fire"> Уволен </button>
+          <button appStyle [dStyles]="{borderColor:'#EF4444', backgroundColor:'#EF4444'}"
+            class="employee-page_btn employee-page_btn_fire"> Уволен </button>
         </li>
         <li class="employee-page_right-side_fourth-block-item employee-page_right-side_fourth-block-btn">
           <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}"

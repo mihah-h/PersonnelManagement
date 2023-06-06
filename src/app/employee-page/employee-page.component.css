@@ -40,7 +40,6 @@
   flex-direction: column;
   padding-bottom: 10px;
   justify-content: flex-start;
-  margin-right: 80px;
 }
 
 .employees-page_photo {
@@ -65,6 +64,7 @@
 
 .employee-page_left-side_main-info-rightside_phone {
   margin-bottom: 8px;
+  margin-right: 132px;
 }
 
 .employee-page_left-side_main-info-rightside_phone,
@@ -116,9 +116,9 @@
 }
 
 .employees-page_edit {
-  width: 16.67px;
-  height: 16.67px;
-  cursor: pointer;
+  background-image: url(../../assets/img/icon-edit.svg);
+  width: 20px;
+  height: 20px;
 }
 
 .employee-page_left-side_status {
@@ -182,8 +182,9 @@
 }
 
 .employee-page_add-edit-icon {
-  padding: 3.68px, 3.68px, 6.67px, 6.67px;
-  cursor: pointer;
+  background-image: url(../../assets/img/icon-edit.svg);
+  width: 20px;
+  height: 20px;
 }
 
 .employee-page_left-side_addition-info {
@@ -315,10 +316,11 @@
 
 .employee-page_right-side_second-block_item-edit,
 .employee-page_right-side_third-block_item-edit {
+  background-image: url(../../assets/img/icon-edit.svg);
   display: flex;
   justify-content: center;
-  width: 16.67px;
-  height: 16.67px;
+  width: 20px;
+  height: 20px;
   margin: 20px 0 20px 0;
   cursor: pointer;
 }
