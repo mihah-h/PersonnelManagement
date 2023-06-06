@@ -1,3 +1,7 @@
+:host >>> ngx-skeleton-loader .loader {
+  height: 100px;
+}
+
 body {
   min-width: 320px;
   font-family: 'Jost', 'Golos Text', sans-serif;
@@ -1042,8 +1046,4 @@ a {
   align-items: center;
   text-align: center;
   color: var(--blue-dark-color);
-}
-
-.employeeButton {
-
 }
