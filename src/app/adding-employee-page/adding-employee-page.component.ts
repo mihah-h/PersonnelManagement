@@ -1,15 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {Router, RouterModule} from "@angular/router";
-import {EmployeeService} from "../shared/services/employee.service";
-import {OptionsGroup} from "../shared/interfaces/employeeInterfaces/optionsGroup";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { Router, RouterModule } from "@angular/router";
+import { EmployeeService } from "../shared/services/employee.service";
+import { OptionsGroup } from "../shared/interfaces/employeeInterfaces/optionsGroup";
+import { transition, animate, state, style, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-adding-employee-page',
   templateUrl: './adding-employee-page.component.html',
   styleUrls: ['./adding-employee-page.component.css']
 })
-export class AddingEmployeePageComponent implements OnInit{
+export class AddingEmployeePageComponent implements OnInit {
 
   newEmployeeForm!: FormGroup
   optionsGroups!: OptionsGroup[]
@@ -19,7 +20,7 @@ export class AddingEmployeePageComponent implements OnInit{
 
   ngOnInit(): void {
     this.employeeService.getOptionsGroup().
-    subscribe(optionsGroup => this.optionsGroups = optionsGroup)
+      subscribe(optionsGroup => this.optionsGroups = optionsGroup)
     this.newEmployeeForm = new FormGroup({
       photo: new FormControl(''),
       name: new FormControl(''),
@@ -42,32 +43,32 @@ export class AddingEmployeePageComponent implements OnInit{
 
   addEmployee() {
     this.employeeService.addEmployee({
-        photo: '',
-        name: this.newEmployeeForm.value.name,
-        surname: this.newEmployeeForm.value.surname,
-        patronymic: this.newEmployeeForm.value.lastname,
-        phoneNumber: this.newEmployeeForm.value.phoneNumber,
-        email: this.newEmployeeForm.value.email,
-        status: 'work',
+      photo: '',
+      name: this.newEmployeeForm.value.name,
+      surname: this.newEmployeeForm.value.surname,
+      patronymic: this.newEmployeeForm.value.lastname,
+      phoneNumber: this.newEmployeeForm.value.phoneNumber,
+      email: this.newEmployeeForm.value.email,
+      status: 'work',
+      project: this.newEmployeeForm.value.project,
+      position: this.newEmployeeForm.value.position,
+      salary: this.newEmployeeForm.value.salary,
+      gender: this.newEmployeeForm.value.gender,
+      education: this.newEmployeeForm.value.education,
+      birthDate: this.newEmployeeForm.value.dateOfBirth,
+      age: '23',
+      interviewDate: this.newEmployeeForm.value.dateOfInterview,
+      employmentDate: this.newEmployeeForm.value.dateOfEmployment,
+      experience: '3',
+      firstWorkingDayDate: this.newEmployeeForm.value.dateOfThirstWorkingDay,
+      vacations: [],
+      historyInCompany: [{
         project: this.newEmployeeForm.value.project,
         position: this.newEmployeeForm.value.position,
         salary: this.newEmployeeForm.value.salary,
-        gender: this.newEmployeeForm.value.gender,
-        education: this.newEmployeeForm.value.education,
-        birthDate: this.newEmployeeForm.value.dateOfBirth,
-        age: '23',
-        interviewDate: this.newEmployeeForm.value.dateOfInterview,
-        employmentDate: this.newEmployeeForm.value.dateOfEmployment,
-        experience: '3',
-        firstWorkingDayDate: this.newEmployeeForm.value.dateOfThirstWorkingDay,
-        vacations: [],
-        historyInCompany: [{
-          project: this.newEmployeeForm.value.project,
-          position:  this.newEmployeeForm.value.position,
-          salary:  this.newEmployeeForm.value.salary,
-          date:  this.newEmployeeForm.value.dateOfThirstWorkingDay,
-        }],
-      }
+        date: this.newEmployeeForm.value.dateOfThirstWorkingDay,
+      }],
+    }
     ).subscribe()
     if (this.newEmployeeForm.value.project
       && !this.optionsGroups[0].options.includes(this.newEmployeeForm.value.project)) {

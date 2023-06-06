@@ -1,5 +1,5 @@
 .registration-page_title {
-  width: 280px;
+  width: 160px;
   height: 52px;
   font-family: 'Jost';
   font-style: normal;
@@ -13,6 +13,7 @@
   letter-spacing: 0.1px;
   margin: 73px auto 15px auto;
   color: var(--black-dark-color);
+  cursor: pointer;
 }
 
 .registration-page_form {

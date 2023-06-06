@@ -1,5 +1,6 @@
-import {ErrorHandler, NgModule} from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
@@ -11,21 +12,21 @@ import { EmployeeAddedPageComponent } from './employee-added-page/employee-added
 import { RegistrationPageComponent } from './registration-page/registration-page.component';
 import { AdminLayoutComponent } from "./shared/components/admin-layout/admin-layout.component";
 import { SearchEmployeesPipe } from "./shared/pipes/search-employees.pipe";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ValidationMessageComponent } from "./shared/components/validation-message/validation-message.component";
 import { AuthService } from "./shared/services/auth.service";
-import {HttpClientModule} from "@angular/common/http";
-import {EmployeeService} from "./shared/services/employee.service";
-import {FiltrationFormComponent} from "./shared/components/filtration-form/filtration-form.component";
-import {EmployeeListItemComponent} from "./shared/components/employee-list-item/employee-list-item.component";
-import {SharedModule} from "./shared/shared.module";
-import {PipesModule} from "./shared/pipes/pipes/pipes.module";
-import {DirectivesModule} from "./shared/directives/directives/directives.module";
-import {GuardAuth} from "./shared/services/guard.auth";
-import {GlobalErrorHandlerService} from "./shared/services/global-error-handler.service";
-import {ErrorMessageDynamicService} from "./shared/services/error-message-dynamic.service";
-import {ErrorMessageDynamicComponent} from "./shared/components/error-message-dynamic/error-message-dynamic.component";
-import {PopupWindowFirstComponent} from "./shared/components/popup-window-first/popup-window-first.component";
+import { HttpClientModule } from "@angular/common/http";
+import { EmployeeService } from "./shared/services/employee.service";
+import { FiltrationFormComponent } from "./shared/components/filtration-form/filtration-form.component";
+import { EmployeeListItemComponent } from "./shared/components/employee-list-item/employee-list-item.component";
+import { SharedModule } from "./shared/shared.module";
+import { PipesModule } from "./shared/pipes/pipes/pipes.module";
+import { DirectivesModule } from "./shared/directives/directives/directives.module";
+import { GuardAuth } from "./shared/services/guard.auth";
+import { GlobalErrorHandlerService } from "./shared/services/global-error-handler.service";
+import { ErrorMessageDynamicService } from "./shared/services/error-message-dynamic.service";
+import { ErrorMessageDynamicComponent } from "./shared/components/error-message-dynamic/error-message-dynamic.component";
+import { PopupWindowFirstComponent } from "./shared/components/popup-window-first/popup-window-first.component";
 import { PopupWindowSecondComponent } from './shared/components/popup-window-second/popup-window-second.component';
 
 @NgModule({
@@ -54,7 +55,8 @@ import { PopupWindowSecondComponent } from './shared/components/popup-window-sec
     FormsModule,
     SharedModule,
     PipesModule,
-    DirectivesModule
+    DirectivesModule,
+    BrowserAnimationsModule
 
   ],
 
@@ -62,7 +64,7 @@ import { PopupWindowSecondComponent } from './shared/components/popup-window-sec
     AuthService,
     EmployeeService,
     GuardAuth,
-    {provide: ErrorHandler, useClass: GlobalErrorHandlerService},
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     ErrorMessageDynamicService
   ],
   bootstrap: [AppComponent]

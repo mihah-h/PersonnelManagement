@@ -1,9 +1,5 @@
-/* .login-page_container {
-
-} */
-
 .login-page_title {
-  width: 280px;
+  width: 160px;
   height: 52px;
   font-family: 'Jost';
   font-style: normal;
@@ -17,6 +13,7 @@
   letter-spacing: 0.1px;
   margin: 73px auto 15px auto;
   color: var(--black-dark-color);
+  cursor: pointer;
 }
 
 .login-page_form {
@@ -301,7 +298,7 @@
   background: var(--blue-sea-color);
   border-radius: 4px;
   color: var(--white-color);
-  transition: background 0.1s linear, border-color 0.1s linear;
+  transition: background-color 0.1s linear, border-color 0.1s linear;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 600;
@@ -312,7 +309,7 @@
 }
 
 .login-page_btn-join:hover {
-  background: var(--blue-color);
+  background-color: var(--blue-color);
   border-color: var(--blue-color);
 }
 

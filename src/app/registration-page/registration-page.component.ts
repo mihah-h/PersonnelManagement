@@ -1,24 +1,41 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../shared/services/auth.service";
-import {Router} from "@angular/router";
-import {UserLogin} from "../shared/interfaces/auth-interfaces/userLogin";
-import {UserRegistration} from "../shared/interfaces/auth-interfaces/userRegistration";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { AuthService } from "../shared/services/auth.service";
+import { Router } from "@angular/router";
+import { UserLogin } from "../shared/interfaces/auth-interfaces/userLogin";
+import { UserRegistration } from "../shared/interfaces/auth-interfaces/userRegistration";
 import { valueMatchValidator } from "../shared/validators/valueMatchValidator";
+import { transition, animate, state, style, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-registration-page',
   templateUrl: './registration-page.component.html',
   styleUrls: ['../login-page/login-page.component.css'],
+  animations: [
+    trigger('login-page_title', [
+      state('start', style({ color: '#1E293B' })),
+      state('end', style({
+        color: '#000',
+        transform: 'scale(1.2)'
+      })),
+      transition('start <=> *', animate(450)),
+    ])
+  ]
 })
 export class RegistrationPageComponent implements OnInit {
+  boxState = 'start'
+
+  animate() {
+    this.boxState = this.boxState === 'end' ? 'start' : 'end'
+  }
+
   registrationForm!: FormGroup
   submitted = false
 
   constructor(
     public auth: AuthService,
     private router: Router,
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.registrationForm = new FormGroup({
@@ -36,7 +53,7 @@ export class RegistrationPageComponent implements OnInit {
       passwordRepeat: new FormControl(null, [
         Validators.required,
       ])
-    },{
+    }, {
       validators: valueMatchValidator('password', 'passwordRepeat')
     })
   }
