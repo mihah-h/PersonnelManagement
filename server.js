@@ -222,16 +222,14 @@ app.post('/optionsGroups', jsonParser, (req, res) => {
 
 
 app.put('/employees', jsonParser, (req, res) => {
-  if(!req.body) return res.sendStatus(404);
+  if(!req.body) return res.sendStatus(400);
   const searchIndexCompany = base.companies.findIndex(el => el.company === req.query.company);
   if (searchIndexCompany === -1){
-    console.log("ERROR");
     return res.sendStatus(404);
   }
-  const searchIndexEmployee = base.companies[searchIndexCompany].findIndex(el => el.email === req.query.email);
+  const searchIndexEmployee = base.companies[searchIndexCompany].employees.findIndex(el => el.email === req.body.email);
   if (searchIndexEmployee === -1){
-    console.log("ERROR");
-    return res.sendStatus(404);
+    return res.sendStatus(401);
   }
   else{
     base.companies[searchIndexCompany].employees[searchIndexEmployee] = req.body;
@@ -261,8 +259,6 @@ app.put('/users', jsonParser, (req, res) => {
     }
     if(Boolean(req.query.changeCompany)){
       if (!req.body.companyName) return res.sendStatus(400);
-      const companyIndex = base.users.findIndex(el => el.companyName === req.body.companyName);
-      if (companyIndex !== -1) return res.sendStatus(400);
       base.users[searchIndex].companyName = req.body.companyName;
     }
     else{
