@@ -1,15 +1,18 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { EmployeeService } from "../shared/services/employee.service";
 import { Employee } from "../shared/interfaces/employeeInterfaces/employee";
-import {Subscription} from "rxjs";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-list-employees-page',
   templateUrl: './list-employees-page.component.html',
   styleUrls: ['./list-employees-page.component.css']
 })
-export class ListEmployeesPageComponent implements OnInit, OnDestroy{
+export class ListEmployeesPageComponent implements OnInit, OnDestroy {
+
+  loader = true;
+  totalCount = 10;
 
   employees!: Employee[]
   filtrationParameters!: Params
@@ -22,11 +25,12 @@ export class ListEmployeesPageComponent implements OnInit, OnDestroy{
     private route: ActivatedRoute,
     public router: Router,
     private employeeService: EmployeeService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getEmployeesSub = this.employeeService.getEmployees()
       .subscribe(employees => this.employees = employees)
+    this.loader = false;
     this.queryParamsSub = this.route.queryParams.subscribe(queryParams => {
       this.filtrationParameters = queryParams
     })

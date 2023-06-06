@@ -28,6 +28,7 @@ import { ErrorMessageDynamicComponent } from "./shared/components/error-message-
 import { PopupWindowFirstComponent } from "./shared/components/popup-window-first/popup-window-first.component";
 import { PopupWindowSecondComponent } from './shared/components/popup-window-second/popup-window-second.component';
 import {API_URL} from "./shared/provider";
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import {API_URL} from "./shared/provider";
     SharedModule,
     PipesModule,
     DirectivesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxSkeletonLoaderModule
 
   ],
 
