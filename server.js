@@ -164,7 +164,23 @@ app.post('/employees', jsonParser, (req, res) => {
   if (searchIndex === -1) return res.sendStatus(404);
   const index = base.companies[searchIndex].employees.findIndex(el => el.email === req.body.email);
   if (index === -1){
-    // req.body.age = String((new Date() - new Date(req.body.birthDate)).getFullYear());
+
+    let BD = new Date(req.body.birthDate);
+    let now = new Date();
+    let FD = new Date(req.body.firstWorkingDayDate);
+    BD.setMinutes(BD.getMinutes() - now.getTimezoneOffset());
+    FD.setMinutes(FD.getMinutes() - now.getTimezoneOffset());
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    now = now.toISOString().substr(0, 19).replace('T',' ');
+    BD = BD.toISOString().substr(0, 19).replace('T',' ');
+    FD = FD.toISOString().substr(0, 19).replace('T',' ');
+    let age = now.substr(0, 4) - BD.substr(0, 4);
+    if(now.substr(5) < BD.substr(5)) --age;
+    let experience = now.substr(0, 4) - FD.substr(0, 4);
+    if(now.substr(5) < FD.substr(5)) --experience;
+    req.body.age = String(age);
+    req.body.experience = String(experience);
+
     base.companies[searchIndex].employees.push(req.body);
     const json = JSON.stringify(base);
     fs.writeFileSync('dbImit/base.json', json);
