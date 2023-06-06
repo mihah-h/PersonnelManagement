@@ -12,7 +12,7 @@ import { Subscription } from "rxjs";
 export class ListEmployeesPageComponent implements OnInit, OnDestroy {
 
   loader = true;
-  totalCount = 10;
+  totalCount = 3;
 
   employees!: Employee[]
   filtrationParameters!: Params
