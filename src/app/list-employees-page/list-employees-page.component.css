@@ -899,6 +899,10 @@ a {
   padding: 6px 9px 6px 20px;
 }
 
+.settings-item_click:hover {
+  background-color: var(--blue-light-color);
+}
+
 @media (max-width: 1400px) {
   .settings-list_click {
     left: -2650%;

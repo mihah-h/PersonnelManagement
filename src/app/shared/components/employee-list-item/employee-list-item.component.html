@@ -9,7 +9,7 @@
     <span *ngIf="employee.status === 'work'; else dismissed"
           class="employees-status status-work">Работает с {{employee.employmentDate}}</span>
     <ng-template #dismissed>
-      <span class="employees-status status-work">Уволен</span>
+      <span class="employees-status status-fired">Уволен</span>
     </ng-template>
   </div>
   <div class="name-project_with_project">
