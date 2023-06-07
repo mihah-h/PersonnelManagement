@@ -136,7 +136,7 @@
   flex-direction: column;
   padding: 15px;
   width: 410px;
-  height: 110px;
+  min-height: 110px;
   background: var(--white-color);
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
@@ -198,7 +198,7 @@
 
 .employee-page_left-side_addition-info {
   width: 410px;
-  height: 218px;
+  height: 100%;
   background: var(--white-color);
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
@@ -216,7 +216,7 @@
   margin: 0 auto 0 auto;
   display: flex;
   flex-direction: column;
-  width: 450px;
+  max-width: 450px;
   height: 100%;
   background: var(--white-color);
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
@@ -229,7 +229,7 @@
   flex-direction: row;
   width: 450px;
   padding: 0 50px 0 10px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .employee-page_right-side_first-block-item {
@@ -237,13 +237,13 @@
   text-align: center;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .employee-page_right-side_first-block-project {
   margin-right: 10px;
   width: 100px;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .employee-page_right-side_first-block-post {
@@ -273,7 +273,7 @@
   align-items: center;
   text-align: center;
   color: var(--black-dark-color);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .employee-page_right-side_second-block {

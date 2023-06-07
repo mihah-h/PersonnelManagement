@@ -23,8 +23,7 @@ import { RefactorCompanyHistoryPopupWindowComponent } from './components/refacto
 
 
 
-    AddCompanyHistoryPopupWindowComponent,
-            RefactorCompanyHistoryPopupWindowComponent
+    AddCompanyHistoryPopupWindowComponent
   ],
 })
 export class SharedModule {

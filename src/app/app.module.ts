@@ -27,8 +27,9 @@ import { ErrorMessageDynamicService } from "./shared/services/error-message-dyna
 import { ErrorMessageDynamicComponent } from "./shared/components/error-message-dynamic/error-message-dynamic.component";
 import { PopupWindowFirstComponent } from "./shared/components/popup-window-first/popup-window-first.component";
 import { PopupWindowSecondComponent } from './shared/components/popup-window-second/popup-window-second.component';
-import {API_URL} from "./shared/provider";
+import { API_URL } from "./shared/provider";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { RefactorCompanyHistoryPopupWindowComponent } from './shared/components/refactor-company-history-popup-window/refactor-company-history-popup-window.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     EmployeeListItemComponent,
     ErrorMessageDynamicComponent,
     PopupWindowFirstComponent,
-    PopupWindowSecondComponent
+    PopupWindowSecondComponent,
+    RefactorCompanyHistoryPopupWindowComponent,
+
   ],
   imports: [
     BrowserModule,
