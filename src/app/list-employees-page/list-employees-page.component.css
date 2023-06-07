@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
   min-width: 320px;
   font-family: 'Jost', 'Golos Text', sans-serif;
