@@ -275,7 +275,12 @@ app.put('/users', jsonParser, (req, res) => {
     }
     if(Boolean(req.query.changeCompany)){
       if (!req.body.companyName) return res.sendStatus(400);
+      const companyIndex = base.companies.findIndex(el => el.company === req.body.company);
+      if (companyIndex !== -1) return res.sendStatus(400);
+      const oldName = base.users[searchIndex].companyName;
       base.users[searchIndex].companyName = req.body.companyName;
+      const searchIndexCompany = base.companies.findIndex(el => el.company === oldName);
+      base.companies[searchIndexCompany].company = req.body.companyName;
     }
     else{
       base.users[searchIndex] = req.body;
