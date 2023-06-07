@@ -39,8 +39,8 @@ export class PopupWindowFirstComponent implements OnInit, OnDestroy{
 
   save() {
     this.changeUserData()
-    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
-    this.closePopupWindow.next()
+    this.putEmployeeSub = this.employeeService.putEmployee(this.employee)
+      .subscribe(() => this.closePopupWindow.next())
   }
 
   changeUserData() {

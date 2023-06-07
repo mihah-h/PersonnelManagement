@@ -49,14 +49,13 @@ export class PopupWindowSecondComponent implements OnInit , OnDestroy{
 
   save() {
     this.changeUserData()
-    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
+    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe(() => this.closePopupWindow.next())
 
     if (this.dataEditingForm.value.education
       && !this.optionsGroups[2].options.includes(this.dataEditingForm.value.education)) {
       this.employeeService.addNewOption('education', this.dataEditingForm.value.education).subscribe()
     }
 
-    this.closePopupWindow.next()
   }
 
   changeUserData() {

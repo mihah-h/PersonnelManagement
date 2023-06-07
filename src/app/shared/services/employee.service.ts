@@ -46,8 +46,8 @@ export class EmployeeService {
       + this.auth.userCompanyName, employee, {responseType: "text"})
   }
 
-  deleteEmployee(employeeEmail: string): Observable<Employee> {
-    return this.http.delete<Employee>(this.apiURL + '/optionsGroups?company='
-      + this.auth.userCompanyName + '&email=' + employeeEmail)
+  deleteEmployee(employeeEmail: string): Observable<string>  {
+    return this.http.delete(this.apiURL + '/employees?company='
+      + this.auth.userCompanyName + '&email=' + employeeEmail, {responseType: "text"})
   }
 }

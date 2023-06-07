@@ -6,6 +6,7 @@ import { PopupWindowSecondComponent } from './components/popup-window-second/pop
 import {NgForOf, NgIf} from "@angular/common";
 import { AddCompanyHistoryPopupWindowComponent } from './components/add-company-history-popup-window/add-company-history-popup-window.component';
 import {ValidationMessageComponent} from "./components/validation-message/validation-message.component";
+import { RefactorCompanyHistoryPopupWindowComponent } from './components/refactor-company-history-popup-window/refactor-company-history-popup-window.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {ValidationMessageComponent} from "./components/validation-message/valida
 
 
 
-    AddCompanyHistoryPopupWindowComponent
+    AddCompanyHistoryPopupWindowComponent,
+            RefactorCompanyHistoryPopupWindowComponent
   ],
 })
 export class SharedModule {

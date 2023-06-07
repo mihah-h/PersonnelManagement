@@ -22,6 +22,9 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
   closePopupWindow1Sub!: Subscription
   closePopupWindow2Sub!: Subscription
   closeAddCompanyHistoryPopupWindow2Sub!: Subscription
+  setDismissedStatusSub!: Subscription
+  restoreEmployeeSub!: Subscription
+  addCompanyHistoryPopupWindowComponentSub!: Subscription
 
   @ViewChild('popupContainer', { read: ViewContainerRef })
   private popupContainer: ViewContainerRef
@@ -49,6 +52,13 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
     if (this.closePopupWindow2Sub) {
       this.closePopupWindow2Sub.unsubscribe()
     }
+
+    if (this.restoreEmployeeSub) {
+      this.restoreEmployeeSub.unsubscribe()
+    }
+    if (this.addCompanyHistoryPopupWindowComponentSub) {
+      this.addCompanyHistoryPopupWindowComponentSub.unsubscribe()
+    }
   }
 
   showFirstPopupWindow() {
@@ -69,6 +79,16 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
     this.popupContainer.clear()
     const component = this.popupContainer.createComponent(AddCompanyHistoryPopupWindowComponent)
     component.instance.employee = this.employee
-    this.closeAddCompanyHistoryPopupWindow2Sub = component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
+    this.addCompanyHistoryPopupWindowComponentSub = component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
+  }
+
+  setDismissedStatus() {
+    this.employee.status = 'dismissed'
+    this.setDismissedStatusSub = this.employeeService.putEmployee(this.employee).subscribe()
+  }
+
+  restoreEmployee() {
+    this.employee.status = 'work'
+    this.restoreEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
   }
 }

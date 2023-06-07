@@ -1,6 +1,8 @@
+<ng-template #popupContainer></ng-template>
 <main class="main">
   <div class="container">
     <h2 class="employees-text">
+      {{auth.userCompanyName}}
     </h2>
     <div class="main-info">
       <div class="main-left">
@@ -41,7 +43,11 @@
               <app-employee-list-item *ngFor="let employee of employees
                   | filtrationEmployees:filtrationParameters
                   | sortingEmployees:sortingParameter
-                  | searchEmployees:searchParameter" [employee]="employee"></app-employee-list-item>
+                  | searchEmployees:searchParameter"
+                  [employee]="employee" (deleteEmployee)="deleteEmployee($event)"
+              (showAddCompanyHistoryPopupWindow)="showAddCompanyHistoryPopupWindow($event)"
+              (setDismissedStatus)="setDismissedStatus($event)"
+              (restoreEmployee)="restoreEmployee($event)"></app-employee-list-item>
             </div>
             <ng-template #loading>
               <ngx-skeleton-loader [theme]="{height: '100px'}" count="{{totalCount}}"

@@ -57,7 +57,7 @@ export class AddCompanyHistoryPopupWindowComponent {
 
   save() {
     this.addCompanyHistory()
-    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
+    this.putEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe(() => this.closePopupWindow.next())
 
     if (this.companyHistoryEditingForm.value.education
       && !this.optionsGroups[0].options.includes(this.companyHistoryEditingForm.value.education)) {
@@ -68,8 +68,6 @@ export class AddCompanyHistoryPopupWindowComponent {
       && !this.optionsGroups[1].options.includes(this.companyHistoryEditingForm.value.education)) {
       this.employeeService.addNewOption('position', this.companyHistoryEditingForm.value.education).subscribe()
     }
-
-    this.closePopupWindow.next()
   }
 
   addCompanyHistory() {

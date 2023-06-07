@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, Output} from '@angular/core';
 import {Employee} from "../../interfaces/employeeInterfaces/employee";
 import {Router} from "@angular/router";
 import { EmployeeService } from '../../services/employee.service';
@@ -9,19 +9,20 @@ import {Subscription} from "rxjs";
   templateUrl: './employee-list-item.component.html',
   styleUrls: ['../../../list-employees-page/list-employees-page.component.css']
 })
-export class EmployeeListItemComponent implements OnDestroy{
+export class EmployeeListItemComponent {
 
   @Input()
   employee!: Employee
-  deleteEmployeeSub!: Subscription
+  @Output()
+  deleteEmployee = new EventEmitter()
+  @Output()
+  showAddCompanyHistoryPopupWindow = new EventEmitter()
+  @Output()
+  setDismissedStatus = new EventEmitter()
+  @Output()
+  restoreEmployee = new EventEmitter()
 
   constructor(private router: Router, private employeeService: EmployeeService) {
-  }
-
-  ngOnDestroy(): void {
-    if (this.deleteEmployeeSub) {
-      this.deleteEmployeeSub.unsubscribe()
-    }
   }
 
   goEmployeePage() {
@@ -29,7 +30,7 @@ export class EmployeeListItemComponent implements OnDestroy{
   }
 
   delete() {
-    this.deleteEmployeeSub = this.employeeService.deleteEmployee(this.employee.email).subscribe()
+    this.deleteEmployee.next(this.employee)
   }
 
   checkingSuccessEmployees() {
