@@ -159,6 +159,17 @@
   color: var(--gray-darker-color);
 }
 
+.employee-page_status-item-fired {
+  font-family: 'Golos Text';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  display: flex;
+  color: #EF4444;
+  margin-bottom: 10px;
+}
+
 .employee-page_add-text-vacations {
   font-family: 'Golos Text';
   font-style: normal;

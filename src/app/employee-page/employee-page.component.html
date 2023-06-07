@@ -23,12 +23,11 @@
         </div>
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_status">
-        <span *ngIf="employee.status === 'work'; else dismissed"
-              class="employee-page_status-item">
+        <span *ngIf="employee.status === 'work'; else dismissed" class="employee-page_status-item">
           <span class="employee-page_status_first_word"> Статус: </span> Работает
         </span>
         <ng-template #dismissed>
-          <span class="employee-page_status-item">
+          <span class="employee-page_status-item-fired">
             <span class="employee-page_status_first_word"> Статус: </span> Уволен
           </span>
         </ng-template>
@@ -44,37 +43,38 @@
       </li>
       <li class="employee-page_left-side_item employee-page_left-side_addition-info">
         <div class="employee-page_add-text">
-          <span *ngIf="employee.gender === 'man'; else woman" class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span>
+          <span *ngIf="employee.gender === 'man'; else woman" class="employee-page_add-text-item"><span
+              class="employee-page_status_first_word"> Пол: </span>
             Мужчина
           </span>
           <ng-template #woman>
             <span class="employee-page_add-text-item"><span class="employee-page_status_first_word"> Пол: </span>
-            Женщина
-          </span>
+              Женщина
+            </span>
           </ng-template>
           <div class="employee-page_add-edit">
             <button class="employee-page_add-edit-icon" (click)="showSecondPopupWindow()"></button>
           </div>
         </div>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
-          Образование: </span>
+            Образование: </span>
           {{employee.education}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
-          Дата рождения:
+            Дата рождения:
           </span>
           {{employee.birthDate}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
-          Дата собеседования:
+            Дата собеседования:
           </span> {{employee.interviewDate}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
-          Дата принятия на
+            Дата принятия на
             работу: </span> {{employee.employmentDate}}
         </span>
         <span class="employee-page_add-text-item"><span class="employee-page_status_first_word">
-          Дата первого рабочего
+            Дата первого рабочего
             дня: </span> {{employee.firstWorkingDayDate}}
         </span>
         <span class="employee-page_add-text-item employee-page_add-text-vacations"><span
@@ -98,7 +98,8 @@
           <span class="employee-page_right-side_date_text employee-page_right-side_text">Дата</span>
         </li>
       </ul>
-      <ul *ngFor="let historyItem of employee.historyInCompany; let companyHistoryIndex = index" class="employee-page_right-side_second-block">
+      <ul *ngFor="let historyItem of employee.historyInCompany; let companyHistoryIndex = index"
+        class="employee-page_right-side_second-block">
         <li class="employee-page_right-side_second-block_item employee-page_right-side_second-block_project">
           <span class="employee-page_right-side_second-block_item-text">{{historyItem.project}}</span>
         </li>
@@ -112,7 +113,8 @@
           <span class="employee-page_right-side_second-block_item-text">{{historyItem.date}}</span>
         </li>
         <li class="employee-page_right-side_second-block_edit">
-          <button class="employee-page_right-side_second-block_item-edit" (click)="showRefactorCompanyHistoryPopupWindow(companyHistoryIndex)"></button>
+          <button class="employee-page_right-side_second-block_item-edit"
+            (click)="showRefactorCompanyHistoryPopupWindow(companyHistoryIndex)"></button>
         </li>
       </ul>
       <ul *ngIf="employee.status === 'work'; else dismissedButton" class="employee-page_right-side_fourth-block">
@@ -125,7 +127,8 @@
         </li>
         <li class="employee-page_right-side_fourth-block-item employee-page_right-side_fourth-block-btn">
           <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}"
-            class="employee-page_btn employee-page_btn_add" (click)="showAddCompanyHistoryPopupWindow()"> Добавить </button>
+            class="employee-page_btn employee-page_btn_add" (click)="showAddCompanyHistoryPopupWindow()"> Добавить
+          </button>
         </li>
       </ul>
       <ng-template #dismissedButton>
@@ -135,7 +138,7 @@
           </li>
           <li class="employee-page_right-side_fourth-block-item employee-page_right-side_fourth-block-btn">
             <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}"
-                    class="employee-page_btn employee-page_btn_add" (click)="restoreEmployee()"> Восстановить </button>
+              class="employee-page_btn employee-page_btn_add" (click)="restoreEmployee()"> Восстановить </button>
           </li>
         </ul>
       </ng-template>
