@@ -98,7 +98,7 @@
           <span class="employee-page_right-side_date_text employee-page_right-side_text">Дата</span>
         </li>
       </ul>
-      <ul *ngFor="let historyItem of employee.historyInCompany" class="employee-page_right-side_second-block">
+      <ul *ngFor="let historyItem of employee.historyInCompany; let companyHistoryIndex = index" class="employee-page_right-side_second-block">
         <li class="employee-page_right-side_second-block_item employee-page_right-side_second-block_project">
           <span class="employee-page_right-side_second-block_item-text">{{historyItem.project}}</span>
         </li>
@@ -112,7 +112,7 @@
           <span class="employee-page_right-side_second-block_item-text">{{historyItem.date}}</span>
         </li>
         <li class="employee-page_right-side_second-block_edit">
-          <button class="employee-page_right-side_second-block_item-edit"></button>
+          <button class="employee-page_right-side_second-block_item-edit" (click)="showRefactorCompanyHistoryPopupWindow(companyHistoryIndex)"></button>
         </li>
       </ul>
       <ul *ngIf="employee.status === 'work'; else dismissedButton" class="employee-page_right-side_fourth-block">

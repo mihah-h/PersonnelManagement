@@ -12,7 +12,7 @@ export class AppComponent implements AfterViewInit{
   title = 'PersonnelManagement';
 
   @ViewChild('errorMessage', { read: ViewContainerRef })
-  public viewRef: ViewContainerRef
+  private viewRef: ViewContainerRef
 
   constructor(
     private ErrorMessageDynamic: ErrorMessageDynamicService

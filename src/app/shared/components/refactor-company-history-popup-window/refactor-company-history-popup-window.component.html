@@ -1,1 +1,25 @@
-<p>refactor-company-history-popup-window works!</p>
+<button (click)="closePopupWindow.next()">Закрыть</button>
+<form *ngIf="optionsGroups" [formGroup]="refactorCompanyHistoryForm" (ngSubmit)="save()">
+  <input type="text" list="project" placeholder="Проект" formControlName="project"/>
+  <app-validation-message [control]="refactorCompanyHistoryForm.controls['project']"></app-validation-message>
+  <datalist id="project">
+    <ng-container *ngFor="let option of optionsGroups[0].options">
+      <option *ngIf="option" [value]="option">{{option}}</option>
+    </ng-container>
+  </datalist>
+
+  <input type="text" list="position" placeholder="Должность" formControlName="position"/>
+  <app-validation-message [control]="refactorCompanyHistoryForm.controls['position']"></app-validation-message>
+  <datalist id="position">
+    <ng-container *ngFor="let option of optionsGroups[1].options">
+      <option *ngIf="option" [value]="option">{{option}}</option>
+    </ng-container>
+  </datalist>
+
+  <input type="number" formControlName="salary">
+  <app-validation-message [control]="refactorCompanyHistoryForm.controls['salary']"></app-validation-message>
+  <input type="date" formControlName="date">
+  <app-validation-message [control]="refactorCompanyHistoryForm.controls['date']"></app-validation-message>
+  <button type="submit" [disabled]="refactorCompanyHistoryForm.invalid">Сохранить</button>
+</form>
+<button (click)="delete()">Удалить</button>

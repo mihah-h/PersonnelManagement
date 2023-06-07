@@ -78,5 +78,8 @@ export class AddCompanyHistoryPopupWindowComponent {
       date: this.companyHistoryEditingForm.value.date
     })
 
+    this.employee.project = this.companyHistoryEditingForm.value.project
+    this.employee.position = this.companyHistoryEditingForm.value.position
+    this.employee.salary = this.companyHistoryEditingForm.value.salary
   }
 }

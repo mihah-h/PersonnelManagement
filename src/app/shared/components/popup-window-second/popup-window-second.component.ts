@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Employee} from "../../interfaces/employeeInterfaces/employee";
 import {EmployeeService} from "../../services/employee.service";
 import {OptionsGroup} from "../../interfaces/employeeInterfaces/optionsGroup";
@@ -27,11 +27,21 @@ export class PopupWindowSecondComponent implements OnInit , OnDestroy{
 
   ngOnInit(): void {
     this.dataEditingForm = new FormGroup({
-      education: new FormControl(this.employee.education),
-      birthDate: new FormControl(this.employee.birthDate),
-      interviewDate: new FormControl(this.employee.interviewDate),
-      employmentDate: new FormControl(this.employee.employmentDate),
-      firstWorkingDayDate: new FormControl(this.employee.firstWorkingDayDate),
+      education: new FormControl(this.employee.education, [
+        Validators.required
+      ]),
+      birthDate: new FormControl(this.employee.birthDate, [
+        Validators.required
+      ]),
+      interviewDate: new FormControl(this.employee.interviewDate, [
+        Validators.required
+      ]),
+      employmentDate: new FormControl(this.employee.employmentDate, [
+        Validators.required
+      ]),
+      firstWorkingDayDate: new FormControl(this.employee.firstWorkingDayDate, [
+        Validators.required
+      ]),
       newVacationsStart: new FormControl(''),
       newVacationsEnd: new FormControl(''),
     })

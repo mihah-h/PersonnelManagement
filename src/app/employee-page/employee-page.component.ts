@@ -8,6 +8,9 @@ import { PopupWindowSecondComponent } from "../shared/components/popup-window-se
 import {
   AddCompanyHistoryPopupWindowComponent
 } from "../shared/components/add-company-history-popup-window/add-company-history-popup-window.component";
+import {
+  RefactorCompanyHistoryPopupWindowComponent
+} from "../shared/components/refactor-company-history-popup-window/refactor-company-history-popup-window.component";
 
 @Component({
   selector: 'app-employee-page',
@@ -25,6 +28,7 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
   setDismissedStatusSub!: Subscription
   restoreEmployeeSub!: Subscription
   addCompanyHistoryPopupWindowComponentSub!: Subscription
+  showRefactorCompanyHistoryPopupWindowSub!: Subscription
 
   @ViewChild('popupContainer', { read: ViewContainerRef })
   private popupContainer: ViewContainerRef
@@ -79,7 +83,8 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
     this.popupContainer.clear()
     const component = this.popupContainer.createComponent(AddCompanyHistoryPopupWindowComponent)
     component.instance.employee = this.employee
-    this.addCompanyHistoryPopupWindowComponentSub = component.instance.closePopupWindow.subscribe(() => this.popupContainer.clear())
+    this.addCompanyHistoryPopupWindowComponentSub = component.instance.closePopupWindow
+      .subscribe(() => this.popupContainer.clear())
   }
 
   setDismissedStatus() {
@@ -90,5 +95,14 @@ export class EmployeePageComponent implements OnInit, OnDestroy{
   restoreEmployee() {
     this.employee.status = 'work'
     this.restoreEmployeeSub = this.employeeService.putEmployee(this.employee).subscribe()
+  }
+
+  showRefactorCompanyHistoryPopupWindow(companyHistoryIndex: number) {
+    this.popupContainer.clear()
+    const component = this.popupContainer.createComponent(RefactorCompanyHistoryPopupWindowComponent)
+    component.instance.employee = this.employee
+    component.instance.historyInCompanyIndex = companyHistoryIndex
+    this.showRefactorCompanyHistoryPopupWindowSub = component.instance.closePopupWindow
+      .subscribe(() => this.popupContainer.clear())
   }
 }

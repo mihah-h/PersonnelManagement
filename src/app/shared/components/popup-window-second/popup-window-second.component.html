@@ -2,6 +2,7 @@
   <button class='btn-close' (click)="closePopupWindow.next()"></button>
   <Form class="popup_employee-form" [formGroup]="dataEditingForm" (ngSubmit)="save()">
     <input class="popup_input" placeholder="Образование" type="text" list="education" formControlName="education" />
+    <app-validation-message [control]="dataEditingForm.controls['education']"></app-validation-message>
     <datalist id="education">
       <ng-container *ngFor="let option of optionsGroups[2].options">
         <option *ngIf="option" [value]="option">{{option}}</option>
@@ -9,9 +10,13 @@
     </datalist>
     <div>
       <input class="popup_employee-element" type="date" formControlName="birthDate">
+      <app-validation-message [control]="dataEditingForm.controls['birthDate']"></app-validation-message>
       <input class="popup_employee-element" type="date" formControlName="interviewDate">
+      <app-validation-message [control]="dataEditingForm.controls['interviewDate']"></app-validation-message>
       <input class="popup_employee-element" type="date" formControlName="employmentDate">
+      <app-validation-message [control]="dataEditingForm.controls['employmentDate']"></app-validation-message>
       <input class="popup_employee-element" type="date" formControlName="firstWorkingDayDate">
+      <app-validation-message [control]="dataEditingForm.controls['firstWorkingDayDate']"></app-validation-message>
       <span class="add_vac_text">Добавить отпуск:</span>
       <input class="popup_employee-element" type="date" formControlName="newVacationsStart">
       <input class="popup_employee-element" type="date" formControlName="newVacationsEnd">
@@ -22,6 +27,6 @@
     <!-- <input class="popup_employee-element-second" type="date" formControlName="newVacationsStart">
       <input class="popup_employee-element-second" type="date" formControlName="newVacationsEnd"> -->
     <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="popup-btn-save"
-      type="submit">Сохранить</button>
+      type="submit" [disabled]="dataEditingForm.invalid">Сохранить</button>
   </Form>
 </div>

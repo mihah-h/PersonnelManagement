@@ -3,11 +3,15 @@
   <Form class="popup_employee-form" [formGroup]="dataEditingForm" (ngSubmit)="save()">
     <div>
       <input class="popup_employee-element" type="text" formControlName="name">
+      <app-validation-message [control]="dataEditingForm.controls['name']"></app-validation-message>
       <input class="popup_employee-element" type="text" formControlName="surname">
+      <app-validation-message [control]="dataEditingForm.controls['surname']"></app-validation-message>
       <input class="popup_employee-element" type="text" formControlName="patronymic">
+      <app-validation-message [control]="dataEditingForm.controls['patronymic']"></app-validation-message>
       <input class="popup_employee-element" type="tel" formControlName="phoneNumber">
+      <app-validation-message [control]="dataEditingForm.controls['phoneNumber']"></app-validation-message>
     </div>
     <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="popup-btn-save"
-      type="submit">Сохранить</button>
+      type="submit" [disabled]="dataEditingForm.invalid">Сохранить</button>
   </Form>
 </div>

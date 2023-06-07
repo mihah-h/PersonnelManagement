@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Employee} from "../../interfaces/employeeInterfaces/employee";
 import {EmployeeService} from "../../services/employee.service";
 import {Subscription} from "rxjs";
@@ -24,10 +24,18 @@ export class PopupWindowFirstComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.dataEditingForm = new FormGroup({
-      name: new FormControl(this.employee.name),
-      surname: new FormControl(this.employee.surname),
-      patronymic: new FormControl(this.employee.patronymic),
-      phoneNumber: new FormControl(this.employee.phoneNumber),
+      name: new FormControl(this.employee.name, [
+        Validators.required
+      ]),
+      surname: new FormControl(this.employee.surname, [
+        Validators.required
+      ]),
+      patronymic: new FormControl(this.employee.patronymic, [
+        Validators.required
+      ]),
+      phoneNumber: new FormControl(this.employee.phoneNumber, [
+        Validators.required
+      ]),
     })
   }
 
