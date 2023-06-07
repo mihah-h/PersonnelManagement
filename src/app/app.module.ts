@@ -30,6 +30,7 @@ import { PopupWindowSecondComponent } from './shared/components/popup-window-sec
 import { API_URL } from "./shared/provider";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RefactorCompanyHistoryPopupWindowComponent } from './shared/components/refactor-company-history-popup-window/refactor-company-history-popup-window.component';
+import { AddCompanyHistoryPopupWindowComponent } from './shared/components/add-company-history-popup-window/add-company-history-popup-window.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { RefactorCompanyHistoryPopupWindowComponent } from './shared/components/
     PopupWindowFirstComponent,
     PopupWindowSecondComponent,
     RefactorCompanyHistoryPopupWindowComponent,
-
+    AddCompanyHistoryPopupWindowComponent
   ],
   imports: [
     BrowserModule,

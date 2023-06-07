@@ -1,22 +1,24 @@
-<button (click)="closePopupWindow.next()">Закрыть</button>
-<form *ngIf="optionsGroups" [formGroup]="companyHistoryEditingForm" (ngSubmit)="save()">
-  <input type="text" list="project" placeholder="Проект" formControlName="project"/>
-  <app-validation-message [control]="companyHistoryEditingForm.controls['project']"></app-validation-message>
-  <datalist id="project">
-    <ng-container *ngFor="let option of optionsGroups[0].options">
-      <option *ngIf="option" [value]="option">{{option}}</option>
-    </ng-container>
-  </datalist>
+<div class="popupContainer">
+  <button class='btn-close' (click)="closePopupWindow.next()"></button>
+  <form class="popup_employee-form" *ngIf="optionsGroups" [formGroup]="companyHistoryEditingForm" (ngSubmit)="save()">
+    <input class="popup_input" type="text" list="project" placeholder="Проект" formControlName="project" />
+    <app-validation-message [control]="companyHistoryEditingForm.controls['project']"></app-validation-message>
+    <datalist id="project">
+      <ng-container *ngFor="let option of optionsGroups[0].options">
+        <option *ngIf="option" [value]="option">{{option}}</option>
+      </ng-container>
+    </datalist>
 
-  <input type="text" list="position" placeholder="Должность" formControlName="position"/>
-  <app-validation-message [control]="companyHistoryEditingForm.controls['position']"></app-validation-message>
-  <datalist id="position">
-    <ng-container *ngFor="let option of optionsGroups[1].options">
-      <option *ngIf="option" [value]="option">{{option}}</option>
-    </ng-container>
-  </datalist>
+    <input class="popup_input" type="text" list="position" placeholder="Должность" formControlName="position" />
+    <app-validation-message [control]="companyHistoryEditingForm.controls['position']"></app-validation-message>
+    <datalist id="position">
+      <ng-container *ngFor="let option of optionsGroups[1].options">
+        <option *ngIf="option" [value]="option">{{option}}</option>
+      </ng-container>
+    </datalist>
 
-  <input type="number" formControlName="salary">
-  <input type="date" formControlName="date">
-  <button type="submit" [disabled]="companyHistoryEditingForm.invalid">Сохранить</button>
-</form>
+    <input class="popup_input" type="number" formControlName="salary">
+    <input class="popup_input" type="date" formControlName="date">
+    <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="popup-btn-save" type="submit" [disabled]="companyHistoryEditingForm.invalid">Сохранить</button>
+  </form>
+</div>
