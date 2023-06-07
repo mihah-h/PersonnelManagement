@@ -48,8 +48,9 @@
 }
 
 .employees-page_name {
+  padding: 40px 0;
   width: 164px;
-  height: 60px;
+  height: 700px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 500;
@@ -59,12 +60,13 @@
   align-items: center;
   letter-spacing: 0.1px;
   color: var(--black-dark-color);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .employee-page_left-side_main-info-rightside_phone {
-  margin-bottom: 8px;
-  margin-right: 132px;
+  margin-bottom: 5px;
 }
 
 .employee-page_left-side_main-info-rightside_phone,
@@ -81,6 +83,9 @@
 }
 
 .employees-page_phone-text {
+  display: flex;
+  justify-content: flex-start;
+  width: 224px;
   text-align: center;
   height: 21px;
   font-family: 'Golos Text';
@@ -90,6 +95,7 @@
   line-height: 20px;
   color: var(--gray-darker-color);
   cursor: pointer;
+  overflow: hidden;
 }
 
 .employees-page_email {
@@ -101,6 +107,9 @@
 
 .employees-page_email-text {
   text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  width: 224px;
   height: 21px;
   font-family: 'Golos Text';
   font-style: normal;
@@ -109,6 +118,7 @@
   line-height: 20px;
   color: var(--gray-darker-color);
   cursor: pointer;
+  overflow: hidden;
 }
 
 .employee-page_left-side_main-info-rightside_edit {
@@ -130,6 +140,7 @@
   background: var(--white-color);
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .employee-page_status-item:not(:last-child),
@@ -145,7 +156,6 @@
   font-size: 16px;
   line-height: 20px;
   display: flex;
-  align-items: center;
   color: var(--gray-darker-color);
 }
 
@@ -167,7 +177,6 @@
   font-size: 16px;
   line-height: 20px;
   display: flex;
-  align-items: center;
 }
 
 .employee-page_status_first_word-vacations {
@@ -194,6 +203,7 @@
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
   padding: 15px;
+  overflow: hidden;
 }
 
 .employee-page_add-text {
@@ -207,10 +217,11 @@
   display: flex;
   flex-direction: column;
   width: 450px;
-  height: 220px;
+  height: 100%;
   background: var(--white-color);
   box-shadow: 0px 3px 8px rgba(9, 30, 66, 0.16), 0px 0px 1px rgba(9, 30, 66, 0.31);
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .employee-page_right-side_first-block {
@@ -218,6 +229,7 @@
   flex-direction: row;
   width: 450px;
   padding: 0 50px 0 10px;
+  overflow: hidden;
 }
 
 .employee-page_right-side_first-block-item {
@@ -225,27 +237,33 @@
   text-align: center;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .employee-page_right-side_first-block-project {
   margin-right: 10px;
   width: 100px;
+  overflow: hidden;
 }
 
 .employee-page_right-side_first-block-post {
   margin-right: 10px;
   width: 100px;
+  overflow: hidden;
 }
 
 .employee-page_right-side_first-block-salary {
   width: 80px;
+  overflow: hidden;
 }
 
 .employee-page_right-side_first-block-date {
   width: 90px;
+  overflow: hidden;
 }
 
 .employee-page_right-side_text {
+  max-width: 100px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 600;
@@ -255,6 +273,7 @@
   align-items: center;
   text-align: center;
   color: var(--black-dark-color);
+  overflow: hidden;
 }
 
 .employee-page_right-side_second-block {

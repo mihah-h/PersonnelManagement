@@ -713,6 +713,7 @@ a {
 
 .employees-name {
   width: 210px;
+  height: 48px;
   padding: 0;
   margin: 0;
   margin-bottom: 3px;
@@ -724,6 +725,8 @@ a {
   /* or 133% */
   letter-spacing: 0.1px;
   color: var(--black-dark-color);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .employees-status {
@@ -734,6 +737,8 @@ a {
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .name-project_with_project {
@@ -745,6 +750,7 @@ a {
 
 .employess-project-name {
   width: 190px;
+  height: 24px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -754,6 +760,8 @@ a {
   letter-spacing: 0.1px;
   color: var(--black-dark-color);
   margin-bottom: 4px;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .employess-project {
@@ -778,6 +786,7 @@ a {
   padding: 0;
   margin-bottom: 4px;
   width: 190px;
+  height: 24px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -786,6 +795,8 @@ a {
   /* identical to box height, or 150% */
   letter-spacing: 0.1px;
   color: var(--black-dark-color);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .employess-profession {
@@ -810,6 +821,7 @@ a {
   padding: 0;
   margin-bottom: 4px;
   width: 100px;
+  height: 24px;
   font-family: 'Golos Text';
   font-style: normal;
   font-weight: 400;
@@ -818,6 +830,8 @@ a {
   /* identical to box height, or 150% */
   letter-spacing: 0.1px;
   color: var(--black-dark-color);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .employess-salary {
