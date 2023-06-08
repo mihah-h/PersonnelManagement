@@ -1,5 +1,6 @@
+<ng-template #popupContainer></ng-template>
 <main class="main">
-  <div class="settings-page_container">
+  <div *ngIf="adminInformation" class="settings-page_container">
     <h2 class="settings-page_employees-text">
       Доступ к аккаунту администратора
     </h2>
@@ -8,17 +9,19 @@
         <div>
           <ul class="settings-page-list">
             <li class="settings-page-item settings-page-company"><span class="settings-page-text">Название компании:
-                <span class="settings-page-text-second">Artsofte</span></span></li>
+                <span class="settings-page-text-second">{{adminInformation.companyName}}</span></span></li>
             <li class="settings-page-item settings-page-email"><span class="settings-page-text">Email:
-                <span class="settings-page-text-second">Makarov.Artem@gmail.com</span></span></li>
+                <span class="settings-page-text-second">{{adminInformation.email}}</span></span></li>
             <li class="settings-page-item settings-page-password"><span class="settings-page-text">Пароль: <span
                   class="settings-page-text-second settings-page-text-password">···········</span></span></li>
           </ul>
         </div>
       </div>
       <div class="settings-page-copy-block">
-        <img class="settings-page-img" src="../../assets/img/settings-icon-edit.svg" alt="">
-        <img class="settings-page-img" src="../../assets/img/settings-icon-edit.svg" alt="">
+        <img class="settings-page-img" src="../../assets/img/settings-icon-edit.svg" alt=""
+             (click)="showRefactorCompanyNamePopupWindow()">
+        <img class="settings-page-img" src="../../assets/img/settings-icon-edit.svg" alt=""
+             (click)="showRefactorAdminEmailPopupWindow()">
         <img class="settings-page-img" src="../../assets/img/settings-icon-edit.svg" alt="">
       </div>
     </div>

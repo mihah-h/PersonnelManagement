@@ -31,6 +31,7 @@ import { API_URL } from "./shared/provider";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RefactorCompanyHistoryPopupWindowComponent } from './shared/components/refactor-company-history-popup-window/refactor-company-history-popup-window.component';
 import { AddCompanyHistoryPopupWindowComponent } from './shared/components/add-company-history-popup-window/add-company-history-popup-window.component';
+import {AdminService} from "./shared/services/admin.service";
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { AddCompanyHistoryPopupWindowComponent } from './shared/components/add-c
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     { provide: API_URL, useFactory: () => 'http://localhost:3000' },
     ErrorMessageDynamicService,
+    AdminService
   ],
   bootstrap: [AppComponent]
 })

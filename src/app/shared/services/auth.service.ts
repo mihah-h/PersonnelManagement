@@ -16,6 +16,22 @@ export class AuthService {
     return localStorage.getItem('companyName')
   }
 
+  set userCompanyName(newUserCompanyName) {
+    if (newUserCompanyName) {
+      localStorage.setItem('companyName', newUserCompanyName)
+    }
+  }
+
+  get userEmail(): string | null {
+    return localStorage.getItem('email')
+  }
+
+  set userEmail(newUserEmail: string | null) {
+    if (newUserEmail) {
+      localStorage.setItem('email', newUserEmail)
+    }
+  }
+
   login(userEmail: string, userPassword: string): Observable<UserLogin | null> {
     return this.http.post<UserLogin>(this.apiURL + '/users/auth', {"email":userEmail, "password":userPassword})
       .pipe(
@@ -38,6 +54,7 @@ export class AuthService {
   private setUserCompanyName(response: UserLogin | null) {
     if (response) {
       localStorage.setItem('companyName', response.companyName)
+      localStorage.setItem('email', response.email)
     } else {
       localStorage.clear()
     }
