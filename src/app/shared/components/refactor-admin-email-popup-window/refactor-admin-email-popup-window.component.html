@@ -1,11 +1,11 @@
-<div >
-  <button  (click)="closePopupWindow.next()">Закрыть</button>
-  <Form [formGroup]="dataEditingForm" (ngSubmit)="save()">
+<div class="popupContainer">
+  <button class='btn-close' (click)="closePopupWindow.next()"></button>
+  <Form class="popup_employee-form" [formGroup]="dataEditingForm" (ngSubmit)="save()">
     <div>
-      <input class="popup_employee-element" type="text" formControlName="newAdminEmail">
+      <input class="popup_input" placeholder="Новый email" type="text" formControlName="newAdminEmail">
       <app-validation-message [control]="dataEditingForm.controls['newAdminEmail']"></app-validation-message>
     </div>
-    <button appStyle type="submit" [disabled]="dataEditingForm.invalid">Сохранить</button>
+    <button appStyle [dStyles]="{borderColor:'#3B82F6', backgroundColor:'#3B82F6'}" class="popup-btn-save" type="submit"
+      [disabled]="dataEditingForm.invalid">Сохранить</button>
   </Form>
 </div>
-

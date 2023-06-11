@@ -31,7 +31,9 @@ import { API_URL } from "./shared/provider";
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { RefactorCompanyHistoryPopupWindowComponent } from './shared/components/refactor-company-history-popup-window/refactor-company-history-popup-window.component';
 import { AddCompanyHistoryPopupWindowComponent } from './shared/components/add-company-history-popup-window/add-company-history-popup-window.component';
-import {AdminService} from "./shared/services/admin.service";
+import { AdminService } from "./shared/services/admin.service";
+import { RefactorAdminEmailPopupWindowComponent } from './shared/components/refactor-admin-email-popup-window/refactor-admin-email-popup-window.component';
+import { RefactorCompanyNamePopupWindowComponent } from './shared/components/refactor-compony-name-popup-window/refactor-company-name-popup-window.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import {AdminService} from "./shared/services/admin.service";
     PopupWindowFirstComponent,
     PopupWindowSecondComponent,
     RefactorCompanyHistoryPopupWindowComponent,
-    AddCompanyHistoryPopupWindowComponent
+    AddCompanyHistoryPopupWindowComponent,
+    RefactorAdminEmailPopupWindowComponent,
+    RefactorCompanyNamePopupWindowComponent
   ],
   imports: [
     BrowserModule,

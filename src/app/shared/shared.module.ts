@@ -8,7 +8,6 @@ import { AddCompanyHistoryPopupWindowComponent } from './components/add-company-
 import { ValidationMessageComponent } from "./components/validation-message/validation-message.component";
 import { RefactorCompanyHistoryPopupWindowComponent } from './components/refactor-company-history-popup-window/refactor-company-history-popup-window.component';
 import { RefactorCompanyNamePopupWindowComponent } from './components/refactor-compony-name-popup-window/refactor-company-name-popup-window.component';
-import { RefactorAdminEmailPopupWindowComponent } from './components/refactor-admin-email-popup-window/refactor-admin-email-popup-window.component';
 
 @NgModule({
   imports: [
@@ -22,9 +21,6 @@ import { RefactorAdminEmailPopupWindowComponent } from './components/refactor-ad
   ],
   declarations: [
 
-
-    RefactorCompanyNamePopupWindowComponent,
-        RefactorAdminEmailPopupWindowComponent
   ],
 })
 export class SharedModule {
